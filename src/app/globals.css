@@ -1,9 +1,113 @@
 @import "tailwindcss";
 
 
+@font-face {
+  font-family: 'AKbalthom Freehand [Version 1.50] 082014';
+  src: url('/fonts/AKbalthom Freehand [Version 1.50] 082014.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-/* body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
+@font-face {
+  font-family: 'KhmerOSApsra';
+  src: url('/fonts/KhmerOSApsra.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Siemreap';
+  src: url('/fonts/Siemreap.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-khmer-title{
+    font-family: 'AKbalthom Freehand [Version 1.50] 082014', sans-serif;
+    color: #8e7e78
+}
+
+.text-khmer-title-bold{
+  font-family: 'KhmerOSApsra', sans-serif;
+}
+
+.text-khmer-title-date{
+  font-family: 'Siemreap', sans-serif;
+}
+
+@keyframes rotateFlower {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(30px) rotate(5deg);
+  }
+}
+
+@keyframes rotateFlowerReverse {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(30px) rotate(-5deg);
+  }
+}
+
+@keyframes rotateFlowerRight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-30px) rotate(-5deg);
+  }
+}
+
+@keyframes rotateFlowerRightReverse {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-30px) rotate(5deg);
+  }
+}
+
+.animate-rotate-flower {
+  animation: rotateFlower 3s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+.animate-rotate-flower-reverse {
+  animation: rotateFlowerReverse 3s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+.animate-rotate-flower-right {
+  animation: rotateFlowerRight 3s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+.animate-rotate-flower-right-reverse {
+  animation: rotateFlowerRightReverse 3s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in-out {
+  animation: zoomInOut 2s ease-in-out infinite;
+}

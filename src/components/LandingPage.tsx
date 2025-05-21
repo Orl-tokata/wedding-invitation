@@ -69,7 +69,7 @@ export const LandingPage = () => {
             <img
               alt="Wedding Title"
               loading="lazy"
-              src="/pre-wedding-frame.webp"
+              src="/wedding-title.webp"
               className="w-full h-full object-cover"
             />
           </div>
@@ -89,7 +89,7 @@ export const LandingPage = () => {
           </h1>
 
           {/* Join button */}
-          <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
+          {/* <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
             <div className="relative z-30 animate-scale-bounce w-60">
               <img
                 alt="Click to join"
@@ -98,139 +98,153 @@ export const LandingPage = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </button>
-
+          </button> */}
+        {/* Animated Join button */}
+        <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
+          <div className="relative z-30 w-60 animate-zoom-in-out">
+            <img
+              alt="Click to join"
+              loading="lazy"
+              src="/click-to-join-button.webp"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </button>
           {/* Date and location */}
-          <h2 className="text-khmer-title-bold text-lg font-bold">
-            ថ្ងៃអាទិត្យ ទី០៩ ខែកុម្ភៈ ឆ្នាំ២០២៥
+          <h2 className="text-khmer-title-bold text-lg ">
+            ថ្ងៃអាទិត្យ ទី០១ ខែមិថុនា ឆ្នាំ២០២៥
           </h2>
 
-          <p className="text-sm text-center w-1/2 text-khmer-title-bold">
-            វេលាម៉ោង <span className="font-bold">៥ល្ងាច នៅបាត់ដំបង សុីធីហល៍ (អគារ A)</span> ក្រុងបាត់ដំបង ខេត្តបាត់ដំបង <span className="font-bold">(សូមមើលប្លង់បញ្ជាក់)</span>
+          <p className="text-sm text-center w-1/2 text-khmer-title-date">
+            វេលាម៉ោង 
+            <span className="font-bold"> ៥ល្ងាច </span>នៅគេហដ្ឋានខាងស្រី 
+            ភូមិឈើទាល ឃុំម្រោម ស្រុកអង្គរជ័យ ខេត្តកំពត
+            <br />
+            <span className="font-bold">(សូមមើលប្លង់បញ្ជាក់)</span>
           </p>
         </div>
       </div>
         
-    <div className="relative top-32 left-2">
-  {/* Left side flowers */}
-  <div className="absolute w-52 bottom-20 sm:-left-28 -left-20 origin-bottom animate-rotate-flower-reverse transform">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"/>
-  </div>
-  <div className="absolute w-52 bottom-10 sm:-left-20 -left-24 origin-bottom-left animate-rotate-flower">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"/>
-  </div>
-  <div className="absolute w-44 -bottom-28 -left-24 animate-rotate-flower">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"/>
-  </div>
-  <div className="absolute w-44 -bottom-[250px] sm:-left-28 -left-20 animate-rotate-flower">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"/>
-  </div>
-  <div className="absolute w-44 -bottom-20 -left-4 animate-rotate-flower !delay-100">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"/>
-  </div>
-  <div className="absolute w-52 -bottom-64 left-20 animate-rotate-flower origin-bottom !delay-100">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute w-64 -rotate-[5deg] -bottom-[440px] -left-4 -animate-rotate-flower-reverse origin-bottom !delay-100">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute w-64 -rotate-[5deg] -bottom-[400px] -left-24 -animate-rotate-flower !delay-100">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-52 -bottom-36 left-16 -animate-rotate-flower origin-bottom !delay-100">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-52 -bottom-32 left-24 -animate-rotate-flower origin-bottom !delay-100">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
+        <div className="relative top-40 left-2">
+          {/* Left side flowers */}
+          <div className="absolute w-52 bottom-10 sm:-left-28 -left-20  animate-rotate-flower-reverse">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"/>
+          </div>
+          <div className="absolute w-52 bottom-5 sm:-left-20 -left-24 -left animate-rotate-flower animate-rotate-flower-reverse">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"/>
+          </div>
+          <div className="absolute w-44 -bottom-40 -left-24 animate-rotate-flower ">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"/>
+          </div>
+          <div className="absolute w-44 -bottom-52 sm:-left-28 -left-20 animate-rotate-flower ">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"/>
+          </div>
+          <div className="absolute w-44 -bottom-10 -left-4 animate-rotate-flower animate-rotate-flower-reverse">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"/>
+          </div>
+          <div className="absolute w-52 -bottom-64 left-20 animate-rotate-flower animate-rotate-flower-reverse">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute w-64 -rotate-[5deg] -bottom-[440px] -left-4 animate-rotate-flower-reverse animate-delay-100">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute w-64 -rotate-[5deg] -bottom-[400px] -left-24 animate-rotate-flower animate-delay-100">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute -rotate-[5deg] w-52 -bottom-36 left-16 animate-rotate-flower animate-delay-100">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute -rotate-[5deg] w-52 -bottom-32 left-24 animate-rotate-flower  animate-delay-100">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
 
-  {/* Right side flowers */}
-  <div className="absolute -rotate-[5deg] w-52 bottom-24 -right-24 origin-bottom -animate-rotate-flower-reverse top-40 right-4">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-52 bottom-16 -right-16 -animate-rotate-flower">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-52 -bottom-32 -right-32 -animate-rotate-flower">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-32 -bottom-[240px] -right-10 -animate-rotate-flower">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-52 -bottom-4 -right-10 -animate-rotate-flower">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute w-64 -rotate-[5deg] -bottom-[380px] -right-10 -animate-rotate-flower">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute w-64 -rotate-[5deg] -bottom-[500px] -right-10 -animate-rotate-flower-reverse origin-bottom !delay-100">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute w-72 -rotate-[5deg] -bottom-[400px] -right-40 -animate-rotate-flower !delay-100">
-    <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-52 -bottom-32 right-24 -animate-rotate-flower origin-bottom !delay-100">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-  <div className="absolute -rotate-[5deg] w-52 -bottom-24 right-20 -animate-rotate-flower origin-bottom !delay-100">
-    <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
-      style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-      sizes="(max-width: 1250px) 100vw, 1250px"
-    />
-  </div>
-</div>
+          {/* Right side flowers */}
+          <div className="absolute -rotate-[5deg] w-52 bottom-10 -right-20  animate-rotate-flower-right-reverse">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          {/* <div className="absolute -rotate-[5deg] w-52 bottom-16 -right-16 animate-rotate-flower-right">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div> */}
+          <div className="absolute -rotate-[5deg] w-52 -bottom-52 -right-32 animate-rotate-flower-right">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute -rotate-[5deg] w-32 -bottom-[290px] -right-10 animate-rotate-flower-right">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute -rotate-[5deg] w-52 -bottom-10 -right-10 animate-rotate-flower-right">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute w-64 -rotate-[5deg] -bottom-[400px] -right-10 animate-rotate-flower-right">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute w-64 -rotate-[5deg] -bottom-[600px] -right-10 animate-rotate-flower-right">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute w-72 -rotate-[5deg] -bottom-[500px] -right-40 animate-rotate-flower-right ">
+            <img src="/flower.webp" alt="" loading="lazy" width="456" height="1095"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute -rotate-[5deg] w-52 -bottom-40 right-24 animate-rotate-flower-right ">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div>
+          <div className="absolute -rotate-[5deg] w-52 -bottom-32 right-20 animate-rotate-flower-right ">
+            <img src="/small-flower.webp" alt="" loading="lazy" width="552" height="981"
+              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              sizes="(max-width: 1250px) 100vw, 1250px"
+            />
+          </div> 
+        </div>
       </main>
   );
 };
