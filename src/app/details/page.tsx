@@ -1,3 +1,4 @@
+import { BsFlower2 } from "react-icons/bs";
 import { FaHome, FaImage, FaMapMarkedAlt } from "react-icons/fa";
 import { MdQrCode2 } from "react-icons/md";
 
@@ -15,34 +16,6 @@ export default function Details(){
           <img alt="" loading="lazy" src="/images/frame.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
       </div>
-
-      {/* Bottom buttons and image left */}
-      {/* <div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
-        <div className="absolute xs:w-52 w-44 bottom-0 left-0 z-30">
-          <img alt="" loading="lazy" src="/images/flower-frame.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div>
-        <a href="/">
-          <button className="flex items-center justify-center bg-primary text-primary-foreground shadow px-4 py-2 h-12 w-12 rounded-full absolute bottom-14 left-2 z-50 animate-scale-bounce">
-            <FaHome />
-          </button>
-        </a>
-        <button className="flex items-center justify-center bg-primary text-primary-foreground shadow px-4 py-2 h-12 w-12 rounded-full fixed bottom-2 left-14 z-50 animate-scale-bounce">
-          <FaMapMarkedAlt />
-        </button>
-      </div> */}
-
-      {/* Bottom image and buttons right */}
-      {/* <div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
-        <div className="absolute xs:w-52 w-44 bottom-0 right-0 mirror z-30">
-          <img alt="" loading="lazy" src="/images/flower-frame.webp" style={{ width: '100%', height: '100%', objectFit: 'cover',    transform: 'scaleX(-1)' }} />
-        </div>
-        <button className="flex items-center justify-center bg-primary text-primary-foreground shadow px-4 py-2 h-12 w-12 rounded-full fixed bottom-14 right-2 z-50 animate-scale-bounce">
-          <MdQrCode2 />
-        </button>
-        <button className="flex items-center justify-center bg-primary text-primary-foreground shadow px-4 py-2 h-12 w-12 rounded-full fixed bottom-2 right-14 z-50 animate-scale-bounce">
-          <FaImage />
-        </button>
-      </div> */}
 
       {/* Bottom buttons and image left */}
       <div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
@@ -87,14 +60,14 @@ export default function Details(){
       </div> */}
 
       {/* Background videos */}
-      <div className="min-h-dvh w-full max-w-[500px] pointer-events-none fixed top-0 left-1/2 mix-blend-multiply -translate-x-1/2 z-[60]">
+      {/* <div className="min-h-dvh w-full max-w-[500px] pointer-events-none fixed top-0 left-1/2 mix-blend-multiply -translate-x-1/2 z-[60]">
         <video playsInline autoPlay loop preload="metadata" className="fixed mirror w-52 top-[210px] -left-8 z-10 mix-blend-multiply">
           <source src="" type="video/webm" />
         </video>
         <video playsInline autoPlay loop preload="metadata" className="fixed w-72 -bottom-44 right-0 z-50 pointer-events-none mix-blend-multiply">
           <source src="" type="video/webm" />
         </video>
-      </div>
+      </div> */}
 
       {/* Main content */}
       <div className="flex z-10 items-center flex-col pt-10 gap-4">
@@ -121,7 +94,7 @@ export default function Details(){
         </section>
 
         {/* Parents section */}
-        <section className="flex flex-col sm:flex-row justify-between w-full px-14 mt-6 gap-4 sm:gap-0">
+        {/* <section className="flex flex-col sm:flex-row justify-between w-full px-14 mt-6 gap-4 sm:gap-0">
           <div className="flex flex-col w-full sm:w-auto xs:gap-0 gap-4">
             <p className="text-khmer">លោក<span className="text-khmer-body"> ប៊ិន​ អុល</span></p>
             <p className="text-khmer">អ្នកស្រី<span className="text-khmer-body"> រស់ ផល</span></p>
@@ -130,8 +103,29 @@ export default function Details(){
             <p className="text-khmer">លោក<span className="text-khmer-body"> ភិន ផាន</span></p>
             <p className="text-khmer">អ្នកស្រី<span className="text-khmer-body"> ម៉ែន វួន</span></p>
           </div>
-        </section>
+        </section> */}
 
+        <section className="flex flex-row justify-between items-start w-full px-14 sm:px-14 mt-6 gap-4">
+          {/* Left block */}
+          <div className="flex flex-col gap-2 items-start">
+            <p className="text-khmer">
+              លោក<span className="text-khmer-body"> ប៊ិន​ អុល</span>
+            </p>
+            <p className="text-khmer">
+              អ្នកស្រី<span className="text-khmer-body"> រស់ ផល</span>
+            </p>
+          </div>
+
+          {/* Right block */}
+          <div className="flex flex-col gap-2 items-end text-right">
+            <p className="text-khmer">
+              លោក<span className="text-khmer-body"> ភិន ផាន</span>
+            </p>
+            <p className="text-khmer">
+              អ្នកស្រី<span className="text-khmer-body"> ម៉ែន វួន</span>
+            </p>
+          </div>
+        </section>
 
         {/* Divider */}
         <section className="flex flex-col items-center gap-4 mt-4">
@@ -175,18 +169,7 @@ export default function Details(){
             </div>
 
             <div className="size-4 rounded-full bg-primary-foreground flex justify-center items-center animate-scale-bounce">
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 512 512"
-                className="text-white"
-                height="12"
-                width="12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-              </svg>
+              <BsFlower2 />
             </div>
 
             <div className="relative w-4 h-auto">
@@ -215,8 +198,59 @@ export default function Details(){
             />
           </div>
         </section>
+      <section className="flex flex-col items-center w-full gap-10">
+        <h1 className="text-khmer-body text-xl">ទំនាក់ទំនងទូរស័ព្ទ</h1>
 
-        <section className="flex flex-col items-center w-full gap-10">
+        {/* Name + phone row: make always horizontal */}
+        <div className="flex flex-row justify-between w-full px-14 sm:px-16 gap-4">
+          {/* Left block */}
+          <div className="flex flex-col gap-2 items-start">
+            <p className="text-khmer">
+              កូនប្រុស <span className="text-khmer-body">អុល តុក្កតា</span>
+            </p>
+            <p className="font-bold text-khmer-title-bold text-xl">010785306</p>
+          </div>
+
+          {/* Right block */}
+          <div className="flex flex-col gap-2 items-end text-right">
+            <p className="text-khmer">
+              កូនស្រី <span className="text-khmer-body">ភិន ផានូ</span>
+            </p>
+            <p className="font-bold text-khmer-title-bold text-xl">0972352572</p>
+          </div>
+        </div>
+
+        {/* Decoration */}
+        <div className="flex gap-4 items-center">
+          <div className="relative w-4 h-4">
+            <img
+              alt="decoration"
+              loading="lazy"
+              width="48"
+              height="46"
+              src="/images/small-embroidery-2.webp"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="size-4 rounded-full bg-primary-foreground flex justify-center items-center animate-scale-bounce">
+            <BsFlower2 />
+          </div>
+
+          <div className="relative w-4 h-4">
+            <img
+              alt="decoration"
+              loading="lazy"
+              width="48"
+              height="46"
+              src="/images/small-embroidery-2.webp"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+        {/* <section className="flex flex-col items-center w-full gap-10">
           <h1 className="text-khmer-body text-xl">ទំនាក់ទំនងទូរស័ព្ទ</h1>
           <div className="flex flex-col sm:flex-row xs:flex-row justify-between w-full px-16 gap-2">
             <div className="flex flex-col gap-2">
@@ -271,7 +305,7 @@ export default function Details(){
               />
             </div>
           </div>
-        </section>
+        </section> */}
 
          <section className="my-16 flex items-center flex-col w-full gap-10">
             <h1 className="text-khmer-body text-2xl __className_f1a86b">
@@ -280,7 +314,7 @@ export default function Details(){
 
             {/* USD Account */}
             <div className="flex flex-col items-center gap-1">
-              <div className="relative w-2/5">
+              {/* <div className="relative w-2/5">
                 <img
                   alt=""
                   loading="lazy"
@@ -292,7 +326,24 @@ export default function Details(){
                   src="/images/tokata-usd.png"
                   style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
                 />
+              </div> */}
+              <div className="flex justify-center items-center p-4">
+                <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
+                  {/* Animation ring */}
+                  <div className="absolute w-[15px] h-[200px] -mt-[92px] bg-gradient-to-b from-[#00ccff] to-[#d400d4] animate-spin z-0" />
+
+                  {/* Mask layer */}
+                  <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
+
+                  {/* QR Code Image */}
+                  <img
+                    src="/images/tokata-usd.png" // Replace this with your QR image path
+                    alt="QR Code"
+                    className="relative z-20 w-full h-full object-contain rounded-[16px]"
+                  />
+                </div>
               </div>
+
               <p className="text-khmer-title __className_951876">គណនីប្រាក់ដុល្លារ</p>
               <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
               <p className="font-bold text-xl text-khmer-title-bold">000 737 471</p>
@@ -302,8 +353,26 @@ export default function Details(){
             <div className="w-1/2 h-[1px] border-t border-dashed border-khmer-title"></div>
 
             {/* KHR Account */}
+
+          <div className="flex justify-center items-center p-4">
+            <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
+              {/* Animation ring */}
+              <div className="absolute w-[15px] h-[200px] -mt-[92px] bg-gradient-to-b from-[#00ccff] to-[#d400d4] animate-spin z-0" />
+
+              {/* Mask layer */}
+              <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
+
+              {/* QR Code Image */}
+              <img
+                src="/images/tokata-kh.png" // Replace this with your QR image path
+                alt="QR Code"
+                className="relative z-20 w-full h-full object-contain rounded-[16px]"
+              />
+            </div>
+          </div>
+
             <div className="flex flex-col items-center gap-1">
-              <div className="relative w-2/5">
+              {/* <div className="relative w-2/5">
                 <img
                   alt=""
                   loading="lazy"
@@ -315,7 +384,7 @@ export default function Details(){
                   src="/images/tokata-kh.png"
                   style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
                 />
-              </div>
+              </div> */}
               <p className="text-khmer-title __className_951876">គណនីប្រាក់រៀល</p>
               <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
               <p className="font-bold text-xl text-khmer-title-bold">003 739 666</p>

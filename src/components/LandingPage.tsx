@@ -32,7 +32,7 @@ export const LandingPage = () => {
                 preload="metadata"
                 className="w-1/2 mix-blend-color-dodge z-10 opacity-70"
                 style={{ transform: "scaleX(-1)" }}>
-                <source src="//butterfly.mp4" type="video/webm" />
+                {/* <source src="//butterfly.mp4" type="video/webm" /> */}
             </video>
 
             <video
@@ -43,7 +43,7 @@ export const LandingPage = () => {
                 loop
                 preload="metadata"
                 className="w-1/2 mix-blend-color-dodge z-10 opacity-70">
-                <source src="/video/chandelier-2.webm" type="video/webm" />
+                {/* <source src="/video/chandelier-2.webm" type="video/webm" /> */}
             </video>
             </div>
 
