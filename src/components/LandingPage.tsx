@@ -1,4 +1,13 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export const LandingPage = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/details');
+  };
   return (
     <main
       className="min-h-dvh w-full max-w-[500px] overflow-hidden bg-background relative"  >
@@ -89,18 +98,8 @@ export const LandingPage = () => {
           </h1>
 
           {/* Join button */}
-          {/* <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
-            <div className="relative z-30 animate-scale-bounce w-60">
-              <img
-                alt="Click to join"
-                loading="lazy"
-                src="/click-to-join-button.webp"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </button> */}
         {/* Animated Join button */}
-        <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
+        <button onClick={handleClick} className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
           <div className="relative z-30 w-60 animate-zoom-in-out">
             <img
               alt="Click to join"
@@ -112,7 +111,7 @@ export const LandingPage = () => {
         </button>
           {/* Date and location */}
           <h2 className="text-khmer-title-bold text-lg ">
-            ថ្ងៃអាទិត្យ ទី០១ ខែមិថុនា ឆ្នាំ២០២៥
+            ថ្ងៃសៅរ៍ ទី១១ ខែមេសា ឆ្នាំ២០២៥
           </h2>
 
           <p className="text-sm text-center w-1/2 text-khmer-title-date">

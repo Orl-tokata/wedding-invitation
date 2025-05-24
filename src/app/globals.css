@@ -111,3 +111,18 @@
 .animate-zoom-in-out {
   animation: zoomInOut 2s ease-in-out infinite;
 }
+
+.bg-primary {
+    background-color: hsl(var(--primary));
+}
+
+/* globals.css */
+
+.btn-scale {
+  transform: scale(1.00002);
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-scale:hover {
+  transform: scale(1.09998);
+}
