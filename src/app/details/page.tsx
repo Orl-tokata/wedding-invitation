@@ -314,30 +314,22 @@ export default function Details(){
 
             {/* USD Account */}
             <div className="flex flex-col items-center gap-1">
-              {/* <div className="relative w-2/5">
-                <img
-                  alt=""
-                  loading="lazy"
-                  width="261"
-                  height="256"
-                  decoding="async"
-                  data-nimg="1"
-                  sizes="(max-width: 1250px) 100vw, 1250px"
-                  src="/images/tokata-usd.png"
-                  style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div> */}
               <div className="flex justify-center items-center p-4">
                 <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
                   {/* Animation ring */}
-                  <div className="absolute w-[15px] h-[200px] -mt-[92px] bg-gradient-to-b from-[#00ccff] to-[#d400d4] animate-spin z-0" />
+                  {/* <div className="absolute w-[15px] h-[200px] -mt-[92px] bg-gradient-to-b from-[#00ccff] to-[#d400d4] animate-spin z-0" /> */}
 
                   {/* Mask layer */}
                   <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
+                  {/* Animated border segments */}
+                  <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
+                  <span className="absolute top-0 right-0 h-full w-[4px] bg-gradient-to-b from-transparent to-white animate-border-right delay-[0.25s]"></span>
+                  <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
+                  <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
 
                   {/* QR Code Image */}
                   <img
-                    src="/images/tokata-usd.png" // Replace this with your QR image path
+                    src="/images/tokata-usd.png" 
                     alt="QR Code"
                     className="relative z-20 w-full h-full object-contain rounded-[16px]"
                   />
@@ -352,43 +344,31 @@ export default function Details(){
             {/* Divider */}
             <div className="w-1/2 h-[1px] border-t border-dashed border-khmer-title"></div>
 
-            {/* KHR Account */}
+          {/* KHR Account */}
+              <div className="flex flex-col items-center gap-1">
+              <div className="flex justify-center items-center p-4">
+                <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
+                 
+                  {/* Animated border segments */}
+                  <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
+                  <span className="absolute top-0 right-0 h-full w-[4px] bg-gradient-to-b from-transparent to-white animate-border-right delay-[0.25s]"></span>
+                  <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
+                  <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
 
-          <div className="flex justify-center items-center p-4">
-            <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
-              {/* Animation ring */}
-              <div className="absolute w-[15px] h-[200px] -mt-[92px] bg-gradient-to-b from-[#00ccff] to-[#d400d4] animate-spin z-0" />
+                  {/* QR Image */}
+                   <img
+                    src="/images/tokata-kh.png" 
+                    alt="QR Code"
+                    className="relative z-20 w-full h-full object-contain rounded-[16px]"
+                  />
+                </div>
+              </div>
 
-              {/* Mask layer */}
-              <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
-
-              {/* QR Code Image */}
-              <img
-                src="/images/tokata-kh.png" // Replace this with your QR image path
-                alt="QR Code"
-                className="relative z-20 w-full h-full object-contain rounded-[16px]"
-              />
-            </div>
-          </div>
-
-            <div className="flex flex-col items-center gap-1">
-              {/* <div className="relative w-2/5">
-                <img
-                  alt=""
-                  loading="lazy"
-                  width="261"
-                  height="257"
-                  decoding="async"
-                  data-nimg="1"
-                  sizes="(max-width: 1250px) 100vw, 1250px"
-                  src="/images/tokata-kh.png"
-                  style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div> */}
               <p className="text-khmer-title __className_951876">គណនីប្រាក់រៀល</p>
               <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
               <p className="font-bold text-xl text-khmer-title-bold">003 739 666</p>
             </div>
+
           </section>
 
         <footer className="w-full grid grid-cols-1 place-items-center gap-16">

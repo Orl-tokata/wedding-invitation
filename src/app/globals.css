@@ -119,34 +119,90 @@
   animation-delay: 0.1s;
 }
 
-
-@keyframes zoomInOut {
+@keyframes border-top {
   0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
+    left: -100%;
   }
   100% {
-    transform: scale(1);
+    left: 100%;
   }
 }
 
-.animate-zoom-in-out {
-  animation: zoomInOut 2s ease-in-out infinite;
+@keyframes border-right {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
-.bg-primary {
-    background-color: hsl(var(--primary));
+@keyframes border-bottom {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
 }
 
-/* globals.css */
-
-.btn-scale {
-  transform: scale(1.00002);
-  transition: transform 0.3s ease-in-out;
+@keyframes border-left {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 100%;
+  }
 }
 
-.btn-scale:hover {
-  transform: scale(1.09998);
+/* Use a solid white bar with a slight glow and a clearer travel */
+.animate-border-top {
+  background: linear-gradient(to right, white 0%, white 100%);
+  animation: border-top 1.5s linear infinite;
+  height: 4px;
+  width: 40%;
+  position: absolute;
+  top: 0;
+  left: -40%;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 4px white);
+}
+
+.animate-border-right {
+  background: linear-gradient(to bottom, white 0%, white 100%);
+  animation: border-right 1.5s linear infinite;
+  height: 40%;
+  width: 4px;
+  position: absolute;
+  top: -40%;
+  right: 0;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 4px white);
+  animation-delay: 0.375s;
+}
+
+.animate-border-bottom {
+  background: linear-gradient(to left, white 0%, white 100%);
+  animation: border-bottom 1.5s linear infinite;
+  height: 4px;
+  width: 40%;
+  position: absolute;
+  bottom: 0;
+  right: -40%;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 4px white);
+  animation-delay: 0.75s;
+}
+
+.animate-border-left {
+  background: linear-gradient(to top, white 0%, white 100%);
+  animation: border-left 1.5s linear infinite;
+  height: 40%;
+  width: 4px;
+  position: absolute;
+  bottom: -40%;
+  left: 0;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 4px white);
+  animation-delay: 1.125s;
 }
