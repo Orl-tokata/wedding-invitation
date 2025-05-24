@@ -22,6 +22,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Battambang-Regular';
+  src: url('/fonts/Battambang-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KHMMOOL';
+  src: url('/fonts/KHMMOOL.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .text-khmer-title{
     font-family: 'AKbalthom Freehand [Version 1.50] 082014', sans-serif;
     color: #8e7e78
@@ -33,6 +47,16 @@
 
 .text-khmer-title-date{
   font-family: 'Siemreap', sans-serif;
+}
+
+.text-khmer{
+    font-family: 'Battambang-Regular', sans-serif;
+    color: #8e7e78
+}
+
+.text-khmer-body{
+    font-family: 'KHMMOOL', sans-serif;
+    color: #8e7e78
 }
 
 @keyframes rotateFlower {

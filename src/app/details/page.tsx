@@ -44,41 +44,41 @@ export default function Details(){
         </button>
       </div> */}
 
-{/* Bottom buttons and image left */}
-<div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
-  <div className="absolute xs:w-52 w-44 bottom-0 left-0 z-30">
-    <img src="/images/flower-frame.webp" alt="" className="w-full h-full object-cover" />
-  </div>
-  <a href="/">
-    <div className="absolute bottom-14 left-2 z-50 flex items-center justify-center">
-      <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-        <FaHome className="text-primary text-xl" />
-      </button>
-    </div>
-  </a>
-  <div className="fixed bottom-2 left-14 z-50 flex items-center justify-center">
-    <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-      <FaMapMarkedAlt className="text-primary text-xl" />
-    </button>
-  </div>
-</div>
+      {/* Bottom buttons and image left */}
+      <div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
+        <div className="absolute xs:w-52 w-44 bottom-0 left-0 z-30">
+          <img src="/images/flower-frame.webp" alt="" className="w-full h-full object-cover" />
+        </div>
+        <a href="/">
+          <div className="absolute bottom-14 left-2 z-50 flex items-center justify-center">
+            <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
+              <FaHome className="text-blue-500 text-xl" />
+            </button>
+          </div>
+        </a>
+        <div className="fixed bottom-2 left-14 z-50 flex items-center justify-center">
+          <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
+            <FaMapMarkedAlt className="text-blue-500 text-xl" />
+          </button>
+        </div>
+      </div>
 
-{/* Bottom buttons and image right */}
-<div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
-  <div className="absolute xs:w-52 w-44 bottom-0 right-0 z-30">
-    <img src="/images/flower-frame.webp" alt="" className="w-full h-full object-cover" style={{ transform: 'scaleX(-1)' }} />
-  </div>
-  <div className="fixed bottom-14 right-2 z-50 flex items-center justify-center">
-    <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-      <MdQrCode2 className="text-primary text-xl" />
-    </button>
-  </div>
-  <div className="fixed bottom-2 right-14 z-50 flex items-center justify-center">
-    <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-      <FaImage className="text-primary text-xl" />
-    </button>
-  </div>
-</div>
+      {/* Bottom buttons and image right */}
+      <div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
+        <div className="absolute xs:w-52 w-44 bottom-0 right-0 z-30">
+          <img src="/images/flower-frame.webp" alt="" className="w-full h-full object-cover" style={{ transform: 'scaleX(-1)' }} />
+        </div>
+        <div className="fixed bottom-14 right-2 z-50 flex items-center justify-center">
+          <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
+            <MdQrCode2 className="text-blue-500 text-xl" />
+          </button>
+        </div>
+        <div className="fixed bottom-2 right-14 z-50 flex items-center justify-center">
+          <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
+            <FaImage className="text-blue-500 text-xl" />
+          </button>
+        </div>
+      </div>
 
       {/* Overlay loading screen */}
       {/* <div className="bg-neutral-900/40 fixed top-0 left-0 h-full w-full flex-col z-[100] flex justify-center items-center animate-fade-out-delay">
@@ -106,52 +106,34 @@ export default function Details(){
         {/* Couple section */}
         <section className="w-full flex flex-col items-center relative">
           <div className="w-24 relative top-6">
-            <img alt="" loading="lazy" src="/name-initial.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img alt="" loading="lazy" src="/images/name-initial.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
           <div className="flex justify-between w-full px-14">
             <div className="flex flex-col gap-2">
-              <p className="text-khmer-title">កូនប្រុស</p>
-              <p className="text-khmer-title-bold">អុល តុក្កតា</p>
+              <p className="text-khmer">កូនប្រុស</p>
+              <p className="text-khmer-body">អុល តុក្កតា</p>
             </div>
             <div className="flex flex-col gap-2 items-end">
-              <p className="text-khmer-title">កូនស្រី</p>
-              <p className="text-khmer-title-bold">ភិន ផានូ</p>
+              <p className="text-khmer">កូនស្រី</p>
+              <p className="text-khmer-body">ភិន ផានូ</p>
             </div>
           </div>
         </section>
 
         {/* Parents section */}
-        {/* <section className="flex xs:flex-row flex-col justify-between w-full px-14 mt-6 xs:gap-0 gap-4">
-          <div className="flex flex-col gap-2">
-            <p className="text-khmer-title">លោក<span className="text-khmer-title-bold"> សែម ដា</span></p>
-            <p className="text-khmer-title">អ្នកស្រី<span className="text-khmer-title-bold"> ជូ សំ</span></p>
-          </div>
-          <div className="flex justify-end xs:w-auto w-full">
-            <div className="flex flex-col gap-2">
-              <p className="text-khmer-title">លោក<span className="text-khmer-title-bold"> យាន បូលី</span></p>
-              <p className="text-khmer-title">អ្នកស្រី<span className="text-khmer-title-bold"> ឈុំ សុជាតាំ</span></p>
-            </div>
-          </div>
-        </section> */}
         <section className="flex flex-col sm:flex-row justify-between w-full px-14 mt-6 gap-4 sm:gap-0">
-          <div className="flex flex-col gap-2 w-full sm:w-auto">
-            <p className="text-khmer-title">លោក<span className="text-khmer-title-bold"> ប៊ិន​ អុល</span></p>
-            <p className="text-khmer-title">អ្នកស្រី<span className="text-khmer-title-bold"> រស់ ផល</span></p>
+          <div className="flex flex-col w-full sm:w-auto xs:gap-0 gap-4">
+            <p className="text-khmer">លោក<span className="text-khmer-body"> ប៊ិន​ អុល</span></p>
+            <p className="text-khmer">អ្នកស្រី<span className="text-khmer-body"> រស់ ផល</span></p>
           </div>
           <div className="flex flex-col gap-2 w-full sm:w-auto items-end">
-            <p className="text-khmer-title">លោក<span className="text-khmer-title-bold"> ភិន ផាន</span></p>
-            <p className="text-khmer-title">អ្នកស្រី<span className="text-khmer-title-bold"> ម៉ែន វួន</span></p>
+            <p className="text-khmer">លោក<span className="text-khmer-body"> ភិន ផាន</span></p>
+            <p className="text-khmer">អ្នកស្រី<span className="text-khmer-body"> ម៉ែន វួន</span></p>
           </div>
         </section>
 
 
         {/* Divider */}
-        {/* <section className="flex items-center flex-col gap-4 mt-4">
-          <div className="relative w-10">
-            <img alt="" loading="lazy" src="/images/small-embroidery.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div>
-          <h1 className="text-khmer-title-bold text-2xl">...</h1>
-        </section> */}
         <section className="flex flex-col items-center gap-4 mt-4">
           <div className="relative w-10 h-auto">
             <img
@@ -164,9 +146,9 @@ export default function Details(){
             />
           </div>
 
-          <h1 className="text-khmer-title-bold text-2xl">សូមគោរពអញ្ជើញ</h1>
+          <h1 className="text-khmer-body text-2xl">សូមគោរពអញ្ជើញ</h1>
 
-          <p className="px-16 text-center text-sm text-khmer-title leading-6">
+          <p className="px-16 text-center text-sm text-khmer leading-6">
             ឯកឧត្តម លោកឧកញ៉ា លោកជំទាវ លោក លោកស្រី អ្នកនាង កញ្ញា និងប្រិយមិត្ត ចូលរួមជាភ្ញៀវកិត្តិយស ក្នុង
             <span className="font-bold"> ពិធីរៀបអាពាហ៍ពិពាហ៍ </span>
             កូនប្រុស-ស្រី របស់យើងខ្ញុំនិងប្រសិទ្ធិពរជ័យ សិរីមង្គល បវរប្រសើរ ដល់គូស្វាមីភរិយាថ្មី ពិសាភោជនាហារ ប្រព្រឹត្តទៅនៅថ្ងៃ១២កើត ខែមាឃ ឆ្នាំរោង ឆស័ក ព.ស.២៥៦៩ ត្រូវនឹង
@@ -178,7 +160,7 @@ export default function Details(){
             ដោយមេត្រីភាព។ (សូមមើលប្លង់បញ្ជាក់)
           </p>
 
-          <p className="mt-6 text-sm text-khmer-title-bold">សូមសំណាងល្អ សូមអរគុណ!</p>
+          <p className="mt-6 text-sm text-khmer-body">សូមសំណាងល្អ សូមអរគុណ!</p>
 
           <div className="flex gap-4">
             <div className="relative w-4 h-auto">
@@ -221,7 +203,7 @@ export default function Details(){
         </section>
 
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-title-bold text-2xl">ប្លង់កម្មវិធី</h1>
+          <h1 className="text-khmer-body text-2xl">ប្លង់កម្មវិធី</h1>
           <div className="relative w-[70%]">
             <img
               alt="Location Map"
@@ -235,18 +217,18 @@ export default function Details(){
         </section>
 
         <section className="flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-title-bold text-xl">ទំនាក់ទំនងទូរស័ព្ទ</h1>
-          <div className="flex flex-col sm:flex-row justify-between w-full px-16 gap-2">
+          <h1 className="text-khmer-body text-xl">ទំនាក់ទំនងទូរស័ព្ទ</h1>
+          <div className="flex flex-col sm:flex-row xs:flex-row justify-between w-full px-16 gap-2">
             <div className="flex flex-col gap-2">
-              <p className="text-khmer-title">
-                កូនប្រុស <span className="font-bold">អុល តុក្កតា</span>
+              <p className="text-khmer">
+                កូនប្រុស <span className="text-khmer-body">អុល តុក្កតា</span>
               </p>
               <p className="font-bold text-khmer-title-bold text-xl">010785306</p>
             </div>
 
             <div className="flex flex-col gap-2 sm:items-end">
-              <p className="text-khmer-title">
-                កូនស្រី <span className="font-bold">ភិន ផានូ</span>
+              <p className="text-khmer">
+                កូនស្រី <span className="text-khmer-body">ភិន ផានូ</span>
               </p>
               <p className="font-bold text-khmer-title-bold text-xl">0972352572</p>
             </div>
@@ -292,7 +274,7 @@ export default function Details(){
         </section>
 
          <section className="my-16 flex items-center flex-col w-full gap-10">
-            <h1 className="text-khmer-title-bold text-2xl __className_f1a86b">
+            <h1 className="text-khmer-body text-2xl __className_f1a86b">
               គណនី <span className="font-bold">ABA</span>
             </h1>
 
