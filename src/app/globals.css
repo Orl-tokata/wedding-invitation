@@ -58,6 +58,10 @@
     font-family: 'KHMMOOL', sans-serif;
     color: #8e7e78
 }
+.text-khmer-arrow-down{
+    font-family: 'Battambang-Regular', sans-serif;
+    color: #ffffff
+}
 
 @keyframes rotateFlower {
   0% {
@@ -119,6 +123,38 @@
   animation-delay: 0.1s;
 }
 
+/* TODO: Start Animation Button Login */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in-out {
+  animation: zoomInOut 2s ease-in-out infinite;
+}
+
+.bg-primary {
+    background-color: hsl(var(--primary));
+}
+
+.btn-scale {
+  transform: scale(1.00002);
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-scale:hover {
+  transform: scale(1.09998);
+}
+/* TODO: End animaton login button */
+
+/* TODO: Start Animation border on QR Code */
 @keyframes border-top {
   0% {
     left: -100%;
@@ -205,4 +241,54 @@
   border-radius: 2px;
   filter: drop-shadow(0 0 4px white);
   animation-delay: 1.125s;
+}
+
+/* TODO: End Animation border on QR Code */
+
+/* TODO: Start show image */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+/* TODO: End show image */
+
+/* TODO: Start Arrow Down icon && Label*/
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+.animate-fade-out-delay {
+  animation: fadeOut 1s ease-in-out 2.5s forwards;
+} 
+/* TODO: End Arrow Down icon && Label*/
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease forwards;
 }

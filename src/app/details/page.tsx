@@ -1,10 +1,94 @@
+'use client'
+
+import { useEffect, useRef, useState } from "react";
 import { BsFlower2 } from "react-icons/bs";
 import { FaHome, FaImage, FaMapMarkedAlt } from "react-icons/fa";
-import { MdQrCode2 } from "react-icons/md";
+import { IoCloseOutline } from "react-icons/io5";
+import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
 
 export default function Details(){
+  const [openMap, setOpenGoogleMap] = useState(false);
+  const [openQr , setOpenQrCode] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    // Attempt to autoplay when component mounts
+    const playAudio = async () => {
+      try {
+        await audioRef.current?.play();
+      } catch (err) {
+        console.warn("Autoplay failed. User interaction may be required.");
+      }
+    };
+
+    playAudio();
+  }, []);
+
+  const handlePlay = () => {
+    audioRef.current?.play();
+  };
+
+  const handlePause = () => {
+    audioRef.current?.pause();
+  };
+
+
+  useEffect(() => {
+    if (openQr) {
+      // Disable scroll on body
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore scroll on body
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [openQr]);
+
+
+  // Close when clicking outside the modal
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        setOpenGoogleMap(false);
+        setOpenQrCode(false);
+      }
+    }
+
+    if (openMap) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openMap,openQr]);
+
   return (
+
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
+
+      {/* TODO: For music */}
+      <audio
+        ref={audioRef}
+        src="/music/music-wedding.weba"
+        preload="auto"
+        hidden // 👈 hide the audio player
+      />
+      {/* <div className="flex flex-col items-center gap-4 p-4">
+        <audio ref={audioRef} src="/music/music-wedding.weba" preload="auto" hidden />
+        <div className="flex gap-2">
+          <button onClick={handlePlay} className="px-4 py-2 bg-green-600 text-white rounded">Play</button>
+          <button onClick={handlePause} className="px-4 py-2 bg-red-600 text-white rounded">Pause</button>
+        </div>
+      </div> */}
+    
       {/* Vertical mirrored images left and right */}
       <div className="w-full max-w-[500px] fixed top-48 left-1/2 flex justify-end -translate-x-1/2 z-10 pointer-events-none">
         <div className="relative w-10 mirror h-full">
@@ -30,7 +114,7 @@ export default function Details(){
           </div>
         </a>
         <div className="fixed bottom-2 left-14 z-50 flex items-center justify-center">
-          <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
+          <button  onClick={() => setOpenGoogleMap(true)} className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
             <FaMapMarkedAlt className="text-blue-500 text-xl" />
           </button>
         </div>
@@ -42,7 +126,7 @@ export default function Details(){
           <img src="/images/flower-frame.webp" alt="" className="w-full h-full object-cover" style={{ transform: 'scaleX(-1)' }} />
         </div>
         <div className="fixed bottom-14 right-2 z-50 flex items-center justify-center">
-          <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
+          <button  onClick={() => setOpenQrCode(true)} className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
             <MdQrCode2 className="text-blue-500 text-xl" />
           </button>
         </div>
@@ -54,10 +138,11 @@ export default function Details(){
       </div>
 
       {/* Overlay loading screen */}
-      {/* <div className="bg-neutral-900/40 fixed top-0 left-0 h-full w-full flex-col z-[100] flex justify-center items-center animate-fade-out-delay">
-        <svg stroke="currentColor" fill="currentColor" viewBox="0 0 448 512" className="text-primary animate-bounce" height="32" width="32" xmlns="http://www.w3.org/2000/svg"></svg>
-        <p className="text-primary font-bold">អូសចុះក្រោម</p>
-      </div> */}
+      <div className="bg-neutral-900/40 fixed top-0 left-0 h-full w-full flex-col z-[100] flex justify-center items-center animate-fade-out-delay">
+        <MdOutlineKeyboardDoubleArrowDown className="text-white text-4xl animate-bounce"/>
+        <p className="text-khmer-arrow-down">អូសចុះក្រោម</p>
+      </div> 
+
 
       {/* Background videos */}
       {/* <div className="min-h-dvh w-full max-w-[500px] pointer-events-none fixed top-0 left-1/2 mix-blend-multiply -translate-x-1/2 z-[60]">
@@ -72,7 +157,7 @@ export default function Details(){
       {/* Main content */}
       <div className="flex z-10 items-center flex-col pt-10 gap-4">
         <div className="relative w-[80%]">
-          <img alt="" loading="lazy" src="/images/wedding-title-1.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img alt="" loading="lazy" src="/images/wedding-title.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
 
 
@@ -94,17 +179,6 @@ export default function Details(){
         </section>
 
         {/* Parents section */}
-        {/* <section className="flex flex-col sm:flex-row justify-between w-full px-14 mt-6 gap-4 sm:gap-0">
-          <div className="flex flex-col w-full sm:w-auto xs:gap-0 gap-4">
-            <p className="text-khmer">លោក<span className="text-khmer-body"> ប៊ិន​ អុល</span></p>
-            <p className="text-khmer">អ្នកស្រី<span className="text-khmer-body"> រស់ ផល</span></p>
-          </div>
-          <div className="flex flex-col gap-2 w-full sm:w-auto items-end">
-            <p className="text-khmer">លោក<span className="text-khmer-body"> ភិន ផាន</span></p>
-            <p className="text-khmer">អ្នកស្រី<span className="text-khmer-body"> ម៉ែន វួន</span></p>
-          </div>
-        </section> */}
-
         <section className="flex flex-row justify-between items-start w-full px-14 sm:px-14 mt-6 gap-4">
           {/* Left block */}
           <div className="flex flex-col gap-2 items-start">
@@ -198,9 +272,8 @@ export default function Details(){
             />
           </div>
         </section>
-      <section className="flex flex-col items-center w-full gap-10">
+      <section className="flex flex-col items-center w-full gap-4">
         <h1 className="text-khmer-body text-xl">ទំនាក់ទំនងទូរស័ព្ទ</h1>
-
         {/* Name + phone row: make always horizontal */}
         <div className="flex flex-row justify-between w-full px-14 sm:px-16 gap-4">
           {/* Left block */}
@@ -338,7 +411,7 @@ export default function Details(){
 
               <p className="text-khmer-title __className_951876">គណនីប្រាក់ដុល្លារ</p>
               <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
-              <p className="font-bold text-xl text-khmer-title-bold">000 737 471</p>
+              <p className="font-bold text-xl text-khmer-title-bold">004327824</p>
             </div>
 
             {/* Divider */}
@@ -366,7 +439,7 @@ export default function Details(){
 
               <p className="text-khmer-title __className_951876">គណនីប្រាក់រៀល</p>
               <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
-              <p className="font-bold text-xl text-khmer-title-bold">003 739 666</p>
+              <p className="font-bold text-xl text-khmer-title-bold">501084362</p>
             </div>
 
           </section>
@@ -420,6 +493,176 @@ export default function Details(){
           </div>
         </footer> 
       </div>
+
+      {/* TODO: For Open Google maps */}
+      {openMap && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          aria-modal="true"
+          role="dialog"
+          aria-labelledby="radix-location-label"
+          aria-describedby="radix-location-desc"
+        >
+          {/* Background Overlay */}
+          <div
+            className="fixed inset-0 bg-neutral-900/80"
+            aria-hidden="true"
+            onClick={() => setOpenGoogleMap(false)} // close on clicking overlay
+          />
+
+          {/* Modal content */}
+          <div
+            ref={modalRef}
+            className="relative z-60 max-w-md w-full max-h-[80vh] bg-white rounded-lg p-6 shadow-lg animate-fadeIn overflow-y-auto"
+            tabIndex={-1}>
+            <h2 id="radix-location-label" className="sr-only">
+              Location
+            </h2>
+            <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
+              ស្កែន QR កូដ​ ដើម្បីទៅកាន់ Google Maps
+            </p>
+
+            <div className="relative w-full h-[360px] mb-6">
+              <img
+                alt="Location"
+                src="/images/qr-location.png"
+                style={{
+                  color: "transparent",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+
+          <p className="text-khmer-title font-normal text-2xl mb-4 text-center">
+              ប្លង់កម្មវិធី
+            </p>
+            <div className="relative w-full h-[360px] mb-6">
+              <img
+                alt="Location"
+                src="/images/location-map.webp"
+                style={{
+                  color: "transparent",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setOpenGoogleMap(false)}
+              className="absolute right-4 top-4 rounded-sm opacity-70
+                        transition-opacity hover:opacity-100 focus:outline-none
+                        focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              aria-label="Close modal"
+            >
+              <IoCloseOutline className="text-2xl" />
+            </button>
+          </div>
+
+        </div>
+      )}
+
+      {/* TODO: For Open QR Code */}
+      {openQr && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          aria-modal="true"
+          role="dialog"
+          aria-labelledby="radix-location-label"
+          aria-describedby="radix-location-desc"
+        >
+          {/* Background Overlay */}
+          <div
+            className="fixed inset-0 bg-neutral-900/80"
+            aria-hidden="true"
+            onClick={() => setOpenQrCode(false)} // close on clicking overlay
+          />
+
+          {/* Modal content */}
+          <div
+            ref={modalRef}
+            className="relative z-60 max-w-md w-full max-h-[80vh] bg-white rounded-lg p-6 shadow-lg animate-fadeIn"
+            tabIndex={-1}>
+            {/* QR Code កូនកំលោះ */}
+            <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
+              QR Code ABA កូនកំលោះ
+            </p>
+
+            <div className="flex justify-center items-center gap-6">
+              <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
+                <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
+                <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
+                <span className="absolute top-0 right-0 h-full w-[4px] bg-gradient-to-b from-transparent to-white animate-border-right delay-[0.25s]"></span>
+                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
+                <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
+                <img
+                  src="/images/tokata-usd.png"
+                  alt="QR Code"
+                  className="relative z-20 w-full h-full object-contain rounded-[16px]"
+                />
+              </div>
+
+              <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
+                <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
+                <span className="absolute top-0 right-0 h-full w-[4px] from-transparent to-white animate-border-right delay-[0.25s]"></span>
+                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
+                <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
+                <img
+                  src="/images/tokata-kh.png"
+                  alt="QR Code"
+                  className="relative z-20 w-full h-full object-contain rounded-[16px]"
+                />
+              </div>
+            </div>
+            {/* QR Code កូនក្រមំ */}
+             <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
+              QR Code ABA កូនក្រមំ
+            </p>
+            <div className="flex justify-center items-center gap-6">
+              <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
+                <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
+                <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
+                <span className="absolute top-0 right-0 h-full w-[4px] bg-gradient-to-b from-transparent to-white animate-border-right delay-[0.25s]"></span>
+                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
+                <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
+                <img
+                  src="/images/tokata-usd.png"
+                  alt="QR Code"
+                  className="relative z-20 w-full h-full object-contain rounded-[16px]"
+                />
+              </div>
+
+              <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
+                <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
+                <span className="absolute top-0 right-0 h-full w-[4px] from-transparent to-white animate-border-right delay-[0.25s]"></span>
+                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
+                <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
+                <img
+                  src="/images/tokata-kh.png"
+                  alt="QR Code"
+                  className="relative z-20 w-full h-full object-contain rounded-[16px]"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setOpenQrCode(false)}
+              className="absolute right-4 top-4 rounded-sm opacity-70
+                        transition-opacity hover:opacity-100 focus:outline-none
+                        focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+              aria-label="Close modal"
+            >
+              <IoCloseOutline className="text-2xl" />
+            </button>
+          </div>
+
+        </div>
+      )}
+
     </div>
   );
 };
