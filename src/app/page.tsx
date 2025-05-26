@@ -3,7 +3,6 @@
 
 import { LandingPage } from "@/components/LandingPage";
 import LoadingOverlay from "@/components/LoadingOverlay";
-import Slider from "@/components/Slider";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -23,15 +22,15 @@ export default function Home() {
   return (
     <main>
       {/* 1. Show Landing Page initially */}
-      {!showOverlay && !showRadio && (
+      <LandingPage />
+      {/* {!showOverlay && !showRadio && (
         <LandingPage onLogin={() => setShowOverlay(true)} />
-      )}
+      )} */}
 
       {/* 2. Show Overlay while loading */}
-      {showOverlay && (
+      {/* {showOverlay && (
         <LoadingOverlay onBack={() => setShowOverlay(false)} />
-      )}
-      {/* <Slider/> */}
+      )} */}
     </main>
   );
 }

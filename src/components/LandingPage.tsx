@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 type Props = {
   onLogin: () => void;
 };
-
-export const LandingPage = ({ onLogin }: Props) => {
+// export const LandingPage = ({ onLogin }: Props) 
+export const LandingPage = () => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -104,7 +104,8 @@ export const LandingPage = ({ onLogin }: Props) => {
 
           {/* Join button */}
         {/* Animated Join button */}
-        <button  onClick={() => {handleClick();onLogin();}} className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
+        {/* onClick={() => {handleClick();onLogin();}} */}
+        <button  onClick={() => {handleClick();}} className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
           <div className="relative z-30 w-60 animate-zoom-in-out">
             <img
               alt="Click to join"

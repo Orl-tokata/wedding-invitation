@@ -102,266 +102,6 @@ export default function Details(){
   }, [])
 
   return (
-    <>
-    <style jsx global>{`
-        
-        .slider-container {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: min(1000px, 60vw);
-          height: min(606px, 80vh);
-          background: #f5f5f5;
-          box-shadow: 0 30px 50px #dbdbdb;
-          border-radius: 10px;
-          overflow: hidden;
-        }
-
-        .slide {
-          width: 100%;
-          height: 100%;
-          position: relative;
-        }
-
-        .slide .item {
-          width: 200px;
-          height: 300px;
-          position: absolute;
-          top: 50%;
-          transform: translate(0, -50%);
-          border-radius: 20px;
-          box-shadow: 0 30px 50px #505050;
-          background-position: center center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          display: inline-block;
-          transition: 0.5s ease-in-out;
-          overflow: hidden;
-        }
-
-        /* Desktop positioning */
-        @media (min-width: 768px) {
-          .slide .item:nth-child(1) {
-            top: 0;
-            left: 0;
-            transform: translate(0, 0);
-            border-radius: 10px;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            box-shadow: none;
-          }
-
-          .slide .item:nth-child(2) {
-            top: 0;
-            left: 0;
-            transform: translate(0, 0);
-            border-radius: 10px;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            box-shadow: none;
-          }
-
-          .slide .item:nth-child(3) {
-            left: 50%;
-            z-index: 3;
-          }
-
-          .slide .item:nth-child(4) {
-            left: calc(50% + 220px);
-            z-index: 3;
-          }
-
-          .slide .item:nth-child(5) {
-            left: calc(50% + 440px);
-            z-index: 3;
-          }
-
-          .slide .item:nth-child(n + 6) {
-            left: calc(50% + 660px);
-            opacity: 0;
-            z-index: 3;
-          }
-
-          /* Ensure full images on desktop main slides */
-          .slide .item:nth-child(1),
-          .slide .item:nth-child(2) {
-            background-size: cover;
-            background-position: center center;
-          }
-        }
-
-        /* Mobile positioning - Show 1 large + 2 small */
-        @media (max-width: 767px) {
-          .slider-container {
-            height: 70vh;
-            min-height: 450px;
-          }
-
-          .slide .item {
-            border-radius: 15px;
-            transition: 0.5s ease-in-out;
-          }
-
-          /* Main large image (first item) */
-          .slide .item:nth-child(1) {
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            height: 60%;
-            border-radius: 20px;
-            z-index: 10;
-            background-size: cover;
-            background-position: center center;
-          }
-
-          /* First small preview (second item) */
-          .slide .item:nth-child(2) {
-            bottom: 80px;
-            left: 10%;
-            top: auto;
-            transform: translateX(0);
-            width: 35%;
-            height: 25%;
-            z-index: 5;
-            opacity: 0.8;
-            background-size: cover;
-            background-position: center center;
-          }
-
-          /* Second small preview (third item) */
-          .slide .item:nth-child(3) {
-            bottom: 80px;
-            right: 10%;
-            top: auto;
-            left: auto;
-            transform: translateX(0);
-            width: 35%;
-            height: 25%;
-            z-index: 5;
-            opacity: 0.8;
-            background-size: cover;
-            background-position: center center;
-          }
-
-          /* Hide remaining items on mobile */
-          .slide .item:nth-child(n + 4) {
-            opacity: 0;
-            pointer-events: none;
-            transform: translateX(100%);
-          }
-        }
-
-        .button-container {
-          width: 100%;
-          text-align: center;
-          position: absolute;
-          bottom: 20px;
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          z-index: 50;
-        }
-
-        .button-container button {
-          width: 40px;
-          height: 35px;
-          border-radius: 8px;
-          border: 1px solid #ffffff;
-          cursor: pointer;
-          background: rgba(255, 255, 255, 0.2);
-          backdrop-filter: blur(10px);
-          transition: 0.3s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-        }
-
-        .button-container button:hover {
-          background: rgba(171, 171, 171, 0.8);
-          transform: scale(1.1);
-        }
-
-        .button-container button:active {
-          transform: scale(0.95);
-        }
-
-        /* Mobile button styling */
-        @media (max-width: 767px) {
-          .button-container {
-            bottom: 10px;
-          }
-
-          .button-container button {
-            width: 45px;
-            height: 40px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-          }
-
-          .button-container button:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: scale(1.05);
-          }
-
-          /* Add tap highlights for small previews */
-          .slide .item:nth-child(2),
-          .slide .item:nth-child(3) {
-            cursor: pointer;
-            transition: all 0.3s ease;
-          }
-
-          .slide .item:nth-child(2):active,
-          .slide .item:nth-child(3):active {
-            transform: translateX(0) scale(0.95);
-            opacity: 1;
-          }
-        }
-
-        /* Touch-friendly interactions */
-        @media (hover: none) and (pointer: coarse) {
-          .button-container button:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: none;
-          }
-        }
-
-        /* Additional fixes for image display */
-        .slide .item::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: inherit;
-          background-size: cover;
-          background-position: center center;
-          background-repeat: no-repeat;
-          z-index: -1;
-        }
-
-        /* Ensure proper aspect ratio maintenance */
-        @media (min-width: 768px) {
-          .slide .item:nth-child(1),
-          .slide .item:nth-child(2) {
-            object-fit: cover;
-          }
-        }
-
-        @media (max-width: 767px) {
-          .slide .item:nth-child(1),
-          .slide .item:nth-child(2),
-          .slide .item:nth-child(3) {
-            object-fit: cover;
-          }
-        }
-      `}</style>
-
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
 
       {/* TODO: For music */}
@@ -396,16 +136,20 @@ export default function Details(){
         <div className="absolute xs:w-52 w-44 bottom-0 left-0 z-30">
           <img src="/images/flower-frame.webp" alt="" className="w-full h-full object-cover" />
         </div>
+
+        {/* Home button (Green) */}
         <a href="/">
           <div className="absolute bottom-14 left-2 z-50 flex items-center justify-center">
-            <button className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-              <FaHome className="text-blue-500 text-xl" />
+            <button className="btn-scale bg-white shadow-lg h-12 w-12 rounded-full flex items-center justify-center text-green-500">
+              <FaHome className="text-xl" />
             </button>
           </div>
         </a>
+
+        {/* Map button (Blue) */}
         <div className="fixed bottom-2 left-14 z-50 flex items-center justify-center">
-          <button  onClick={() => setOpenGoogleMap(true)} className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-            <FaMapMarkedAlt className="text-blue-500 text-xl" />
+          <button onClick={() => setOpenGoogleMap(true)} className="btn-scale bg-white shadow-lg h-12 w-12 rounded-full flex items-center justify-center text-blue-500">
+            <FaMapMarkedAlt className="text-xl" />
           </button>
         </div>
       </div>
@@ -415,14 +159,18 @@ export default function Details(){
         <div className="absolute xs:w-52 w-44 bottom-0 right-0 z-30">
           <img src="/images/flower-frame.webp" alt="" className="w-full h-full object-cover" style={{ transform: 'scaleX(-1)' }} />
         </div>
+
+        {/* QR Code button (Purple) */}
         <div className="fixed bottom-14 right-2 z-50 flex items-center justify-center">
-          <button  onClick={() => setOpenQrCode(true)} className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-            <MdQrCode2 className="text-blue-500 text-xl" />
+          <button onClick={() => setOpenQrCode(true)} className="btn-scale bg-white shadow-lg h-12 w-12 rounded-full flex items-center justify-center text-purple-500">
+            <MdQrCode2 className="text-xl" />
           </button>
         </div>
+
+        {/* Image viewer button (Pink) */}
         <div className="fixed bottom-2 right-14 z-50 flex items-center justify-center">
-          <button onClick={() => setOpenImage(true)}  className="btn-scale bg-white shadow-lg shadow-blue-100 h-12 w-12 rounded-full flex items-center justify-center">
-            <FaImage className="text-blue-500 text-xl" />
+          <button onClick={() => setOpenImage(true)} className="btn-scale bg-white shadow-lg h-12 w-12 rounded-full flex items-center justify-center text-pink-500">
+            <FaImage className="text-xl" />
           </button>
         </div>
       </div>
@@ -671,7 +419,7 @@ export default function Details(){
         </section> */}
 
          <section className="my-16 flex items-center flex-col w-full gap-10">
-            <h1 className="text-khmer-body text-2xl __className_f1a86b">
+            <h1 className="text-khmer-body text-2xl ">
               គណនី <span className="font-bold">ABA</span>
             </h1>
 
@@ -738,8 +486,13 @@ export default function Details(){
           {/* Text & Go Back Button */}
           <div className="flex flex-col items-center gap-16">
             <div className="grid grid-cols-1 gap-2 place-items-center">
-              <p className="text-2xl text-khmer-title __className_f1a86b">សូមសំណាងល្អ</p>
-              <p className="text-4xl text-khmer-title-bold __className_f1a86b">សូមអរគុណ!</p>
+              {/* <p className="text-2xl text-khmer-title ">សូមសំណាងល្អ</p> */}
+              {/* <p className="text-4xl text-khmer-title-bold ">សូមអរគុណ!</p> */}
+              <div className="wave-container">
+                <h1 className="wave-text text-4xl text-khmer-title-bold">
+                    <span>សូ</span><span>ម</span><span>អ</span><span>រ</span><span>គុ</span><span>ណ</span>
+                </h1>
+            </div>
             </div>
             <a href="/">
               <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
@@ -979,10 +732,10 @@ export default function Details(){
             </div>
                 <div className="button-container">
                   <button className="prev" onClick={handlePrev} aria-label="Previous slide">
-                    <FaLongArrowAltLeft />
+                    <FaLongArrowAltLeft className=" sm:xl xs:xl"/>
                   </button>
                   <button className="next" onClick={handleNext} aria-label="Next slide">
-                    <FaLongArrowAltRight />
+                    <FaLongArrowAltRight className=" sm:xl xs:xl"/>
                   </button>
                 </div>
                 <button
@@ -997,6 +750,5 @@ export default function Details(){
         )}
 
     </div>
-  </>
   );
 };
