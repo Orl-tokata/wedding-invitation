@@ -7,11 +7,11 @@ import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
 
 const slides = [
-  { image: '/images/img1.jpg'},
-  { image: '/images/img2.jpg'},
-  { image: '/images/img3.jpg'},
-  { image: '/images/img4.jpg'},
-  { image: '/images/img5.jpg'},
+  { image: '/images/img1.JPG'},
+  { image: '/images/img2.JPG'},
+  { image: '/images/img3.JPG'},
+  { image: '/images/img4.JPG'},
+  { image: '/images/img5.JPG'},
 ]
 
 export default function Details(){
