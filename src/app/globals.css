@@ -373,6 +373,12 @@
 
 /* Desktop positioning */
 @media (min-width: 768px) {
+  .slider-container {
+    width: 75vh;
+    height: 90vh;
+    min-height: 450px;
+  }
+
   .slide .item:nth-child(1) {
     top: 0;
     left: 0;
@@ -427,8 +433,9 @@
 /* Mobile positioning - Show 1 large + 2 small */
 @media (max-width: 767px) {
   .slider-container {
-    height: 70vh;
+    height: 80vh;
     min-height: 450px;
+    width: 50vh;
   }
 
   .slide .item {

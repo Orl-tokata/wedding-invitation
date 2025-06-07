@@ -7,11 +7,11 @@ import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
 
 const slides = [
-  { image: '/images/img1.JPG'},
-  { image: '/images/img2.JPG'},
-  { image: '/images/img3.JPG'},
-  { image: '/images/img4.JPG'},
-  { image: '/images/img5.JPG'},
+  { image: '/images/img1.png'},
+  { image: '/images/img2.png'},
+  { image: '/images/img3.png'},
+  { image: '/images/img4.png'},
+  { image: '/images/img5.png'},
 ]
 
 export default function Details(){
@@ -194,16 +194,27 @@ export default function Details(){
 
       {/* Main content */}
       <div className="flex z-10 items-center flex-col pt-10 gap-4">
-        <div className="relative w-[80%]">
+        {/* <div className="relative w-[80%]">
           <img alt="" loading="lazy" src="/images/wedding-title.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div>
+        </div> */}
+<div className="sticky top-0 z-50 bg-white w-[80%] mx-auto">
+  <img
+    alt=""
+    loading="lazy"
+    src="/images/wedding-title.webp"
+    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+  />
+</div>
 
 
         {/* Couple section */}
         <section className="w-full flex flex-col items-center relative">
-          <div className="w-24 relative top-6">
+          {/* <div className="w-24 relative top-6">
             <img alt="" loading="lazy" src="/images/name-initial.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div>
+          </div> */}
+          <div className="w-32 relative top-6">
+            <img alt="" loading="lazy" src="/images/hear-wedding.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div> 
           <div className="flex justify-between w-full px-14">
             <div className="flex flex-col gap-2">
               <p className="text-khmer">កូនប្រុស</p>
