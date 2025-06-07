@@ -36,11 +36,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'KhmerOSMoulpali';
+  src: url('/fonts/KhmerOSMoulpali.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .text-khmer-title{
     font-family: 'AKbalthom Freehand [Version 1.50] 082014', sans-serif;
     color: #8e7e78
 }
-
+.text-khmer-date{
+  font-family: 'KhmerOSMoulpali', sans-serif;
+}
 .text-khmer-title-bold{
   font-family: 'KhmerOSApsra', sans-serif;
 }
@@ -58,11 +67,15 @@
     font-family: 'KHMMOOL', sans-serif;
     color: #8e7e78
 }
+
 .text-khmer-arrow-down{
     font-family: 'Battambang-Regular', sans-serif;
     color: #ffffff
 }
 
+.text-khmer-title-date{
+  font-family: 'Battambang-Regular', sans-serif;
+}
 @keyframes rotateFlower {
   0% {
     transform: translateX(0) rotate(0deg);

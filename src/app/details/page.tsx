@@ -105,12 +105,12 @@ export default function Details(){
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
 
       {/* TODO: For music */}
-      <audio
+      {/* <audio
         ref={audioRef}
         src="/music/music-wedding.weba"
         preload="auto"
         hidden // 👈 hide the audio player
-      />
+      /> */}
       {/* <div className="flex flex-col items-center gap-4 p-4">
         <audio ref={audioRef} src="/music/music-wedding.weba" preload="auto" hidden />
         <div className="flex gap-2">
@@ -316,7 +316,8 @@ export default function Details(){
               loading="lazy"
               width="1066"
               height="1186"
-              src="/images/location-map.webp"
+              // src="/images/location-map.webp"
+              src="/images/map-wedding.jpg"
               className="w-full h-full object-cover"
             />
           </div>
@@ -592,10 +593,11 @@ export default function Details(){
           <p className="text-khmer-title font-normal text-2xl mb-4 text-center">
               ប្លង់កម្មវិធី
             </p>
-            <div className="relative w-full h-[360px] mb-6">
+            <div className="relative w-full h-[500px] mb-6">
               <img
                 alt="Location"
-                src="/images/location-map.webp"
+                //src="/images/location-map.webp"
+                src="/images/map-wedding.jpg"
                 style={{
                   color: "transparent",
                   width: "100%",

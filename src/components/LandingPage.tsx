@@ -92,13 +92,14 @@ export const LandingPage = () => {
             <img
               alt="Name Initial"
               loading="lazy"
-              src="/images//name-initial.webp"
+              // src="/images//name-initial.webp"
+              src="/images/flower-wedding1.png"
               className="w-full h-full object-cover"
             />
           </div>
 
           {/* Khmer invite text */}
-          <h1 className="text-xl text-khmer-title max-w-[200px] text-center leading-[2rem]">
+          <h1 className="text-xl text-khmer-date max-w-[200px] text-center leading-[2rem]"  style={{color:'#8e7e78'}}>
             សូមគោរពអញ្ជើញជាភ្ញៀវកិត្តិយស
           </h1>
 
@@ -116,7 +117,7 @@ export const LandingPage = () => {
           </div>
         </button>
           {/* Date and location */}
-          <h2 className="text-khmer-title-bold text-lg ">
+          <h2 className="text-khmer-date text-lg ">
             ថ្ងៃសៅរ៍ ទី១១ ខែមេសា ឆ្នាំ២០២៥
           </h2>
 
