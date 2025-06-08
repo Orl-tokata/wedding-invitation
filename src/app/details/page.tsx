@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { BsFlower2 } from "react-icons/bs";
-import { FaHome, FaImage, FaLongArrowAltLeft, FaLongArrowAltRight, FaMapMarkedAlt } from "react-icons/fa";
+import { FaHome, FaImage, FaLongArrowAltLeft, FaLongArrowAltRight, FaMapMarkedAlt, FaPause, FaPlay } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
 
@@ -101,23 +101,383 @@ export default function Details(){
     return () => clearInterval(interval)
   }, [])
 
+  // const audioRef = useRef<HTMLAudioElement>(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const [currentTime, setCurrentTime] = useState(0);
+  // const [duration, setDuration] = useState(0);
+
+  // useEffect(() => {
+  //   const audio = audioRef.current;
+  //   if (!audio) return;
+
+  //   const handleLoadedMetadata = () => setDuration(audio.duration);
+  //   const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+  //   const handlePlay = () => setIsPlaying(true);
+  //   const handlePause = () => setIsPlaying(false);
+
+  //   audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+  //   audio.addEventListener('timeupdate', handleTimeUpdate);
+  //   audio.addEventListener('play', handlePlay);
+  //   audio.addEventListener('pause', handlePause);
+
+  //   return () => {
+  //     audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+  //     audio.removeEventListener('timeupdate', handleTimeUpdate);
+  //     audio.removeEventListener('play', handlePlay);
+  //     audio.removeEventListener('pause', handlePause);
+  //   };
+  // }, []);
+
+  // const togglePlay = () => {
+  //   const audio = audioRef.current;
+  //   if (!audio) return;
+
+  //   if (isPlaying) {
+  //     audio.pause();
+  //   } else {
+  //     audio.play();
+  //   }
+  // };
+
+  // const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newTime = parseFloat(e.target.value);
+  //   if (audioRef.current) {
+  //     audioRef.current.currentTime = newTime;
+  //   }
+  //   setCurrentTime(newTime);
+  // };
+
+  // const formatTime = (time: number) => {
+  //   const minutes = Math.floor(time / 60)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   const seconds = Math.floor(time % 60)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   return `${minutes}:${seconds}`;
+  // };
+
+    //const audioRef = useRef<HTMLAudioElement>(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const [currentTime, setCurrentTime] = useState(0);
+  // const [duration, setDuration] = useState(0);
+
+  // // For dragging position
+  // const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  // const dragging = useRef(false);
+  // const dragStart = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  // const offset = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+  // // Center the player on mount
+  // useEffect(() => {
+  //   // Center horizontally and vertically
+  //   const centerX = window.innerWidth / 2;
+  //   const centerY = window.innerHeight / 2;
+  //   setPosition({ x: centerX, y: centerY });
+  // }, []);
+
+  // // Audio event handlers setup
+  // useEffect(() => {
+  //   const audio = audioRef.current;
+  //   if (!audio) return;
+
+  //   const handleLoadedMetadata = () => setDuration(audio.duration);
+  //   const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+  //   const handlePlay = () => setIsPlaying(true);
+  //   const handlePause = () => setIsPlaying(false);
+
+  //   audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+  //   audio.addEventListener('timeupdate', handleTimeUpdate);
+  //   audio.addEventListener('play', handlePlay);
+  //   audio.addEventListener('pause', handlePause);
+
+  //   return () => {
+  //     audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+  //     audio.removeEventListener('timeupdate', handleTimeUpdate);
+  //     audio.removeEventListener('play', handlePlay);
+  //     audio.removeEventListener('pause', handlePause);
+  //   };
+  // }, []);
+
+  // const togglePlay = () => {
+  //   const audio = audioRef.current;
+  //   if (!audio) return;
+
+  //   if (isPlaying) {
+  //     audio.pause();
+  //   } else {
+  //     audio.play();
+  //   }
+  // };
+
+  // const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const newTime = parseFloat(e.target.value);
+  //   if (audioRef.current) {
+  //     audioRef.current.currentTime = newTime;
+  //   }
+  //   setCurrentTime(newTime);
+  // };
+
+  // const formatTime = (time: number) => {
+  //   const minutes = Math.floor(time / 60)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   const seconds = Math.floor(time % 60)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   return `${minutes}:${seconds}`;
+  // };
+
+  // // Drag handlers
+  // const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   dragging.current = true;
+  //   dragStart.current = { x: e.clientX, y: e.clientY };
+  //   offset.current = { x: e.clientX - position.x, y: e.clientY - position.y };
+  //   e.preventDefault();
+  // };
+
+  // const onMouseMove = (e: MouseEvent) => {
+  //   if (!dragging.current) return;
+  //   setPosition({
+  //     x: e.clientX - offset.current.x,
+  //     y: e.clientY - offset.current.y,
+  //   });
+  // };
+
+  // const onMouseUp = () => {
+  //   dragging.current = false;
+  // };
+
+  // // Attach mouse move/up listeners to window for smooth dragging
+  // useEffect(() => {
+  //   window.addEventListener('mousemove', onMouseMove);
+  //   window.addEventListener('mouseup', onMouseUp);
+  //   return () => {
+  //     window.removeEventListener('mousemove', onMouseMove);
+  //     window.removeEventListener('mouseup', onMouseUp);
+  //   };
+  // }, []);
+
+   // const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Draggable logic
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const dragging = useRef(false);
+  const dragStart = useRef({ x: 0, y: 0 });
+  const offset = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    setPosition({ x: centerX, y: centerY });
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleLoadedMetadata = () => setDuration(audio.duration);
+    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('pause', handlePause);
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('pause', handlePause);
+    };
+  }, []);
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+  };
+
+  const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newTime = parseFloat(e.target.value);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+    setCurrentTime(newTime);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60)
+      .toString()
+      .padStart(2, '0');
+    const seconds = Math.floor(time % 60)
+      .toString()
+      .padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  };
+
+  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    dragging.current = true;
+    dragStart.current = { x: e.clientX, y: e.clientY };
+    offset.current = { x: e.clientX - position.x, y: e.clientY - position.y };
+    e.preventDefault();
+  };
+
+  const onMouseMove = (e: MouseEvent) => {
+    if (!dragging.current) return;
+    setPosition({
+      x: e.clientX - offset.current.x,
+      y: e.clientY - offset.current.y,
+    });
+  };
+
+  const onMouseUp = () => {
+    dragging.current = false;
+  };
+
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+    };
+  }, []);
+
   return (
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
 
-      {/* TODO: For music */}
-      {/* <audio
-        ref={audioRef}
-        src="/music/music-wedding.weba"
-        preload="auto"
-        hidden // 👈 hide the audio player
-      /> */}
+    {/* TODO: For music */}
+   <div
+      onMouseDown={onMouseDown}
+      style={{
+        position: 'fixed',
+        top: position.y,
+        left: position.x,
+        transform: 'translate(-50%, -50%)',
+        zIndex: 1000,
+        userSelect: dragging.current ? 'none' : 'auto',
+        cursor: 'grab',
+        //backgroundColor: 'rgba(17, 24, 39, 0.8)',
+        //backdropFilter: 'blur(8px)',
+        backgroundColor: 'rgba(255, 255, 255, 0.05)', // ✅ ពណ៌ស ថ្លាច្រើន
+        backdropFilter: 'blur(12px) saturate(180%)',  // ✅ blur ខ្លាំង + កំណត់ saturation
+        WebkitBackdropFilter: 'blur(12px) saturate(180%)', // ✅ សម្រាប់ Safari
+        padding: '0.5rem 0.5rem',
+        borderRadius: '1rem',
+        width: isOpen ? '18rem' : 'auto',
+        maxWidth: '90vw',
+        color: 'white',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+      }}
+    >
+      {isOpen ? (
+        <>
+          {/* Header */}
+          <div className="flex justify-between items-center mb-1">
+            <div>
+              <div className="text-sm font-semibold truncate text-black">សូរិយា (អេតាស៊ីវិល)</div>
+              <div className="text-xs text-gray-700">Artist</div>
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsOpen(false);
+              }}
+              className="text-white text-lg px-2 hover:text-red-400"
+              aria-label="Close player"
+            >
+              ✖️
+            </button>
+          </div>
+
+          {/* Progress Bar */}
+          <input
+            type="range"
+            min={0}
+            max={duration || 0}
+            step={0.1}
+            value={currentTime}
+            onChange={handleProgressChange}
+            className="w-full accent-green-500 cursor-pointer"
+          />
+
+          {/* Controls */}
+          <div className="flex items-center justify-between text-xs text-gray-600 mt-1">
+            <span>{formatTime(currentTime)}</span>
+
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                togglePlay();
+              }}
+              className="text-black text-xl mx-2 focus:outline-none"
+              aria-label={isPlaying ? 'Pause' : 'Play'}
+            >
+              {isPlaying ? '⏸️' : '▶️'}
+            </button>
+
+            <span>{formatTime(duration)}</span>
+          </div>
+        </>
+      ) : (
+        // Minimized: Show only play/pause icon
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(true);
+          }}
+          className="text-white text-xl"
+          aria-label="Open player"
+        >
+          {isPlaying ? '⏸️' : '▶️'}
+        </button>
+      )}
+
+      {/* Audio element */}
+      <audio ref={audioRef} src="/music/song-soriya.webm" preload="metadata" />
+    </div>
+
+
+      {/* <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-xl shadow-lg bg-white max-w-md mx-auto mt-10">
+            <div className="flex items-center gap-2">
+              <h2 className="text-lg font-semibold text-gray-800">🎵 Wedding Song</h2>
+              <span className="text-gray-500 text-sm">({formatTime(duration)})</span>
+            </div>
+
+            <button
+              onClick={togglePlayPause}
+              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-md focus:outline-none"
+              aria-label={isPlaying ? 'Pause song' : 'Play song'}
+            >
+              {isPlaying ? <FaPause className="text-xl" /> : <FaPlay className="text-xl" />}
+            </button>
+
+            <div className="text-gray-600 text-sm">
+              {formatTime(currentTime)} / {formatTime(duration)}
+            </div>
+
+            <audio ref={audioRef} src="/music/song-soriya.webm" preload="auto" />
+      </div> */}
+
       {/* <div className="flex flex-col items-center gap-4 p-4">
-        <audio ref={audioRef} src="/music/music-wedding.weba" preload="auto" hidden />
+        <audio ref={audioRef} src="/music/song-soriya.webm" preload="auto" hidden />
         <div className="flex gap-2">
           <button onClick={handlePlay} className="px-4 py-2 bg-green-600 text-white rounded">Play</button>
           <button onClick={handlePause} className="px-4 py-2 bg-red-600 text-white rounded">Pause</button>
         </div>
-      </div> */}
+      </div>  */}
     
       {/* Vertical mirrored images left and right */}
       <div className="w-full max-w-[500px] fixed top-48 left-1/2 flex justify-end -translate-x-1/2 z-10 pointer-events-none">
@@ -197,16 +557,14 @@ export default function Details(){
         {/* <div className="relative w-[80%]">
           <img alt="" loading="lazy" src="/images/wedding-title.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div> */}
-<div className="sticky top-0 z-50 bg-white w-[80%] mx-auto">
-  <img
-    alt=""
-    loading="lazy"
-    src="/images/wedding-title.webp"
-    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-  />
-</div>
-
-
+        <div className="sticky top-0 z-50 bg-white w-[80%] mx-auto pt-2">
+          <img
+            alt=""
+            loading="lazy"
+            src="/images/wedding-title.webp"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
         {/* Couple section */}
         <section className="w-full flex flex-col items-center relative">
           {/* <div className="w-24 relative top-6">
@@ -317,7 +675,7 @@ export default function Details(){
               width="1066"
               height="1186"
               // src="/images/location-map.webp"
-              src="/images/map-wedding.jpg"
+              src="/images/google-map.jpg"
               className="w-full h-full object-cover"
             />
           </div>
@@ -597,7 +955,7 @@ export default function Details(){
               <img
                 alt="Location"
                 //src="/images/location-map.webp"
-                src="/images/map-wedding.jpg"
+                src="/images/google-map.jpg"
                 style={{
                   color: "transparent",
                   width: "100%",
