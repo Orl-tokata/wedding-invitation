@@ -5,6 +5,7 @@ import { BsFlower2 } from "react-icons/bs";
 import { FaHome, FaImage, FaLongArrowAltLeft, FaLongArrowAltRight, FaMapMarkedAlt, FaPause, FaPlay } from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
+import { useTranslation } from "@/contexts/LanguageContext";
 
 const slides = [
   { image: '/images/img1.png'},
@@ -21,6 +22,7 @@ export default function Details(){
   const modalRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const playAudio = async () => {
@@ -35,11 +37,11 @@ export default function Details(){
   }, []);
 
   const handlePlay = () => {
-    audioRef.current?.play();
+    //audioRef.current?.play();
   };
 
   const handlePause = () => {
-    audioRef.current?.pause();
+    //audioRef.current?.pause();
   };
 
 
@@ -388,7 +390,7 @@ export default function Details(){
           <div className="flex justify-between items-center mb-1">
             <div>
               <div className="text-sm font-semibold truncate text-black">សូរិយា (អេតាស៊ីវិល)</div>
-              <div className="text-xs text-gray-700">Artist</div>
+              <div className="text-xs text-gray-700">{t.artist}</div>
             </div>
             <button
               onClick={(e) => {
@@ -396,7 +398,7 @@ export default function Details(){
                 setIsOpen(false);
               }}
               className="text-white text-lg px-2 hover:text-red-400"
-              aria-label="Close player"
+              aria-label={t.closePlayer}
             >
               ✖️
             </button>

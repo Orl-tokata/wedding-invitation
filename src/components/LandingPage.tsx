@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTranslation } from "@/contexts/LanguageContext";
 
 type Props = {
   onLogin: () => void;
@@ -8,6 +9,7 @@ type Props = {
 // export const LandingPage = ({ onLogin }: Props) 
 export const LandingPage = () => {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const handleClick = () => {
     router.push('/details');
@@ -98,9 +100,9 @@ export const LandingPage = () => {
             />
           </div>
 
-          {/* Khmer invite text */}
+          {/* Invite text (EN/KH) */}
           <h1 className="text-xl text-khmer-date max-w-[200px] text-center leading-[2rem]"  style={{color:'#8e7e78'}}>
-            សូមគោរពអញ្ជើញជាភ្ញៀវកិត្តិយស
+            {t.inviteLine}
           </h1>
 
           {/* Join button */}
@@ -118,15 +120,13 @@ export const LandingPage = () => {
         </button>
           {/* Date and location */}
           <h2 className="text-khmer-date text-lg ">
-            ថ្ងៃសៅរ៍ ទី១១ ខែមេសា ឆ្នាំ២០២៥
+            {t.date}
           </h2>
 
           <p className="text-sm text-center w-1/2 text-khmer-title-date">
-            វេលាម៉ោង 
-            <span className="font-bold"> ៥ល្ងាច </span>នៅគេហដ្ឋានខាងស្រី 
-            ភូមិឈើទាល ឃុំម្រោម ស្រុកអង្គរជ័យ ខេត្តកំពត
+            <span className="font-bold">{t.timeAt}</span> — {t.location}
             <br />
-            <span className="font-bold">(សូមមើលប្លង់បញ្ជាក់)</span>
+            <span className="font-bold">{t.seeMapNote}</span>
           </p>
         </div>
       </div>
