@@ -7,7 +7,7 @@ export function LanguageSwitcher() {
   const { locale, setLocale } = useTranslation();
 
   return (
-    <div className="flex items-center gap-1.5 rounded-lg border border-[#8e7e78] bg-white/90 shadow-sm p-1 text-sm backdrop-blur-sm">
+    <div className="flex items-center gap-1.5 rounded-lg border border-[#8e7e78] bg-white/90 shadow-sm p-1 text-sm backdrop-blur-sm w-fit shrink-0">
       <IoLanguage className="text-[#8e7e78] text-lg shrink-0" aria-hidden />
       <button
         type="button"

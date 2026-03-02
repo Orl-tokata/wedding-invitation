@@ -25,15 +25,15 @@ export default function Details(){
   const { t } = useTranslation();
 
   useEffect(() => {
-    const playAudio = async () => {
-      try {
-        await audioRef.current?.play();
-      } catch (err) {
-        console.warn("Autoplay failed. User interaction may be required.");
-      }
-    };
+    // const playAudio = async () => {
+    //   try {
+    //     await audioRef.current?.play();
+    //   } catch (err) {
+    //     console.warn("Autoplay failed. User interaction may be required.");
+    //   }
+    // };
 
-    playAudio();
+    // playAudio();
   }, []);
 
   const handlePlay = () => {
@@ -103,163 +103,6 @@ export default function Details(){
     return () => clearInterval(interval)
   }, [])
 
-  // const audioRef = useRef<HTMLAudioElement>(null);
-  // const [isPlaying, setIsPlaying] = useState(false);
-  // const [currentTime, setCurrentTime] = useState(0);
-  // const [duration, setDuration] = useState(0);
-
-  // useEffect(() => {
-  //   const audio = audioRef.current;
-  //   if (!audio) return;
-
-  //   const handleLoadedMetadata = () => setDuration(audio.duration);
-  //   const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-  //   const handlePlay = () => setIsPlaying(true);
-  //   const handlePause = () => setIsPlaying(false);
-
-  //   audio.addEventListener('loadedmetadata', handleLoadedMetadata);
-  //   audio.addEventListener('timeupdate', handleTimeUpdate);
-  //   audio.addEventListener('play', handlePlay);
-  //   audio.addEventListener('pause', handlePause);
-
-  //   return () => {
-  //     audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
-  //     audio.removeEventListener('timeupdate', handleTimeUpdate);
-  //     audio.removeEventListener('play', handlePlay);
-  //     audio.removeEventListener('pause', handlePause);
-  //   };
-  // }, []);
-
-  // const togglePlay = () => {
-  //   const audio = audioRef.current;
-  //   if (!audio) return;
-
-  //   if (isPlaying) {
-  //     audio.pause();
-  //   } else {
-  //     audio.play();
-  //   }
-  // };
-
-  // const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newTime = parseFloat(e.target.value);
-  //   if (audioRef.current) {
-  //     audioRef.current.currentTime = newTime;
-  //   }
-  //   setCurrentTime(newTime);
-  // };
-
-  // const formatTime = (time: number) => {
-  //   const minutes = Math.floor(time / 60)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   const seconds = Math.floor(time % 60)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   return `${minutes}:${seconds}`;
-  // };
-
-    //const audioRef = useRef<HTMLAudioElement>(null);
-  // const [isPlaying, setIsPlaying] = useState(false);
-  // const [currentTime, setCurrentTime] = useState(0);
-  // const [duration, setDuration] = useState(0);
-
-  // // For dragging position
-  // const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  // const dragging = useRef(false);
-  // const dragStart = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-  // const offset = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-
-  // // Center the player on mount
-  // useEffect(() => {
-  //   // Center horizontally and vertically
-  //   const centerX = window.innerWidth / 2;
-  //   const centerY = window.innerHeight / 2;
-  //   setPosition({ x: centerX, y: centerY });
-  // }, []);
-
-  // // Audio event handlers setup
-  // useEffect(() => {
-  //   const audio = audioRef.current;
-  //   if (!audio) return;
-
-  //   const handleLoadedMetadata = () => setDuration(audio.duration);
-  //   const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
-  //   const handlePlay = () => setIsPlaying(true);
-  //   const handlePause = () => setIsPlaying(false);
-
-  //   audio.addEventListener('loadedmetadata', handleLoadedMetadata);
-  //   audio.addEventListener('timeupdate', handleTimeUpdate);
-  //   audio.addEventListener('play', handlePlay);
-  //   audio.addEventListener('pause', handlePause);
-
-  //   return () => {
-  //     audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
-  //     audio.removeEventListener('timeupdate', handleTimeUpdate);
-  //     audio.removeEventListener('play', handlePlay);
-  //     audio.removeEventListener('pause', handlePause);
-  //   };
-  // }, []);
-
-  // const togglePlay = () => {
-  //   const audio = audioRef.current;
-  //   if (!audio) return;
-
-  //   if (isPlaying) {
-  //     audio.pause();
-  //   } else {
-  //     audio.play();
-  //   }
-  // };
-
-  // const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newTime = parseFloat(e.target.value);
-  //   if (audioRef.current) {
-  //     audioRef.current.currentTime = newTime;
-  //   }
-  //   setCurrentTime(newTime);
-  // };
-
-  // const formatTime = (time: number) => {
-  //   const minutes = Math.floor(time / 60)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   const seconds = Math.floor(time % 60)
-  //     .toString()
-  //     .padStart(2, '0');
-  //   return `${minutes}:${seconds}`;
-  // };
-
-  // // Drag handlers
-  // const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   dragging.current = true;
-  //   dragStart.current = { x: e.clientX, y: e.clientY };
-  //   offset.current = { x: e.clientX - position.x, y: e.clientY - position.y };
-  //   e.preventDefault();
-  // };
-
-  // const onMouseMove = (e: MouseEvent) => {
-  //   if (!dragging.current) return;
-  //   setPosition({
-  //     x: e.clientX - offset.current.x,
-  //     y: e.clientY - offset.current.y,
-  //   });
-  // };
-
-  // const onMouseUp = () => {
-  //   dragging.current = false;
-  // };
-
-  // // Attach mouse move/up listeners to window for smooth dragging
-  // useEffect(() => {
-  //   window.addEventListener('mousemove', onMouseMove);
-  //   window.addEventListener('mouseup', onMouseUp);
-  //   return () => {
-  //     window.removeEventListener('mousemove', onMouseMove);
-  //     window.removeEventListener('mouseup', onMouseUp);
-  //   };
-  // }, []);
-
    // const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -301,14 +144,14 @@ export default function Details(){
   }, []);
 
   const togglePlay = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    // const audio = audioRef.current;
+    // if (!audio) return;
 
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
+    // if (isPlaying) {
+    //   audio.pause();
+    // } else {
+    //   audio.play();
+    // }
   };
 
   const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -540,7 +383,7 @@ export default function Details(){
       {/* Overlay loading screen */}
       <div className="bg-neutral-900/40 fixed top-0 left-0 h-full w-full flex-col z-[100] flex justify-center items-center animate-fade-out-delay">
         <MdOutlineKeyboardDoubleArrowDown className="text-white text-4xl animate-bounce"/>
-        <p className="text-khmer-arrow-down">អូសចុះក្រោម</p>
+        <p className="text-khmer-arrow-down">{t.swipeDown}</p>
       </div> 
 
 
@@ -559,7 +402,8 @@ export default function Details(){
         {/* <div className="relative w-[80%]">
           <img alt="" loading="lazy" src="/images/wedding-title.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div> */}
-        <div className="sticky top-0 z-50 bg-white w-[80%] mx-auto pt-2">
+        {/* </div><div className="sticky top-0 z-50 bg-white w-[80%] mx-auto pt-2"> */}
+        <div className=" z-50 bg-white w-[80%] mx-auto pt-2">
           <img
             alt=""
             loading="lazy"
@@ -577,12 +421,12 @@ export default function Details(){
           </div> 
           <div className="flex justify-between w-full px-14">
             <div className="flex flex-col gap-2">
-              <p className="text-khmer">កូនប្រុស</p>
-              <p className="text-khmer-body">អុល តុក្កតា</p>
+              <p className="text-khmer">{t.groom}</p>
+              <p className="text-khmer-body">{t.groomName}</p>
             </div>
             <div className="flex flex-col gap-2 items-end">
-              <p className="text-khmer">កូនស្រី</p>
-              <p className="text-khmer-body">ភិន ផានូ</p>
+              <p className="text-khmer">{t.bride}</p>
+              <p className="text-khmer-body">{t.brideName}</p>
             </div>
           </div>
         </section>
@@ -592,20 +436,20 @@ export default function Details(){
           {/* Left block */}
           <div className="flex flex-col gap-2 items-start">
             <p className="text-khmer">
-              លោក<span className="text-khmer-body"> ប៊ិន​ អុល</span>
+              {t.mr}<span className="text-khmer-body">{t.groomFatherName}</span>
             </p>
             <p className="text-khmer">
-              អ្នកស្រី<span className="text-khmer-body"> រស់ ផល</span>
+              {t.mrs}<span className="text-khmer-body">{t.groomMotherName}</span>
             </p>
           </div>
 
           {/* Right block */}
           <div className="flex flex-col gap-2 items-end text-right">
             <p className="text-khmer">
-              លោក<span className="text-khmer-body"> ភិន ផាន</span>
+              {t.mr}<span className="text-khmer-body"> {t.brideFatherName}</span>
             </p>
             <p className="text-khmer">
-              អ្នកស្រី<span className="text-khmer-body"> ម៉ែន វួន</span>
+              {t.mrs}<span className="text-khmer-body"> {t.brideMotherName}</span>
             </p>
           </div>
         </section>
@@ -623,21 +467,13 @@ export default function Details(){
             />
           </div>
 
-          <h1 className="text-khmer-body text-2xl">សូមគោរពអញ្ជើញ</h1>
+          <h1 className="text-khmer-body text-2xl">{t.weInviteYou}</h1>
 
           <p className="px-16 text-center text-sm text-khmer leading-6">
-            ឯកឧត្តម លោកឧកញ៉ា លោកជំទាវ លោក លោកស្រី អ្នកនាង កញ្ញា និងប្រិយមិត្ត ចូលរួមជាភ្ញៀវកិត្តិយស ក្នុង
-            <span className="font-bold"> ពិធីរៀបអាពាហ៍ពិពាហ៍ </span>
-            កូនប្រុស-ស្រី របស់យើងខ្ញុំនិងប្រសិទ្ធិពរជ័យ សិរីមង្គល បវរប្រសើរ ដល់គូស្វាមីភរិយាថ្មី ពិសាភោជនាហារ ប្រព្រឹត្តទៅនៅថ្ងៃ១២កើត ខែមាឃ ឆ្នាំរោង ឆស័ក ព.ស.២៥៦៩ ត្រូវនឹង
-            <span className="font-bold">
-              {" "}
-              ថ្ងៃសៅរ័ ទី១១ ខែមេសា ឆ្នាំ២០២៦ វេលាម៉ោង ៥ល្ងាច នៅគេហដ្ឋានខាងស្រី 
-            ភូមិឈើទាល ឃុំម្រោម ស្រុកអង្គរជ័យ ខេត្តកំពត{" "}
-            </span>
-            ដោយមេត្រីភាព។ (សូមមើលប្លង់បញ្ជាក់)
+            {t.inviteParagraph}
           </p>
 
-          <p className="mt-6 text-sm text-khmer-body">សូមសំណាងល្អ សូមអរគុណ!</p>
+          <p className="mt-6 text-sm text-khmer-body">{t.thankYou}</p>
 
           <div className="flex gap-4">
             <div className="relative w-4 h-auto">
@@ -669,7 +505,7 @@ export default function Details(){
         </section>
 
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-body text-2xl">ប្លង់កម្មវិធី</h1>
+          <h1 className="text-khmer-body text-2xl">{t.programMap}</h1>
           <div className="relative w-[70%]">
             <img
               alt="Location Map"
@@ -682,75 +518,29 @@ export default function Details(){
             />
           </div>
         </section>
-      <section className="flex flex-col items-center w-full gap-4">
-        <h1 className="text-khmer-body text-xl">ទំនាក់ទំនងទូរស័ព្ទ</h1>
-        {/* Name + phone row: make always horizontal */}
-        <div className="flex flex-row justify-between w-full px-14 sm:px-16 gap-4">
-          {/* Left block */}
-          <div className="flex flex-col gap-2 items-start">
-            <p className="text-khmer">
-              កូនប្រុស <span className="text-khmer-body">អុល តុក្កតា</span>
-            </p>
-            <p className="font-bold text-khmer-title-bold text-xl">010785306</p>
-          </div>
-
-          {/* Right block */}
-          <div className="flex flex-col gap-2 items-end text-right">
-            <p className="text-khmer">
-              កូនស្រី <span className="text-khmer-body">ភិន ផានូ</span>
-            </p>
-            <p className="font-bold text-khmer-title-bold text-xl">0972352572</p>
-          </div>
-        </div>
-
-        {/* Decoration */}
-        <div className="flex gap-4 items-center">
-          <div className="relative w-4 h-4">
-            <img
-              alt="decoration"
-              loading="lazy"
-              width="48"
-              height="46"
-              src="/images/small-embroidery-2.webp"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <div className="size-4 rounded-full bg-primary-foreground flex justify-center items-center animate-scale-bounce">
-            <BsFlower2 />
-          </div>
-
-          <div className="relative w-4 h-4">
-            <img
-              alt="decoration"
-              loading="lazy"
-              width="48"
-              height="46"
-              src="/images/small-embroidery-2.webp"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-        {/* <section className="flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-body text-xl">ទំនាក់ទំនងទូរស័ព្ទ</h1>
-          <div className="flex flex-col sm:flex-row xs:flex-row justify-between w-full px-16 gap-2">
-            <div className="flex flex-col gap-2">
+        <section className="flex flex-col items-center w-full gap-4">
+          <h1 className="text-khmer-body text-xl">{t.contactPhone}</h1>
+          {/* Name + phone row: make always horizontal */}
+          <div className="flex flex-row justify-between w-full px-14 sm:px-16 gap-4">
+            {/* Left block */}
+            <div className="flex flex-col gap-2 items-start">
               <p className="text-khmer">
-                កូនប្រុស <span className="text-khmer-body">អុល តុក្កតា</span>
+                {t.groom} <span className="text-khmer-body">{t.groomName}</span>
               </p>
               <p className="font-bold text-khmer-title-bold text-xl">010785306</p>
             </div>
 
-            <div className="flex flex-col gap-2 sm:items-end">
+            {/* Right block */}
+            <div className="flex flex-col gap-2 items-end text-right">
               <p className="text-khmer">
-                កូនស្រី <span className="text-khmer-body">ភិន ផានូ</span>
+                {t.bride} <span className="text-khmer-body">{t.brideName}</span>
               </p>
               <p className="font-bold text-khmer-title-bold text-xl">0972352572</p>
             </div>
           </div>
-          <div className="flex gap-4">
+
+          {/* Decoration */}
+          <div className="flex gap-4 items-center">
             <div className="relative w-4 h-4">
               <img
                 alt="decoration"
@@ -763,18 +553,7 @@ export default function Details(){
             </div>
 
             <div className="size-4 rounded-full bg-primary-foreground flex justify-center items-center animate-scale-bounce">
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 512 512"
-                className="text-white"
-                height="12"
-                width="12"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-              </svg>
+              <BsFlower2 />
             </div>
 
             <div className="relative w-4 h-4">
@@ -788,11 +567,11 @@ export default function Details(){
               />
             </div>
           </div>
-        </section> */}
+        </section>
 
-         <section className="my-16 flex items-center flex-col w-full gap-10">
+        <section className="my-16 flex items-center flex-col w-full gap-10">
             <h1 className="text-khmer-body text-2xl ">
-              គណនី <span className="font-bold">ABA</span>
+              {t.abaAccount}
             </h1>
 
             {/* USD Account */}
@@ -819,7 +598,7 @@ export default function Details(){
                 </div>
               </div>
 
-              <p className="text-khmer-title __className_951876">គណនីប្រាក់ដុល្លារ</p>
+              <p className="text-khmer-title __className_951876">{t.usdAccount}</p>
               <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
               <p className="font-bold text-xl text-khmer-title-bold">004327824</p>
             </div>
@@ -847,66 +626,66 @@ export default function Details(){
                 </div>
               </div>
 
-              <p className="text-khmer-title __className_951876">គណនីប្រាក់រៀល</p>
+              <p className="text-khmer-title __className_951876">{t.khrAccount}</p>
               <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
               <p className="font-bold text-xl text-khmer-title-bold">501084362</p>
             </div>
 
           </section>
 
-        <footer className="w-full grid grid-cols-1 place-items-center gap-16">
-          {/* Text & Go Back Button */}
-          <div className="flex flex-col items-center gap-16">
-            <div className="grid grid-cols-1 gap-2 place-items-center">
-              {/* <p className="text-2xl text-khmer-title ">សូមសំណាងល្អ</p> */}
-              {/* <p className="text-4xl text-khmer-title-bold ">សូមអរគុណ!</p> */}
-              <div className="wave-container">
-                <h1 className="wave-text text-4xl text-khmer-title-bold">
-                    <span>សូ</span><span>ម</span><span>អ</span><span>រ</span><span>គុ</span><span>ណ</span>
-                </h1>
+          <footer className="w-full grid grid-cols-1 place-items-center gap-16">
+            {/* Text & Go Back Button */}
+            <div className="flex flex-col items-center gap-16">
+              {/* <div className="grid grid-cols-1 gap-2 place-items-center">
+                <div className="wave-container">
+                  <h1 className="wave-text text-4xl text-khmer-title-bold">
+                    {t.thankYou.split('').map((char, i) => (
+                      <span key={i}>{char}</span>
+                    ))}
+                  </h1>
+              </div>
+              </div> */}
+              <a href="/">
+                <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
+                    <div className="relative z-30 w-60 animate-zoom-in-out">
+                      <img
+                        alt="Click to join"
+                        loading="lazy"
+                        src="/images/go-back-button.webp"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </button>
+              </a>
             </div>
+
+            {/* Middle Image */}
+            <div className="relative w-[80%]">
+              <img
+                alt=""
+                loading="lazy"
+                width="883"
+                height="313"
+                decoding="async"
+                data-nimg="1"
+                sizes="(max-width: 1250px) 100vw, 1250px"
+                src="/images/save-the-date.png"
+                style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
-            <a href="/">
-              <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
-                  <div className="relative z-30 w-60 animate-zoom-in-out">
-                    <img
-                      alt="Click to join"
-                      loading="lazy"
-                      src="/images/go-back-button.webp"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </button>
-            </a>
-          </div>
 
-          {/* Middle Image */}
-          <div className="relative w-[80%]">
-            <img
-              alt=""
-              loading="lazy"
-              width="883"
-              height="313"
-              decoding="async"
-              data-nimg="1"
-              sizes="(max-width: 1250px) 100vw, 1250px"
-              src="/images/save-the-date.png"
-              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </div>
-
-          {/* Bottom Full-width Image */}
-          <div className="relative w-full z-20">
-            <img
-              alt=""
-              decoding="async"
-              data-nimg="1"
-              sizes=""
-              src="/images/pre-wedding-frame-tokata.png"
-              style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </div>
-        </footer> 
+            {/* Bottom Full-width Image */}
+            <div className="relative w-full z-20">
+              <img
+                alt=""
+                decoding="async"
+                data-nimg="1"
+                sizes=""
+                src="/images/pre-wedding-frame-tokata.png"
+                style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
+          </footer>
       </div>
 
       {/* TODO: For Open Google maps */}
@@ -922,7 +701,7 @@ export default function Details(){
           <div
             className="fixed inset-0 bg-neutral-900/80"
             aria-hidden="true"
-            onClick={() => setOpenGoogleMap(false)} // close on clicking overlay
+            onClick={() => setOpenGoogleMap(false)}
           />
 
           {/* Modal content */}
@@ -931,10 +710,10 @@ export default function Details(){
             className="relative z-60 max-w-md w-full max-h-[80vh] bg-white rounded-lg p-6 shadow-lg animate-fadeIn overflow-y-auto"
             tabIndex={-1}>
             <h2 id="radix-location-label" className="sr-only">
-              Location
+              {t.locationLabel}
             </h2>
             <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
-              ស្កែន QR កូដ​ ដើម្បីទៅកាន់ Google Maps
+              {t.scanQrForMaps}
             </p>
 
             <div className="relative w-full h-[360px] mb-6">
@@ -951,7 +730,7 @@ export default function Details(){
             </div>
 
           <p className="text-khmer-title font-normal text-2xl mb-4 text-center">
-              ប្លង់កម្មវិធី
+              {t.programMap}
             </p>
             <div className="relative w-full h-[500px] mb-6">
               <img
@@ -971,7 +750,7 @@ export default function Details(){
               type="button"
               onClick={() => setOpenGoogleMap(false)}
               className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-              aria-label="Close modal"
+              aria-label={t.closeModal}
             >
               <IoCloseOutline className="text-2xl" />
             </button>
@@ -993,7 +772,7 @@ export default function Details(){
           <div
             className="fixed inset-0 bg-neutral-900/80"
             aria-hidden="true"
-            onClick={() => setOpenQrCode(false)} // close on clicking overlay
+            onClick={() => setOpenQrCode(false)}
           />
 
           {/* Modal content */}
@@ -1001,9 +780,9 @@ export default function Details(){
             ref={modalRef}
             className="relative z-60 max-w-md w-full max-h-[80vh] bg-white rounded-lg p-6 shadow-lg animate-fadeIn"
             tabIndex={-1}>
-            {/* QR Code កូនកំលោះ */}
+            {/* QR Code Groom */}
             <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
-              QR Code ABA កូនកំលោះ
+              {t.qrGroom}
             </p>
 
             <div className="flex justify-center items-center gap-6">
@@ -1032,9 +811,9 @@ export default function Details(){
                 />
               </div>
             </div>
-            {/* QR Code កូនក្រមំ */}
+            {/* QR Code Bride */}
              <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
-              QR Code ABA កូនក្រមំ
+              {t.qrBride}
             </p>
             <div className="flex justify-center items-center gap-6">
               <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
@@ -1066,7 +845,8 @@ export default function Details(){
               type="button"
               onClick={() => setOpenQrCode(false)}
               className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-              aria-label="Close modal">
+              aria-label={t.closeModal}
+            >
               <IoCloseOutline className="text-2xl" />
             </button>
           </div>
@@ -1075,7 +855,7 @@ export default function Details(){
       )}
 
       {/* TODO: For Open Images */}
-        {openImage && (
+      {openImage && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center"
             aria-modal="true"
@@ -1087,7 +867,7 @@ export default function Details(){
             <div
               className="fixed inset-0 bg-neutral-900/80"
               aria-hidden="true"
-              onClick={() => setOpenGoogleMap(false)} // close on clicking overlay
+              onClick={() => setOpenImage(false)}
             />
 
             {/* Modal content */}
@@ -1104,10 +884,10 @@ export default function Details(){
               ))}
             </div>
                 <div className="button-container">
-                  <button className="prev" onClick={handlePrev} aria-label="Previous slide">
+                  <button className="prev" onClick={handlePrev} aria-label={t.prevSlide}>
                     <FaLongArrowAltLeft className=" sm:xl xs:xl"/>
                   </button>
-                  <button className="next" onClick={handleNext} aria-label="Next slide">
+                  <button className="next" onClick={handleNext} aria-label={t.nextSlide}>
                     <FaLongArrowAltRight className=" sm:xl xs:xl"/>
                   </button>
                 </div>
@@ -1115,7 +895,8 @@ export default function Details(){
                   type="button"
                   onClick={() => setOpenImage(false)}
                   className="absolute right-4 top-4 z-10 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
-                  aria-label="Close modal">
+                  aria-label={t.closeModal}
+                >
                   <IoCloseOutline className="text-2xl" />
               </button>
           </div>

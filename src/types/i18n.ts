@@ -15,6 +15,12 @@ export type Translations = {
   bride: string;       // "Bride" / "កូនស្រី"
   mr: string;          // "Mr." / "លោក"
   mrs: string;         // "Mrs." / "អ្នកស្រី"
+  groomFatherName: string;
+  groomMotherName: string;
+  brideFatherName: string;
+  brideMotherName: string;
+  groomName: string;
+  brideName: string;
   weInviteYou: string;
   weddingCeremony: string;
   programMap: string;
