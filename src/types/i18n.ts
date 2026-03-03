@@ -2,9 +2,11 @@ export type Locale = 'en' | 'kh';
 
 export type Translations = {
   // Landing
-  inviteParagraph: string;
   inviteLine: string;
+  inviteParagraph: string;
+  inviteParagraphDate: string; // Optional additional line for date, if needed for formatting in some languages
   date: string;
+  dateInKhmer: string; 
   timeAt: string;      // "at 5:00 PM" / "ម៉ោង ៥ល្ងាច"
   location: string;    // full address
   seeMapNote: string;  // "(Please see the map for details)"
@@ -23,6 +25,7 @@ export type Translations = {
   brideName: string;
   weInviteYou: string;
   weddingCeremony: string;
+  programWedding: string;
   programMap: string;
   contactPhone: string;
   thankYou: string;

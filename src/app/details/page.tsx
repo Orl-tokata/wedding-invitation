@@ -411,25 +411,6 @@ export default function Details(){
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
-        {/* Couple section */}
-        <section className="w-full flex flex-col items-center relative">
-          {/* <div className="w-24 relative top-6">
-            <img alt="" loading="lazy" src="/images/name-initial.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div> */}
-          <div className="w-32 relative top-6">
-            <img alt="" loading="lazy" src="/images/hear-wedding.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          </div> 
-          <div className="flex justify-between w-full px-14">
-            <div className="flex flex-col gap-2">
-              <p className="text-khmer">{t.groom}</p>
-              <p className="text-khmer-body">{t.groomName}</p>
-            </div>
-            <div className="flex flex-col gap-2 items-end">
-              <p className="text-khmer">{t.bride}</p>
-              <p className="text-khmer-body">{t.brideName}</p>
-            </div>
-          </div>
-        </section>
 
         {/* Parents section */}
         <section className="flex flex-row justify-between items-start w-full px-14 sm:px-14 mt-6 gap-4">
@@ -473,7 +454,28 @@ export default function Details(){
             {t.inviteParagraph}
           </p>
 
-          <p className="mt-6 text-sm text-khmer-body">{t.thankYou}</p>
+          {/* Couple section */}
+          <section className="w-full flex flex-col items-center relative -mt-[60px]">
+            <div className="w-16 relative top-14">
+              <img alt="" loading="lazy" src="/images/hear-wedding.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div> 
+            <div className="flex justify-between w-full px-14">
+              <div className="flex flex-col gap-2">
+                <p className="text-khmer text-sm">{t.groom}</p>
+                <p className="text-khmer-body">{t.groomName}</p>
+              </div>
+              <div className="flex flex-col gap-2 items-end">
+                <p className="text-khmer text-sm">{t.bride}</p>
+                <p className="text-khmer-body">{t.brideName}</p>
+              </div>
+            </div>
+          </section>
+
+          <p className="px-16 text-center text-sm text-khmer leading-6">
+            {t.inviteParagraphDate}<span className="text-khmer-body"> {t.dateInKhmer} </span>{t.location}.
+          </p>
+
+          <p className="mt-6 text-sm text-khmer-body">{t.seeMapNote} {t.thankYou}</p>
 
           <div className="flex gap-4">
             <div className="relative w-4 h-auto">
@@ -505,17 +507,9 @@ export default function Details(){
         </section>
 
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-body text-2xl">{t.programMap}</h1>
+          <h1 className="text-khmer-body text-2xl">{t.programWedding}</h1>
           <div className="relative w-[70%]">
-            <img
-              alt="Location Map"
-              loading="lazy"
-              width="1066"
-              height="1186"
-              // src="/images/location-map.webp"
-              src="/images/google-map.jpg"
-              className="w-full h-full object-cover"
-            />
+          
           </div>
         </section>
         <section className="flex flex-col items-center w-full gap-4">
@@ -569,69 +563,7 @@ export default function Details(){
           </div>
         </section>
 
-        <section className="my-16 flex items-center flex-col w-full gap-10">
-            <h1 className="text-khmer-body text-2xl ">
-              {t.abaAccount}
-            </h1>
-
-            {/* USD Account */}
-            <div className="flex flex-col items-center gap-1">
-              <div className="flex justify-center items-center p-4">
-                <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
-                  {/* Animation ring */}
-                  {/* <div className="absolute w-[15px] h-[200px] -mt-[92px] bg-gradient-to-b from-[#00ccff] to-[#d400d4] animate-spin z-0" /> */}
-
-                  {/* Mask layer */}
-                  <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
-                  {/* Animated border segments */}
-                  <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
-                  <span className="absolute top-0 right-0 h-full w-[4px] bg-gradient-to-b from-transparent to-white animate-border-right delay-[0.25s]"></span>
-                  <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
-                  <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
-
-                  {/* QR Code Image */}
-                  <img
-                    src="/images/tokata-usd.png" 
-                    alt="QR Code"
-                    className="relative z-20 w-full h-full object-contain rounded-[16px]"
-                  />
-                </div>
-              </div>
-
-              <p className="text-khmer-title __className_951876">{t.usdAccount}</p>
-              <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
-              <p className="font-bold text-xl text-khmer-title-bold">004327824</p>
-            </div>
-
-            {/* Divider */}
-            <div className="w-1/2 h-[1px] border-t border-dashed border-khmer-title"></div>
-
-          {/* KHR Account */}
-              <div className="flex flex-col items-center gap-1">
-              <div className="flex justify-center items-center p-4">
-                <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
-                 
-                  {/* Animated border segments */}
-                  <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
-                  <span className="absolute top-0 right-0 h-full w-[4px] bg-gradient-to-b from-transparent to-white animate-border-right delay-[0.25s]"></span>
-                  <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
-                  <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
-
-                  {/* QR Image */}
-                   <img
-                    src="/images/tokata-kh.png" 
-                    alt="QR Code"
-                    className="relative z-20 w-full h-full object-contain rounded-[16px]"
-                  />
-                </div>
-              </div>
-
-              <p className="text-khmer-title __className_951876">{t.khrAccount}</p>
-              <p className="font-bold text-xl text-khmer-title-bold">ORL TOKATA</p>
-              <p className="font-bold text-xl text-khmer-title-bold">501084362</p>
-            </div>
-
-          </section>
+        
 
           <footer className="w-full grid grid-cols-1 place-items-center gap-16">
             {/* Text & Go Back Button */}
