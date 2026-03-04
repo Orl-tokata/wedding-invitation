@@ -7,7 +7,7 @@ export const kh: Translations = {
   inviteParagraphDate: 'ដែលប្រព្រឹត្តទៅនៅថ្ងៃ',
   date: 'អាទិត្យ ទី២៦ ខែមេសា ឆ្នាំ២០២៦',
   dateInKhmer: 'ត្រូវនិងថ្ងៃ ១០កើត ខែ ពិសាខ ឆ្នាំ មមី អដ្ឋស័ក ព.ស.២៥៦៩',
-  timeAt: '៥ៈ០០​ ល្ងាច',
+  timeAt: 'វេលាម៉ោង ៥ៈ០០​ ល្ងាច',
   location: 'នៅ គេហដ្ឋានខាងស្រី ភូមិឈើទាល ឃុំម្រោម ស្រុកអង្គរជ័យ ខេត្តកំពត ដោយមេត្រីភាព',
   seeMapNote: '(សូមមើលប្លង់បញ្ជាក់)',
 
@@ -25,6 +25,31 @@ export const kh: Translations = {
   weInviteYou: 'សូមគោរពអញ្ជើញ',
   weddingCeremony: 'ពិធីរៀបអាពាហ៍ពិពាហ៍',
   programWedding: 'កម្មវិធីពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍',
+
+  programWeddingItemTime1: 'ម៉ោង ៦:៣០ នាទីព្រឹក',
+  programWeddingItem1: 'ជួបជុំសាច់ញាតិ ភ្ញៀវកិត្តិយស ដើម្បីរៀបចំពិធីហែជំនួន',
+
+  programWeddingItemTime2: 'ម៉ោង ៧:០០ នាទីព្រឹក',
+  programWeddingItem2: 'ពិធីហែកំណត់ចូលរោងជ័យ',
+
+  programWeddingItemTime3: 'ម៉ោង ៧:១០ នាទីព្រឹក',
+  programWeddingItem3: 'អញ្ជើញភ្ញៀវពិសាអាហារពេលព្រឹក(បបរគ្រឿង)',
+
+  programWeddingItemTime4: 'ម៉ោង ៨:១៥ នាទីព្រឹក',
+  programWeddingItem4: 'និមន្តព្រះសង្ឃសូត្រមន្ត',
+
+  programWeddingItemTime5: 'ម៉ោង ៩:១៥ នាទីព្រឹក',
+  programWeddingItem5: 'ពិធីកាត់សក់បង្កក់សិរី',
+
+  programWeddingItemTime6: 'ម៉ោង ១០:៥០ នាទីព្រឹក',
+  programWeddingItem6: 'ពិធីសំពះផ្ទឹម បង្វិលពពិល សែនជីដូន ជីតា បាចផ្កាស្លា ចងដៃ',
+
+  programWeddingItemTime7: 'ម៉ោង ១១:៣០ នាទីព្រឹក',
+  programWeddingItem7: 'អញ្ជើញភ្ញៀវពិសាអាហារថ្ងៃត្រង់',
+
+  programWeddingItemTime8: 'ម៉ោង ៥:៣០ ល្ងាច',
+  programWeddingItem8: 'អញ្ជើញភ្ញៀវកិត្តិយសពិសាភោជនាហារ ពេលល្ងាច ដោយមេត្រីភាព។',
+
   programMap: 'ប្លង់កម្មវិធី',
   contactPhone: 'ទំនាក់ទំនងទូរស័ព្ទ',
   thankYou: 'សូមអរគុណ',

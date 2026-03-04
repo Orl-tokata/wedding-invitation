@@ -124,7 +124,7 @@ export const LandingPage = () => {
           </h2>
 
           <p className="text-sm text-center w-1/2 text-khmer-title-date">
-            <span className="font-bold">{t.timeAt}</span> — {t.location}
+            <span className="font-bold">{t.timeAt}</span> {t.location}
             <br />
             <span className="font-bold">{t.seeMapNote}</span>
           </p>

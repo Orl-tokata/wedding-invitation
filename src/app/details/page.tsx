@@ -2,10 +2,24 @@
 
 import { useEffect, useRef, useState } from "react";
 import { BsFlower2 } from "react-icons/bs";
-import { FaHome, FaImage, FaLongArrowAltLeft, FaLongArrowAltRight, FaMapMarkedAlt, FaPause, FaPlay } from "react-icons/fa";
+import {
+  FaHome,
+  FaImage,
+  FaLongArrowAltLeft,
+  FaLongArrowAltRight,
+  FaMapMarkedAlt,
+  FaPause,
+  FaPlay,
+  FaUtensils,
+  FaRing,
+  FaFireAlt,
+  FaCut,
+  FaGlassCheers,
+} from "react-icons/fa";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
 import { useTranslation } from "@/contexts/LanguageContext";
+
 
 const slides = [
   { image: '/images/img1.png'},
@@ -472,7 +486,7 @@ export default function Details(){
           </section>
 
           <p className="px-16 text-center text-sm text-khmer leading-6">
-            {t.inviteParagraphDate}<span className="text-khmer-body"> {t.dateInKhmer} </span>{t.location}.
+            {t.inviteParagraphDate}<span className="text-khmer-body"> {t.dateInKhmer} </span>{t.timeAt} {t.location}.
           </p>
 
           <p className="mt-6 text-sm text-khmer-body">{t.seeMapNote} {t.thankYou}</p>
@@ -508,10 +522,53 @@ export default function Details(){
 
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
           <h1 className="text-khmer-body text-2xl">{t.programWedding}</h1>
-          <div className="relative w-[70%]">
-          
+
+          <div className="relative w-[70%] flex flex-col gap-3 text-sm font-sans leading-relaxed">
+            {[
+              { iconSrc: "/icons/apple.png",        time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
+              { iconSrc: "/icons/wedding-arch.png", time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
+              { iconSrc: "/icons/soup-bowl.png",    time: t.programWeddingItemTime3, desc: t.programWeddingItem3 },
+              { iconSrc: "/icons/praying.png",      time: t.programWeddingItemTime4, desc: t.programWeddingItem4 },
+              { iconSrc: "/icons/hair-cut-tool.png",time: t.programWeddingItemTime5, desc: t.programWeddingItem5 },
+              { iconSrc: "/icons/wedding.png",      time: t.programWeddingItemTime6, desc: t.programWeddingItem6 },
+              { iconSrc: "/icons/banquet.png",      time: t.programWeddingItemTime7, desc: t.programWeddingItem7 },
+              { iconSrc: "/icons/wine.png",         time: t.programWeddingItemTime8, desc: t.programWeddingItem8 },
+            ].map((item, index) => (
+              <div key={index} className="flex items-start gap-2">
+                {/* icon */}
+                <span className="flex items-center justify-center">
+                  <img
+                    src={item.iconSrc}
+                    alt=""
+                    className="w-6 h-6 object-contain"
+                  />
+                </span>
+
+                {/* layout:
+                     icon | 10:50 AM
+                          | Betel‑offering, candle‑lighting ...
+                            and blessing string‑tying.
+                 */}
+                <div className="flex flex-col w-full">
+                  {/* time row */}
+                  <div className="flex">
+                    <span className="mr-1">|</span>
+                    <span className="whitespace-nowrap">{item.time}</span>
+                  </div>
+
+                  {/* description row (wraps under the first letter after |) */}
+                  <div className="flex">
+                    <span className="mr-1">|</span>
+                    <span className="flex-1 break-words">
+                      {item.desc}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
+
         <section className="flex flex-col items-center w-full gap-4">
           <h1 className="text-khmer-body text-xl">{t.contactPhone}</h1>
           {/* Name + phone row: make always horizontal */}
