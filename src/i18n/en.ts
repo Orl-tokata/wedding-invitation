@@ -7,7 +7,7 @@ export const en: Translations = {
   inviteParagraphDate: 'which will take place on',
   date: 'Sunday, April 26, 2026',
   dateInKhmer: 'Equivalent to the 10th day of the waxing moon of the month of Pisak, Year of the Goat, Buddhist Era 2569.',
-  timeAt: 'at 5:00 PM in the evening',
+  timeAt: 'At 5:00 PM in the evening',
   location:
     "at the bride's house, Chheu Teal village, Mrom commune, Angkor Chey district, Kampot province, in a spirit of friendship.",
   seeMapNote: '(Please see the map for details.)',

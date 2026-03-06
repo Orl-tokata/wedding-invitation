@@ -76,6 +76,18 @@
 .text-khmer-title-date{
   font-family: 'Battambang-Regular', sans-serif;
 }
+
+/* English locale: use PT Serif for all text */
+.locale-en .text-khmer-title,
+.locale-en .text-khmer-date,
+.locale-en .text-khmer-title-bold,
+.locale-en .text-khmer-title-date,
+.locale-en .text-khmer,
+.locale-en .text-khmer-body,
+.locale-en .text-khmer-arrow-down {
+  font-family: 'PT Serif', Georgia, serif;
+}
+
 @keyframes rotateFlower {
   0% {
     transform: translateX(0) rotate(0deg);
