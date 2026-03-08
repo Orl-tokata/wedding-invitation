@@ -36,7 +36,7 @@ export default function Details(){
   const modalRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   useEffect(() => {
     // const playAudio = async () => {
@@ -413,17 +413,16 @@ export default function Details(){
 
       {/* Main content */}
       <div className="flex z-10 items-center flex-col pt-10 gap-4">
-        {/* <div className="relative w-[80%]">
-          <img alt="" loading="lazy" src="/images/wedding-title.webp" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </div> */}
         {/* </div><div className="sticky top-0 z-50 bg-white w-[80%] mx-auto pt-2"> */}
+        <div className=" z-50 bg-white w-[80%] mx-auto pt-2">
         <div className=" z-50 bg-white w-[80%] mx-auto pt-2">
           <img
             alt=""
             loading="lazy"
-            src="/images/wedding-title.webp"
+            src={locale === 'kh' ? '/images/wedding-title-kh.png' : '/images/wedding-title-en.png'}
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
+        </div>
         </div>
 
         {/* Parents section */}
@@ -523,7 +522,7 @@ export default function Details(){
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
           <h1 className="text-khmer-body text-2xl">{t.programWedding}</h1>
 
-          <div className="relative w-[70%] flex flex-col gap-3 text-sm font-sans leading-relaxed">
+          <div className="relative w-[70%] flex flex-col gap-3 text-sm font-sans leading-relaxed text-wedding-program">
             {[
               { iconSrc: "/icons/apple.png",        time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
               { iconSrc: "/icons/wedding-arch.png", time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
@@ -578,7 +577,7 @@ export default function Details(){
               <p className="text-khmer">
                 {t.groom} <span className="text-khmer-body">{t.groomName}</span>
               </p>
-              <p className="font-bold text-khmer-title-bold text-xl">010785306</p>
+              <p className="text-khmer-body">010785306</p>
             </div>
 
             {/* Right block */}
@@ -586,7 +585,7 @@ export default function Details(){
               <p className="text-khmer">
                 {t.bride} <span className="text-khmer-body">{t.brideName}</span>
               </p>
-              <p className="font-bold text-khmer-title-bold text-xl">0972352572</p>
+              <p className="text-khmer-body">0972352572</p>
             </div>
           </div>
 
@@ -637,10 +636,10 @@ export default function Details(){
               <a href="/">
                 <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
                     <div className="relative z-30 w-60 animate-zoom-in-out">
-                      <img
+                    <img
                         alt="Click to join"
                         loading="lazy"
-                        src="/images/go-back-button.webp"
+                        src={locale === 'kh' ? '/images/go-back-button-kh.png' : '/images/go-back-button-en.png'}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -651,16 +650,16 @@ export default function Details(){
             {/* Middle Image */}
             <div className="relative w-[80%]">
               <img
-                alt=""
-                loading="lazy"
-                width="883"
-                height="313"
-                decoding="async"
-                data-nimg="1"
-                sizes="(max-width: 1250px) 100vw, 1250px"
-                src="/images/save-the-date.png"
-                style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
-              />
+                  alt=""
+                  loading="lazy"
+                  width="883"
+                  height="313"
+                  decoding="async"
+                  data-nimg="1"
+                  sizes="(max-width: 1250px) 100vw, 1250px"
+                  src={locale === 'en' ? '/images/save-the-date-en.jpg' : '/images/save-the-date-kh.jpg'}
+                  style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+                />
             </div>
 
             {/* Bottom Full-width Image */}

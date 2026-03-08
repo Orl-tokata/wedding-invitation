@@ -77,6 +77,10 @@
   font-family: 'Battambang-Regular', sans-serif;
 }
 
+.text-wedding-program {
+  color: #8e7e78;
+}
+
 /* English locale: use PT Serif for all text */
 .locale-en .text-khmer-title,
 .locale-en .text-khmer-date,
