@@ -695,32 +695,16 @@ export default function Details(){
           {/* Modal content */}
           <div
             ref={modalRef}
-            className="relative z-60 max-w-md w-full max-h-[80vh] bg-white rounded-lg p-6 shadow-lg animate-fadeIn overflow-y-auto"
+            className="relative z-60 max-w-md w-full max-h-[95vh] bg-white rounded-lg p-6 shadow-lg animate-fadeIn overflow-y-auto"
             tabIndex={-1}>
             <h2 id="radix-location-label" className="sr-only">
               {t.locationLabel}
             </h2>
-            <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
-              {t.scanQrForMaps}
-            </p>
-
-            <div className="relative w-full h-[360px] mb-6">
-              <img
-                alt="Location"
-                src="/images/qr-location.png"
-                style={{
-                  color: "transparent",
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </div>
 
           <p className="text-khmer-title font-normal text-2xl mb-4 text-center">
               {t.programMap}
             </p>
-            <div className="relative w-full h-[500px] mb-6">
+            <div className="relative w-full h-[550px] mb-6">
               <img
                 alt="Location"
                 //src="/images/location-map.webp"
