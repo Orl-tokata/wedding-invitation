@@ -373,6 +373,34 @@ export default function Details(){
         </div>
       </div>
 
+      <div className="min-h-dvh w-full max-w-[500px] pointer-events-none fixed top-0 left-1/2 mix-blend-multiply -translate-x-1/2 z-[60]">
+        <video
+          id="butterfly-left"
+          playsInline
+          muted
+          autoPlay
+          loop
+          preload="metadata"
+          className="fixed w-44 top-[376px] -left-18 z-10 mix-blend-multiply"
+        >
+          <source src="/videos/butterfly1.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+
+        <video
+          id="butterfly-right"
+          playsInline
+          muted
+          autoPlay
+          loop
+          preload="metadata"
+          className="fixed w-53 bottom-40  -right-21 z-50 pointer-events-none mix-blend-multiply"
+        >
+          <source src="/videos/butterfly3.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
       {/* Bottom buttons and image right */}
       <div className="fixed w-full max-w-[500px] bottom-0 left-1/2 -translate-x-1/2 z-50">
         <div className="absolute xs:w-52 w-44 bottom-0 right-0 z-30">
@@ -410,19 +438,20 @@ export default function Details(){
           <source src="" type="video/webm" />
         </video>
       </div> */}
+      
 
       {/* Main content */}
       <div className="flex z-10 items-center flex-col pt-10 gap-4">
         {/* </div><div className="sticky top-0 z-50 bg-white w-[80%] mx-auto pt-2"> */}
         <div className=" z-50 bg-white w-[80%] mx-auto pt-2">
-        <div className=" z-50 bg-white w-[80%] mx-auto pt-2">
-          <img
-            alt=""
-            loading="lazy"
-            src={locale === 'kh' ? '/images/wedding-title-kh.png' : '/images/wedding-title-en.png'}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
+          <div className=" z-50 bg-white w-[80%] mx-auto pt-2">
+            <img
+              alt=""
+              loading="lazy"
+              src={locale === 'kh' ? '/images/wedding-title-kh.png' : '/images/wedding-title-en.png'}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
         </div>
 
         {/* Parents section */}
@@ -447,6 +476,7 @@ export default function Details(){
             </p>
           </div>
         </section>
+        
 
         {/* Divider */}
         <section className="flex flex-col items-center gap-4 mt-4">
@@ -567,6 +597,7 @@ export default function Details(){
             ))}
           </div>
         </section>
+        
 
         <section className="flex flex-col items-center w-full gap-4">
           <h1 className="text-khmer-body text-xl">{t.contactPhone}</h1>
