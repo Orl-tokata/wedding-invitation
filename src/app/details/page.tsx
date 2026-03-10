@@ -217,97 +217,6 @@ export default function Details(){
   return (
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
 
-    {/* TODO: For music */}
-   <div
-      onMouseDown={onMouseDown}
-      style={{
-        position: 'fixed',
-        top: position.y,
-        left: position.x,
-        transform: 'translate(-50%, -50%)',
-        zIndex: 1000,
-        userSelect: dragging.current ? 'none' : 'auto',
-        cursor: 'grab',
-        //backgroundColor: 'rgba(17, 24, 39, 0.8)',
-        //backdropFilter: 'blur(8px)',
-        backgroundColor: 'rgba(255, 255, 255, 0.05)', // ✅ ពណ៌ស ថ្លាច្រើន
-        backdropFilter: 'blur(12px) saturate(180%)',  // ✅ blur ខ្លាំង + កំណត់ saturation
-        WebkitBackdropFilter: 'blur(12px) saturate(180%)', // ✅ សម្រាប់ Safari
-        padding: '0.5rem 0.5rem',
-        borderRadius: '1rem',
-        width: isOpen ? '18rem' : 'auto',
-        maxWidth: '90vw',
-        color: 'white',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-      }}
-    >
-      {isOpen ? (
-        <>
-          {/* Header */}
-          <div className="flex justify-between items-center mb-1">
-            <div>
-              <div className="text-sm font-semibold truncate text-black">សូរិយា (អេតាស៊ីវិល)</div>
-              <div className="text-xs text-gray-700">{t.artist}</div>
-            </div>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsOpen(false);
-              }}
-              className="text-white text-lg px-2 hover:text-red-400"
-              aria-label={t.closePlayer}
-            >
-              ✖️
-            </button>
-          </div>
-
-          {/* Progress Bar */}
-          <input
-            type="range"
-            min={0}
-            max={duration || 0}
-            step={0.1}
-            value={currentTime}
-            onChange={handleProgressChange}
-            className="w-full accent-green-500 cursor-pointer"
-          />
-
-          {/* Controls */}
-          <div className="flex items-center justify-between text-xs text-gray-600 mt-1">
-            <span>{formatTime(currentTime)}</span>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                togglePlay();
-              }}
-              className="text-black text-xl mx-2 focus:outline-none"
-              aria-label={isPlaying ? 'Pause' : 'Play'}
-            >
-              {isPlaying ? '⏸️' : '▶️'}
-            </button>
-
-            <span>{formatTime(duration)}</span>
-          </div>
-        </>
-      ) : (
-        // Minimized: Show only play/pause icon
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsOpen(true);
-          }}
-          className="text-white text-xl"
-          aria-label="Open player"
-        >
-          {isPlaying ? '⏸️' : '▶️'}
-        </button>
-      )}
-
-      {/* Audio element */}
-      <audio ref={audioRef} src="/music/song-soriya.webm" preload="metadata" />
-    </div>
-
 
       {/* <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-xl shadow-lg bg-white max-w-md mx-auto mt-10">
             <div className="flex items-center gap-2">
@@ -374,18 +283,19 @@ export default function Details(){
       </div>
 
       <div className="min-h-dvh w-full max-w-[500px] pointer-events-none fixed top-0 left-1/2 mix-blend-multiply -translate-x-1/2 z-[60]">
-        <video
-          id="butterfly-left"
-          playsInline
-          muted
-          autoPlay
-          loop
-          preload="metadata"
-          className="fixed w-44 top-[376px] -left-18 z-10 mix-blend-multiply"
-        >
-          <source src="/videos/butterfly1.webm" type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
+      <video
+        id="butterfly-left"
+        playsInline
+        muted
+        autoPlay
+        loop
+        preload="metadata"
+        className="fixed w-50 top-[376px] -left-11 z-10 mix-blend-multiply"
+        style={{ transform: "scaleX(-1)" }}
+      >
+        <source src="/videos/f4.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
 
         <video
           id="butterfly-right"
@@ -394,9 +304,9 @@ export default function Details(){
           autoPlay
           loop
           preload="metadata"
-          className="fixed w-53 bottom-40  -right-21 z-50 pointer-events-none mix-blend-multiply"
+          className="fixed w-53 bottom-30  -right-14 z-50 pointer-events-none mix-blend-multiply"
         >
-          <source src="/videos/butterfly3.webm" type="video/webm" />
+          <source src="/videos/f1.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -552,7 +462,7 @@ export default function Details(){
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
           <h1 className="text-khmer-body text-2xl">{t.programWedding}</h1>
 
-          <div className="relative w-[70%] flex flex-col gap-3 text-sm font-sans leading-relaxed text-wedding-program">
+          <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
             {[
               { iconSrc: "/icons/apple.png",        time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
               { iconSrc: "/icons/wedding-arch.png", time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
