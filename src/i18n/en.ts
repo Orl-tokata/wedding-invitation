@@ -61,7 +61,7 @@ export const en: Translations = {
   khrAccount: 'KHR account',
 
   scanQrForMaps: 'Scan the QR code to open Google Maps',
-  qrGroom: "Groom's ABA QR code",
+  qrGroom: 'Tokata&Phanou\'s QR Code',
   qrBride: "Bride's ABA QR code",
 
   artist: 'Artist',

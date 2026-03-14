@@ -100,7 +100,7 @@ export const LandingPage = () => {
           </div>
 
           {/* Invite text (EN/KH) */}
-          <h1 className="text-xl text-khmer-date max-w-[200px] text-center leading-[2rem]"  style={{color:'#8e7e78'}}>
+          <h1 className="text-xl text-khmer-date max-w-[200px] text-center leading-[2rem]"  style={{color:'#b4aed1'}}>
             {t.inviteLine}
           </h1>
 

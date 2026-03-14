@@ -45,36 +45,38 @@
 
 .text-khmer-title{
     font-family: 'AKbalthom Freehand [Version 1.50] 082014', sans-serif;
-    color: #8e7e78
+    /* color: #8e7e78 */
+    color: #918645 !important;
 }
 .text-khmer-date{
   font-family: 'KhmerOSMoulpali', sans-serif;
+  font-size: 16px;
+  color: #b4aed1;
 }
 .text-khmer-title-bold{
   font-family: 'KhmerOSApsra', sans-serif;
 }
 
 .text-khmer-title-date{
-  font-family: 'Siemreap', sans-serif;
+  font-family: 'Battambang-Regular', sans-serif;
+  color: #b4aed1;
 }
 
 .text-khmer{
     font-family: 'Battambang-Regular', sans-serif;
-    color: #8e7e78
+    /* color: #8e7e78 */
+    color: #918645 !important;
 }
 
 .text-khmer-body{
     font-family: 'KHMMOOL', sans-serif;
-    color: #8e7e78
+    /* color: #8e7e78 */
+    color: #918645;
 }
 
 .text-khmer-arrow-down{
     font-family: 'Battambang-Regular', sans-serif;
     color: #ffffff
-}
-
-.text-khmer-title-date{
-  font-family: 'Battambang-Regular', sans-serif;
 }
 
 .text-wedding-program {
@@ -464,10 +466,6 @@
 
   .wave-text{
     font-size: 30px;
-  }
-  .text-khmer-date{
-    font-family: 'KhmerOSMoulpali', sans-serif;
-    font-size: 16px;
   }
 
   .slider-container {

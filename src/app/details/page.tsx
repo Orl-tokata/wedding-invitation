@@ -398,10 +398,11 @@ export default function Details(){
               height="12"
               src="/images/small-embroidery.webp"
               className="w-full h-full object-cover"
+              style={{ filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}
             />
           </div>
 
-          <h1 className="text-khmer-body text-2xl">{t.weInviteYou}</h1>
+          <h1 className="text-khmer-body text-xl">{t.weInviteYou}</h1>
 
           <p className="px-16 text-center text-sm text-khmer leading-6">
             {t.inviteParagraph}
@@ -410,7 +411,8 @@ export default function Details(){
           {/* Couple section */}
           <section className="w-full flex flex-col items-center relative -mt-[60px]">
             <div className="w-16 relative top-14">
-              <img alt="" loading="lazy" src="/images/hear-wedding.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img alt="" loading="lazy" src="/images/hear-wedding.png" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' ,filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}/>
             </div> 
             <div className="flex justify-between w-full px-14">
               <div className="flex flex-col gap-2">
@@ -430,7 +432,7 @@ export default function Details(){
 
           <p className="mt-6 text-sm text-khmer-body">{t.seeMapNote} {t.thankYou}</p>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4" style={{ filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}>
             <div className="relative w-4 h-auto">
               <img
                 alt="Decoration Left"
@@ -460,7 +462,7 @@ export default function Details(){
         </section>
 
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-body text-2xl">{t.programWedding}</h1>
+          <h1 className="text-khmer-body text-xl">{t.programWedding}</h1>
 
           <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
             {[
@@ -476,10 +478,11 @@ export default function Details(){
               <div key={index} className="flex items-start gap-2">
                 {/* icon */}
                 <span className="flex items-center justify-center">
-                  <img
+                <img
                     src={item.iconSrc}
                     alt=""
                     className="w-6 h-6 object-contain"
+                    style={{ filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}
                   />
                 </span>
 
@@ -531,7 +534,7 @@ export default function Details(){
           </div>
 
           {/* Decoration */}
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center" style={{ filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}>
             <div className="relative w-4 h-4">
               <img
                 alt="decoration"
@@ -564,8 +567,8 @@ export default function Details(){
 
           <footer className="w-full grid grid-cols-1 place-items-center gap-16">
             {/* Text & Go Back Button */}
-            <div className="flex flex-col items-center gap-16">
-              {/* <div className="grid grid-cols-1 gap-2 place-items-center">
+            {/* <div className="flex flex-col items-center gap-16">
+              <div className="grid grid-cols-1 gap-2 place-items-center">
                 <div className="wave-container">
                   <h1 className="wave-text text-4xl text-khmer-title-bold">
                     {t.thankYou.split('').map((char, i) => (
@@ -573,7 +576,7 @@ export default function Details(){
                     ))}
                   </h1>
               </div>
-              </div> */}
+              </div>
               <a href="/">
                 <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
                     <div className="relative z-30 w-60 animate-zoom-in-out">
@@ -586,7 +589,7 @@ export default function Details(){
                     </div>
                   </button>
               </a>
-            </div>
+            </div> */}
 
             {/* Middle Image */}
             <div className="relative w-[80%]">
@@ -598,7 +601,7 @@ export default function Details(){
                   decoding="async"
                   data-nimg="1"
                   sizes="(max-width: 1250px) 100vw, 1250px"
-                  src={locale === 'en' ? '/images/save-the-date-en.jpg' : '/images/save-the-date-kh.jpg'}
+                  src={locale === 'en' ? '/images/save-the-date-en.png' : '/images/save-the-date-kh.png'}
                   style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
                 />
             </div>
@@ -620,7 +623,7 @@ export default function Details(){
       {/* TODO: For Open Google maps */}
       {openMap && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-100 flex items-center justify-center"
           aria-modal="true"
           role="dialog"
           aria-labelledby="radix-location-label"
@@ -675,7 +678,7 @@ export default function Details(){
       {/* TODO: For Open QR Code */}
       {openQr && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-100 flex items-center justify-center"
           aria-modal="true"
           role="dialog"
           aria-labelledby="radix-location-label"
@@ -706,49 +709,7 @@ export default function Details(){
                 <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
                 <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
                 <img
-                  src="/images/tokata-usd.png"
-                  alt="QR Code"
-                  className="relative z-20 w-full h-full object-contain rounded-[16px]"
-                />
-              </div>
-
-              <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
-                <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
-                <span className="absolute top-0 right-0 h-full w-[4px] from-transparent to-white animate-border-right delay-[0.25s]"></span>
-                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
-                <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
-                <img
-                  src="/images/tokata-kh.png"
-                  alt="QR Code"
-                  className="relative z-20 w-full h-full object-contain rounded-[16px]"
-                />
-              </div>
-            </div>
-            {/* QR Code Bride */}
-             <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
-              {t.qrBride}
-            </p>
-            <div className="flex justify-center items-center gap-6">
-              <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
-                <div className="absolute inset-1 rounded-[16px] bg-[#DACBB1] z-10" />
-                <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
-                <span className="absolute top-0 right-0 h-full w-[4px] bg-gradient-to-b from-transparent to-white animate-border-right delay-[0.25s]"></span>
-                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
-                <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
-                <img
-                  src="/images/tokata-usd.png"
-                  alt="QR Code"
-                  className="relative z-20 w-full h-full object-contain rounded-[16px]"
-                />
-              </div>
-
-              <div className="relative w-[150px] h-[150px] rounded-2xl border-4 border-white bg-[#DACBB1] shadow-[0_0_10px_rgb(104,134,218)] overflow-hidden cursor-pointer">
-                <span className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-transparent to-white animate-border-top"></span>
-                <span className="absolute top-0 right-0 h-full w-[4px] from-transparent to-white animate-border-right delay-[0.25s]"></span>
-                <span className="absolute bottom-0 right-0 w-full h-[4px] bg-gradient-to-l from-transparent to-white animate-border-bottom delay-[0.5s]"></span>
-                <span className="absolute bottom-0 left-0 h-full w-[4px] bg-gradient-to-t from-transparent to-white animate-border-left delay-[0.75s]"></span>
-                <img
-                  src="/images/tokata-kh.png"
+                  src="/images/qr-aba.jpg"
                   alt="QR Code"
                   className="relative z-20 w-full h-full object-contain rounded-[16px]"
                 />
@@ -770,7 +731,7 @@ export default function Details(){
       {/* TODO: For Open Images */}
       {openImage && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center"
+            className="fixed inset-0 z-100 flex items-center justify-center"
             aria-modal="true"
             role="dialog"
             aria-labelledby="radix-location-label"
