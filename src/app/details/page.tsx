@@ -462,54 +462,72 @@ export default function Details(){
         </section>
 
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-body text-xl">{t.programWedding}</h1>
+  <h1 className="text-khmer-body text-xl">{t.programWedding}</h1>
 
-          <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
-            {[
-              { iconSrc: "/icons/apple.png",        time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
-              { iconSrc: "/icons/wedding-arch.png", time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
-              { iconSrc: "/icons/soup-bowl.png",    time: t.programWeddingItemTime3, desc: t.programWeddingItem3 },
-              { iconSrc: "/icons/praying.png",      time: t.programWeddingItemTime4, desc: t.programWeddingItem4 },
-              { iconSrc: "/icons/hair-cut-tool.png",time: t.programWeddingItemTime5, desc: t.programWeddingItem5 },
-              { iconSrc: "/icons/wedding.png",      time: t.programWeddingItemTime6, desc: t.programWeddingItem6 },
-              { iconSrc: "/icons/banquet.png",      time: t.programWeddingItemTime7, desc: t.programWeddingItem7 },
-              { iconSrc: "/icons/wine.png",         time: t.programWeddingItemTime8, desc: t.programWeddingItem8 },
-            ].map((item, index) => (
-              <div key={index} className="flex items-start gap-2">
-                {/* icon */}
-                <span className="flex items-center justify-center">
-                <img
-                    src={item.iconSrc}
-                    alt=""
-                    className="w-6 h-6 object-contain"
-                    style={{ filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}
-                  />
-                </span>
+  <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
+    {[
+      { iconSrc: "/icons/apple.png",         time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
+      { iconSrc: "/icons/wedding-arch.png",  time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
+      { iconSrc: "/icons/soup-bowl.png",     time: t.programWeddingItemTime3, desc: t.programWeddingItem3 },
+      { iconSrc: "/icons/praying.png",       time: t.programWeddingItemTime4, desc: t.programWeddingItem4 },
+      { iconSrc: "/icons/hair-cut-tool.png", time: t.programWeddingItemTime5, desc: t.programWeddingItem5 },
+      { iconSrc: "/icons/wedding.png",       time: t.programWeddingItemTime6, desc: t.programWeddingItem6 },
+      { iconSrc: "/icons/banquet.png",       time: t.programWeddingItemTime7, desc: t.programWeddingItem7 },
+      { iconSrc: "/icons/wine.png",          time: t.programWeddingItemTime8, desc: t.programWeddingItem8 },
+    ].map((item, index) => (
+      <div
+        key={index}
+        style={{
+          display: "grid",
+          gridTemplateColumns: "24px 24px 1fr",
+          gridTemplateRows: "auto auto",
+          columnGap: "8px",
+        }}
+      >
+        {/* Left icon — spans both rows, centered vertically */}
+        <img
+          src={item.iconSrc}
+          alt=""
+          style={{
+            width: "24px",
+            height: "24px",
+            objectFit: "contain",
+            gridColumn: "1",
+            gridRow: "1 / 3",
+            alignSelf: "center",
+            filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)",
+          }}
+        />
 
-                {/* layout:
-                     icon | 10:50 AM
-                          | Betel‑offering, candle‑lighting ...
-                            and blessing string‑tying.
-                 */}
-                <div className="flex flex-col w-full">
-                  {/* time row */}
-                  <div className="flex">
-                    <span className="mr-1">|</span>
-                    <span className="whitespace-nowrap">{item.time}</span>
-                  </div>
+        {/* Center icon — spans both rows, displayed vertically */}
+        <img
+          src="/images/icon-senter.png"
+          alt=""
+          style={{
+            width: "60px",
+            marginLeft: "-51px",
+            objectFit: "contain",
+            gridColumn: "3",
+            gridRow: "1 / 3",
+            alignSelf: "stretch",
+            transform: "rotate(90deg)",
+            filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)",
+          }}
+        />
 
-                  {/* description row (wraps under the first letter after |) */}
-                  <div className="flex">
-                    <span className="mr-1">|</span>
-                    <span className="flex-1 break-words">
-                      {item.desc}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Time row */}
+        <span className="whitespace-nowrap" style={{ gridColumn: "3", gridRow: "1" }}>
+          {item.time}
+        </span>
+
+        {/* Desc row */}
+        <span className="break-words" style={{ gridColumn: "3", gridRow: "2" }}>
+          {item.desc}
+        </span>
+      </div>
+    ))}
+  </div>
+</section>
         
 
         <section className="flex flex-col items-center w-full gap-4">
