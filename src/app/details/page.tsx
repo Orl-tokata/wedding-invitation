@@ -22,11 +22,16 @@ import { useTranslation } from "@/contexts/LanguageContext";
 
 
 const slides = [
-  { image: '/images/img1.png'},
-  { image: '/images/img2.png'},
-  { image: '/images/img3.png'},
-  { image: '/images/img4.png'},
-  { image: '/images/img5.png'},
+  { image: '/images/img01.webp'},
+  { image: '/images/img02.webp'},
+  { image: '/images/img03.webp'},
+  { image: '/images/img04.webp'},
+  { image: '/images/img05.webp'},
+  { image: '/images/img06.webp'},
+  { image: '/images/img07.webp'},
+  { image: '/images/img08.webp'},
+  { image: '/images/img09.webp'},
+  { image: '/images/img10.webp'},
 ]
 
 export default function Details(){
@@ -116,6 +121,7 @@ export default function Details(){
     }, 5000)
     return () => clearInterval(interval)
   }, [])
+
 
    // const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -216,6 +222,13 @@ export default function Details(){
 
   return (
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
+
+      {/* Hidden images — fetched immediately by browser preload scanner, cached before modal opens */}
+      <div style={{ display: 'none' }} aria-hidden="true">
+        {slides.map((item, index) => (
+          <img key={index} src={item.image} alt="" loading="eager" fetchPriority={index < 3 ? 'high' : 'low'} />
+        ))}
+      </div>
 
 
       {/* <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-xl shadow-lg bg-white max-w-md mx-auto mt-10">
@@ -764,14 +777,18 @@ export default function Details(){
 
             {/* Modal content */}
             <div className="slider-container" ref={modalRef}>
-            <div className="slide" 
+            <div className="slide"
               ref={slideRef}>
               {slides.map((item, index) => (
-                <div
-                  className="item"
-                  key={index}
-                  style={{ backgroundImage: `url(${item.image})` }}
-                >
+                <div className="item" key={index}>
+                  <img
+                    src={item.image}
+                    alt={`Wedding photo ${index + 1}`}
+                    loading="eager"
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', borderRadius: 'inherit' }}
+                    onLoad={(e) => (e.currentTarget.className = 'loaded')}
+                  />
                 </div>
               ))}
             </div>
@@ -786,11 +803,11 @@ export default function Details(){
                 <button
                   type="button"
                   onClick={() => setOpenImage(false)}
-                  className="absolute right-4 top-4 z-10 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                  className="absolute right-3 top-3 z-[200] flex items-center justify-center w-8 h-8 rounded-full bg-black/50 text-white transition-opacity hover:opacity-80 focus:outline-none"
                   aria-label={t.closeModal}
                 >
-                  <IoCloseOutline className="text-2xl" />
-              </button>
+                  <IoCloseOutline className="text-xl" />
+                </button>
           </div>
         </div>
         )}
