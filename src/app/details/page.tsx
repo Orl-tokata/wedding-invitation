@@ -644,7 +644,7 @@ export default function Details(){
                 decoding="async"
                 data-nimg="1"
                 sizes=""
-                src="/images/pre-wedding-frame-tokata.png"
+                src="/images/pre-wedding-frame.webp"
                 style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
