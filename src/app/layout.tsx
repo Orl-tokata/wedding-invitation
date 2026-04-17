@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
-import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from '@next/third-parties/google'  // add this
 
 export const metadata: Metadata = {
   title: 'Tokata & Phanou Wedding',
@@ -20,7 +20,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans w-full flex justify-center">
         <Providers>{children}</Providers>
-        <Analytics />
+        <GoogleAnalytics gaId="G-ZB4N7K542N" />  {/* replace with your ID */}
       </body>
     </html>
   )
