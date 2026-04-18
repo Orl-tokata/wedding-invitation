@@ -686,6 +686,22 @@ export default function Details(){
               />
             </div>
 
+             {/* Open in Google Maps button */}
+      
+            <a href="https://www.google.com/maps/search/?api=1&query=PMQ7%2BPXF+Kimhout+Hometown+Angkor+Chey"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-md text-sm font-medium hover:opacity-80 transition-opacity mb-4"
+              style={{
+                backgroundColor: "transparent",
+                color: "#918645",
+                border: "1px solid #918645",
+                fontFamily: "'AKbalthom Freehand [Version 1.50] 082014', sans-serif",
+              }}
+            >
+              {t.locationGoogleMaps}
+            </a>
+
             <button
               type="button"
               onClick={() => setOpenGoogleMap(false)}
@@ -721,7 +737,7 @@ export default function Details(){
             className="relative z-60 max-w-md w-full max-h-[80vh] bg-white rounded-lg p-6 shadow-lg animate-fadeIn"
             tabIndex={-1}>
             {/* QR Code Groom */}
-            <p className="text-khmer-title font-normal text-2xl mb-4 text-center pt-7">
+            <p className="text-khmer-title font-normal text-xl mb-4 text-center pt-7">
               {t.qrGroom}
             </p>
 

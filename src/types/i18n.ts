@@ -66,4 +66,5 @@ export type Translations = {
   prevSlide: string;
   nextSlide: string;
   locationLabel: string;
+  locationGoogleMaps: string;
 };

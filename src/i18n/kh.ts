@@ -41,7 +41,7 @@ export const kh: Translations = {
   programWeddingItemTime5: 'ម៉ោង ៩:១៥ នាទីព្រឹក',
   programWeddingItem5: 'ពិធីកាត់សក់បង្កក់សិរី',
 
-  programWeddingItemTime6: 'ម៉ោង ១០:៥០ នាទីព្រឹក',
+  programWeddingItemTime6: 'ម៉ោង ១០:៣០ នាទីព្រឹក',
   programWeddingItem6: 'ពិធីសំពះផ្ទឹម បង្វិលពពិល សែនជីដូន ជីតា បាចផ្កាស្លា ចងដៃ',
 
   programWeddingItemTime7: 'ម៉ោង ១១:០០ នាទីព្រឹក',
@@ -59,7 +59,7 @@ export const kh: Translations = {
   khrAccount: 'គណនីប្រាក់រៀល',
 
   scanQrForMaps: 'ស្កែន QR កូដ ដើម្បីទៅកាន់ Google Maps',
-  qrGroom: 'Tokata&Phanou\'s QR Code',
+  qrGroom: 'QR Code កូនកំលោះ និងកូនក្រមុំ',
   qrBride: 'QR Code ABA កូនក្រមំ',
 
   artist: 'Artist',
@@ -71,4 +71,5 @@ export const kh: Translations = {
   prevSlide: 'ស្លាយមុន',
   nextSlide: 'ស្លាយបន្ទាប់',
   locationLabel: 'ទីតាំង',
+  locationGoogleMaps: 'ផ្ទះកម្មវិធី',
 };

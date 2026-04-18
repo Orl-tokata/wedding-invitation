@@ -42,7 +42,7 @@ export const en: Translations = {
   programWeddingItemTime5: '9:15 AM',
   programWeddingItem5: 'Hair‑cutting and blessing ceremony.',
 
-  programWeddingItemTime6: '10:50 AM',
+  programWeddingItemTime6: '10:30 AM',
   programWeddingItem6:
     'Betel‑offering, candle‑lighting and honoring ancestors, with flower scattering and blessing string‑tying.',
 
@@ -61,7 +61,7 @@ export const en: Translations = {
   khrAccount: 'KHR account',
 
   scanQrForMaps: 'Scan the QR code to open Google Maps',
-  qrGroom: 'Tokata&Phanou\'s QR Code',
+  qrGroom: 'Bride & Groom QR Code',
   qrBride: "Bride's ABA QR code",
 
   artist: 'Artist',
@@ -73,4 +73,5 @@ export const en: Translations = {
   prevSlide: 'Previous slide',
   nextSlide: 'Next slide',
   locationLabel: 'Location',
+  locationGoogleMaps: 'Event Venu',
 };
