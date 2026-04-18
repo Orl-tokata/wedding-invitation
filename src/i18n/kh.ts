@@ -44,10 +44,10 @@ export const kh: Translations = {
   programWeddingItemTime6: 'ម៉ោង ១០:៥០ នាទីព្រឹក',
   programWeddingItem6: 'ពិធីសំពះផ្ទឹម បង្វិលពពិល សែនជីដូន ជីតា បាចផ្កាស្លា ចងដៃ',
 
-  programWeddingItemTime7: 'ម៉ោង ១១:៣០ នាទីព្រឹក',
+  programWeddingItemTime7: 'ម៉ោង ១១:០០ នាទីព្រឹក',
   programWeddingItem7: 'អញ្ជើញភ្ញៀវពិសាអាហារថ្ងៃត្រង់',
 
-  programWeddingItemTime8: 'ម៉ោង ៥:៣០ ល្ងាច',
+  programWeddingItemTime8: 'ម៉ោង ៥:០០ ល្ងាច',
   programWeddingItem8: 'អញ្ជើញភ្ញៀវកិត្តិយសពិសាភោជនាហារ ពេលល្ងាច ដោយមេត្រីភាព។',
 
   programMap: 'ប្លង់កម្មវិធី',

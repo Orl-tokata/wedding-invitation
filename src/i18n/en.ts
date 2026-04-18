@@ -46,10 +46,10 @@ export const en: Translations = {
   programWeddingItem6:
     'Betel‑offering, candle‑lighting and honoring ancestors, with flower scattering and blessing string‑tying.',
 
-  programWeddingItemTime7: '11:30 AM',
+  programWeddingItemTime7: '11:00 AM',
   programWeddingItem7: 'Guests are invited to lunch.',
 
-  programWeddingItemTime8: '5:30 PM',
+  programWeddingItemTime8: '5:00 PM',
   programWeddingItem8: 'Honored guests are invited to the evening reception and dinner.',
 
   programMap: 'Program layout',

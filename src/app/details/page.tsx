@@ -478,22 +478,22 @@ export default function Details(){
   <h1 className="text-khmer-body text-xl">{t.programWedding}</h1>
 
   <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
-    {[
-      { iconSrc: "/icons/apple.png",         time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
-      { iconSrc: "/icons/wedding-arch.png",  time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
-      { iconSrc: "/icons/soup-bowl.png",     time: t.programWeddingItemTime3, desc: t.programWeddingItem3 },
-      { iconSrc: "/icons/praying.png",       time: t.programWeddingItemTime4, desc: t.programWeddingItem4 },
-      { iconSrc: "/icons/hair-cut-tool.png", time: t.programWeddingItemTime5, desc: t.programWeddingItem5 },
-      { iconSrc: "/icons/wedding.png",       time: t.programWeddingItemTime6, desc: t.programWeddingItem6 },
-      { iconSrc: "/icons/banquet.png",       time: t.programWeddingItemTime7, desc: t.programWeddingItem7 },
-      { iconSrc: "/icons/wine.png",          time: t.programWeddingItemTime8, desc: t.programWeddingItem8 },
-    ].map((item, index) => (
+  {[
+    { iconSrc: "/icons/apple.png",         time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
+    { iconSrc: "/icons/wedding-arch.png",  time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
+    { iconSrc: "/icons/soup-bowl.png",     time: t.programWeddingItemTime3, desc: t.programWeddingItem3 },
+    { iconSrc: "/icons/praying.png",       time: t.programWeddingItemTime4, desc: t.programWeddingItem4 },
+    { iconSrc: "/icons/hair-cut-tool.png", time: t.programWeddingItemTime5, desc: t.programWeddingItem5 },
+    { iconSrc: "/icons/wedding.png",       time: t.programWeddingItemTime6, desc: t.programWeddingItem6 },
+    { iconSrc: "/icons/banquet.png",       time: t.programWeddingItemTime7, desc: t.programWeddingItem7 },
+    { iconSrc: "/icons/wine.png",          time: t.programWeddingItemTime8, desc: t.programWeddingItem8 },
+  ].map((item, index) => (
+    <div key={index} className="flex flex-col">
+      {/* Top row: icon + time + desc */}
       <div
-        key={index}
         style={{
           display: "grid",
-          gridTemplateColumns: "24px 24px 1fr",
-          gridTemplateRows: "auto auto",
+          gridTemplateColumns: "24px 1fr",
           columnGap: "8px",
         }}
       >
@@ -512,34 +512,31 @@ export default function Details(){
           }}
         />
 
-        {/* Center icon — spans both rows, displayed vertically */}
-        <img
-          src="/images/icon-senter.png"
-          alt=""
-          style={{
-            width: "60px",
-            marginLeft: "-51px",
-            objectFit: "contain",
-            gridColumn: "3",
-            gridRow: "1 / 3",
-            alignSelf: "stretch",
-            transform: "rotate(90deg)",
-            filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)",
-          }}
-        />
-
         {/* Time row */}
-        <span className="whitespace-nowrap" style={{ gridColumn: "3", gridRow: "1" }}>
+        <span className="whitespace-nowrap" style={{ gridColumn: "2", gridRow: "1" }}>
           {item.time}
         </span>
 
         {/* Desc row */}
-        <span className="break-words" style={{ gridColumn: "3", gridRow: "2" }}>
+        <span className="break-words" style={{ gridColumn: "2", gridRow: "2" }}>
           {item.desc}
         </span>
       </div>
-    ))}
-  </div>
+      
+      {/* Divider — below the text, hidden on last item */}
+      {index < 8 && (
+        <hr
+          style={{
+            border: "none",
+            borderTop: "1px dashed currentColor",
+            opacity: 0.4,
+            margin: "4px 0",
+          }}
+        />
+      )}
+    </div>
+  ))}
+</div>
 </section>
         
 
@@ -598,32 +595,28 @@ export default function Details(){
 
           <footer className="w-full grid grid-cols-1 place-items-center gap-16">
             {/* Text & Go Back Button */}
-            {/* <div className="flex flex-col items-center gap-16">
-              <div className="grid grid-cols-1 gap-2 place-items-center">
-                <div className="wave-container">
-                  <h1 className="wave-text text-4xl text-khmer-title-bold">
-                    {t.thankYou.split('').map((char, i) => (
-                      <span key={i}>{char}</span>
-                    ))}
-                  </h1>
-              </div>
-              </div>
-              <a href="/">
+            <div className="flex flex-col items-center gap-16 mt-5">
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=PMQ7%2BPXF+Kimhout+Hometown+Angkor+Chey" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <button className="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground hover:opacity-80 px-4 py-2 bg-transparent border-none shadow-none h-12 z-30">
-                    <div className="relative z-30 w-60 animate-zoom-in-out">
+                  <div className="relative z-30 w-60 animate-zoom-in-out">
                     <img
-                        alt="Click to join"
-                        loading="lazy"
-                        src={locale === 'kh' ? '/images/go-back-button-kh.png' : '/images/go-back-button-en.png'}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </button>
+                      alt="Click to join"
+                      loading="lazy"
+                      src={locale === 'kh' ? '/images/go-googlemap-button-kh.png' : '/images/go-googlemap-button-en.png'}
+                      className="w-full h-full object-cover"
+                      //style={{ width: '100%', height: '100%', objectFit: 'cover' ,filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}
+                    />
+                  </div>
+                </button>
               </a>
-            </div> */}
+            </div>
 
             {/* Middle Image */}
-            <div className="relative w-[80%]">
+            <div className="relative w-[80%] mt-[-60px] z-20">
               <img
                   alt=""
                   loading="lazy"
@@ -638,7 +631,7 @@ export default function Details(){
             </div>
 
             {/* Bottom Full-width Image */}
-            <div className="relative w-full z-20">
+            <div className="relative w-full mt-[-60px] z-20">
               <img
                 alt=""
                 decoding="async"
