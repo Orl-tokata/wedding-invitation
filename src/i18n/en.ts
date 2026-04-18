@@ -26,31 +26,39 @@ export const en: Translations = {
   weInviteYou: 'We respectfully invite you',
   weddingCeremony: 'Wedding ceremony',
   programWedding: 'Wedding day program',
+  programWeddingTime: '(26-04-2026)',
 
+  programWeddingDay1Title: 'Wedding Program Day 1៖',
+  programWeddingDay1Sub: 'Saturday, April 25, 2026 (Victory Pavilion Ceremony)',
+  programWeddingDay1Time1: '3:00 PM',
+  programWeddingDay1Item1: 'Gong ritual ceremony (Krong Pali ceremony)',
+  programWeddingDay1Time2: '4:00 PM',
+  programWeddingDay1Item2: 'Buddhist blessing chanting ceremony',
+  programWeddingDay1Time3: '5:00 PM',
+  programWeddingDay1Item3: 'Welcoming honored guests for dinner reception',
+
+  programWeddingDay2Title: 'Wedding Program Day 2៖',
+  programWeddingDay2Sub: 'Sunday, April 26, 2026 (Main Wedding Ceremony)',
   programWeddingItemTime1: '6:30 AM',
   programWeddingItem1: 'Gathering of relatives and honored guests to prepare for the procession.',
 
   programWeddingItemTime2: '7:00 AM',
   programWeddingItem2: 'Procession ceremony to escort the groom into the wedding hall.',
 
-  programWeddingItemTime3: '7:10 AM',
+  programWeddingItemTime3: '7:30 AM',
   programWeddingItem3: 'Guests are invited to have breakfast (rice porridge).',
 
-  programWeddingItemTime4: '8:15 AM',
-  programWeddingItem4: 'Monks are invited to chant blessing prayers.',
+  programWeddingItemTime4: '9:00 AM',
+  programWeddingItem4: 'Hair‑cutting and blessing ceremony.',
 
-  programWeddingItemTime5: '9:15 AM',
-  programWeddingItem5: 'Hair‑cutting and blessing ceremony.',
+  programWeddingItemTime5: '10:30 AM',
+  programWeddingItem5:'Betel‑offering, candle‑lighting and honoring ancestors, with flower scattering and blessing string‑tying.',
 
-  programWeddingItemTime6: '10:30 AM',
-  programWeddingItem6:
-    'Betel‑offering, candle‑lighting and honoring ancestors, with flower scattering and blessing string‑tying.',
+  programWeddingItemTime6: '11:00 AM',
+  programWeddingItem6: 'Guests are invited to lunch.',
 
-  programWeddingItemTime7: '11:00 AM',
-  programWeddingItem7: 'Guests are invited to lunch.',
-
-  programWeddingItemTime8: '5:00 PM',
-  programWeddingItem8: 'Honored guests are invited to the evening reception and dinner.',
+  programWeddingItemTime7: '5:00 PM',
+  programWeddingItem7: 'Honored guests are invited to the evening reception and dinner.',
 
   programMap: 'Program layout',
   contactPhone: 'Contact phone',

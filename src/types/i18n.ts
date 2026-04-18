@@ -26,6 +26,21 @@ export type Translations = {
   weInviteYou: string;
   weddingCeremony: string;
   programWedding: string;
+  programWeddingTime: string;
+
+  programWeddingDay1Title: string;
+  programWeddingDay1Sub: string;
+
+  programWeddingDay1Time1: string;
+  programWeddingDay1Item1: string;
+  programWeddingDay1Time2: string;
+  programWeddingDay1Item2: string;
+  programWeddingDay1Time3: string;
+  programWeddingDay1Item3: string;
+
+  programWeddingDay2Title: string;
+  programWeddingDay2Sub: string;
+  
   programWeddingItemTime1: string;
   programWeddingItemTime2: string;
   programWeddingItemTime3: string;
@@ -33,7 +48,6 @@ export type Translations = {
   programWeddingItemTime5: string;
   programWeddingItemTime6: string;
   programWeddingItemTime7: string;
-  programWeddingItemTime8: string;
   programWeddingItem1: string;
   programWeddingItem2: string;
   programWeddingItem3: string;
@@ -41,7 +55,6 @@ export type Translations = {
   programWeddingItem5: string;
   programWeddingItem6: string;
   programWeddingItem7: string;
-  programWeddingItem8: string;
   programMap: string;
   contactPhone: string;
   thankYou: string;

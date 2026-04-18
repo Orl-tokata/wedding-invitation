@@ -25,30 +25,40 @@ export const kh: Translations = {
   weInviteYou: 'សូមគោរពអញ្ជើញ',
   weddingCeremony: 'ពិធីរៀបអាពាហ៍ពិពាហ៍',
   programWedding: 'កម្មវិធីពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍',
+  programWeddingTime: '(២៦-០៤-២០២៦)',
 
+  programWeddingDay1Title: 'កម្មវិធីថ្ងៃទី១៖',
+  programWeddingDay1Sub: 'ថ្ងៃសៅរ៍ ទី២៥ ខែមេសា ឆ្នាំ២០២៦ (ថ្ងៃចូលរោងជ័យ)',
+  
+  programWeddingDay1Time1: 'ម៉ោង ៣:០០ រសៀល',
+  programWeddingDay1Item1: 'ពិធីសែនក្រុងពាលី',
+  programWeddingDay1Time2: 'ម៉ោង ៤:០០ រសៀល',
+  programWeddingDay1Item2: 'ពិធីសូត្រមន្តចម្រើនព្រះបរិត្ត',
+  programWeddingDay1Time3: 'ម៉ោង ៥:០០ រសៀល',
+  programWeddingDay1Item3: 'អញ្ជើញភ្ញៀវកិត្តិយស ពិសាអាហារពេលល្ងាច',
+
+  programWeddingDay2Title: 'កម្មវិធីថ្ងៃទី២៖',
+  programWeddingDay2Sub: 'ថ្ងៃអាទិត្យ ទី២៦ ខែមេសា ឆ្នាំ២០២៦ (ថ្ងៃកំណត់)',
   programWeddingItemTime1: 'ម៉ោង ៦:៣០ នាទីព្រឹក',
   programWeddingItem1: 'ជួបជុំសាច់ញាតិ ភ្ញៀវកិត្តិយស ដើម្បីរៀបចំពិធីហែជំនួន',
 
   programWeddingItemTime2: 'ម៉ោង ៧:០០ នាទីព្រឹក',
-  programWeddingItem2: 'ពិធីហែកំណត់ចូលរោងជ័យ',
+  programWeddingItem2: 'ពិធីហែជំនួនទទួលផ្កាស្លាចូលរោងជ័យ',
 
-  programWeddingItemTime3: 'ម៉ោង ៧:១០ នាទីព្រឹក',
-  programWeddingItem3: 'អញ្ជើញភ្ញៀវពិសាអាហារពេលព្រឹក(បបរគ្រឿង)',
+  programWeddingItemTime3: 'ម៉ោង ៧:៣០ នាទីព្រឹក',
+  programWeddingItem3: 'អញ្ជើញភ្ញៀវកិត្តិយស ពិសាអាហារពេលព្រឹក',
 
-  programWeddingItemTime4: 'ម៉ោង ៨:១៥ នាទីព្រឹក',
-  programWeddingItem4: 'និមន្តព្រះសង្ឃសូត្រមន្ត',
+  programWeddingItemTime4: 'ម៉ោង ៩:០០ នាទីព្រឹក',
+  programWeddingItem4: 'ពិធីកាត់សក់បង្កក់សិរី',
 
-  programWeddingItemTime5: 'ម៉ោង ៩:១៥ នាទីព្រឹក',
-  programWeddingItem5: 'ពិធីកាត់សក់បង្កក់សិរី',
+  programWeddingItemTime5: 'ម៉ោង ១០:៣០ នាទីព្រឹក',
+  programWeddingItem5: 'ពិធីសំពះផ្ទឹម បង្វិលពពិល សែនជីដូន ជីតា បាចផ្កាស្លា ចងដៃ',
 
-  programWeddingItemTime6: 'ម៉ោង ១០:៣០ នាទីព្រឹក',
-  programWeddingItem6: 'ពិធីសំពះផ្ទឹម បង្វិលពពិល សែនជីដូន ជីតា បាចផ្កាស្លា ចងដៃ',
+  programWeddingItemTime6: 'ម៉ោង ១១:០០ នាទីព្រឹក',
+  programWeddingItem6: 'អញ្ជើញភ្ញៀវពិសាអាហារថ្ងៃត្រង់',
 
-  programWeddingItemTime7: 'ម៉ោង ១១:០០ នាទីព្រឹក',
-  programWeddingItem7: 'អញ្ជើញភ្ញៀវពិសាអាហារថ្ងៃត្រង់',
-
-  programWeddingItemTime8: 'ម៉ោង ៥:០០ ល្ងាច',
-  programWeddingItem8: 'អញ្ជើញភ្ញៀវកិត្តិយសពិសាភោជនាហារ ពេលល្ងាច ដោយមេត្រីភាព។',
+  programWeddingItemTime7: 'ម៉ោង ៥:០០ ល្ងាច',
+  programWeddingItem7: 'អញ្ជើញភ្ញៀវកិត្តិយសពិសាភោជនាហារ ពេលល្ងាច ដោយមេត្រីភាព។',
 
   programMap: 'ប្លង់កម្មវិធី',
   contactPhone: 'ទំនាក់ទំនងទូរស័ព្ទ',

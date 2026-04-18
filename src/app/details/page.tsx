@@ -422,20 +422,54 @@ export default function Details(){
           </p>
 
           {/* Couple section */}
-          <section className="w-full flex flex-col items-center relative -mt-[60px]">
-            <div className="w-16 relative top-14">
-              <img alt="" loading="lazy" src="/images/hear-wedding.png" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' ,filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}/>
-            </div> 
-            <div className="flex justify-between w-full px-14">
-              <div className="flex flex-col gap-2">
+          <section className="w-full flex flex-col items-center">
+            <div className="w-full flex justify-between items-end px-14">
+
+              {/* Groom */}
+              <div className="flex flex-col gap-2 items-center">
+                <div
+                  className="w-28 h-36 sm:w-32 sm:h-40 overflow-hidden rounded-2xl"
+                  style={{ border: "2px solid #918645", boxShadow: "0 4px 12px rgba(145, 134, 69, 0.3)" }}
+                >
+                  <img
+                    alt="Groom"
+                    loading="lazy"
+                    src="/images/img02.webp"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <p className="text-khmer text-sm">{t.groom}</p>
                 <p className="text-khmer-body">{t.groomName}</p>
               </div>
-              <div className="flex flex-col gap-2 items-end">
+
+              {/* Heart center — between names */}
+              <div className="flex flex-col items-center mb-1">
+                <img
+                  alt=""
+                  loading="lazy"
+                  src="/images/hear-wedding.png"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-cover"
+                  style={{ filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}
+                />
+              </div>
+
+              {/* Bride */}
+              <div className="flex flex-col gap-2 items-center">
+                <div
+                  className="w-28 h-36 sm:w-32 sm:h-40 overflow-hidden rounded-2xl"
+                  style={{ border: "2px solid #918645", boxShadow: "0 4px 12px rgba(145, 134, 69, 0.3)" }}
+                >
+                  <img
+                    alt="Bride"
+                    loading="lazy"
+                    src="/images/img03.webp"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
                 <p className="text-khmer text-sm">{t.bride}</p>
                 <p className="text-khmer-body">{t.brideName}</p>
               </div>
+
             </div>
           </section>
 
@@ -474,71 +508,144 @@ export default function Details(){
           </div>
         </section>
 
+        {/* Section: Wedding Program Day1*/}
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
-  <h1 className="text-khmer-body text-xl">{t.programWedding}</h1>
 
-  <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
-  {[
-    { iconSrc: "/icons/apple.png",         time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
-    { iconSrc: "/icons/wedding-arch.png",  time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
-    { iconSrc: "/icons/soup-bowl.png",     time: t.programWeddingItemTime3, desc: t.programWeddingItem3 },
-    { iconSrc: "/icons/praying.png",       time: t.programWeddingItemTime4, desc: t.programWeddingItem4 },
-    { iconSrc: "/icons/hair-cut-tool.png", time: t.programWeddingItemTime5, desc: t.programWeddingItem5 },
-    { iconSrc: "/icons/wedding.png",       time: t.programWeddingItemTime6, desc: t.programWeddingItem6 },
-    { iconSrc: "/icons/banquet.png",       time: t.programWeddingItemTime7, desc: t.programWeddingItem7 },
-    { iconSrc: "/icons/wine.png",          time: t.programWeddingItemTime8, desc: t.programWeddingItem8 },
-  ].map((item, index) => (
-    <div key={index} className="flex flex-col">
-      {/* Top row: icon + time + desc */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "24px 1fr",
-          columnGap: "8px",
-        }}
-      >
-        {/* Left icon — spans both rows, centered vertically */}
-        <img
-          src={item.iconSrc}
-          alt=""
-          style={{
-            width: "24px",
-            height: "24px",
-            objectFit: "contain",
-            gridColumn: "1",
-            gridRow: "1 / 3",
-            alignSelf: "center",
-            filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)",
-          }}
-        />
+          <h1 className="text-khmer-body text-base sm:text-lg text-center px-6 leading-8 w-full">
+            <span className="block">{t.programWeddingDay1Title}</span>
+            <span className="block">{t.programWeddingDay1Sub}</span>
+          </h1>
 
-        {/* Time row */}
-        <span className="whitespace-nowrap" style={{ gridColumn: "2", gridRow: "1" }}>
-          {item.time}
-        </span>
+          <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
+            {[
+              { iconSrc: "/icons/yajna.png",         time: t.programWeddingDay1Time1, desc: t.programWeddingDay1Item1 },
+              { iconSrc: "/icons/praying.png",  time: t.programWeddingDay1Time2, desc: t.programWeddingDay1Item2 },
+              { iconSrc: "/icons/banquet.png",     time: t.programWeddingDay1Time3, desc: t.programWeddingDay1Item3 },
+            ].map((item, index, arr) => (
+              <div key={index} className="flex flex-col">
+                {/* Top row: icon + time + desc */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "24px 1fr",
+                    columnGap: "8px",
+                  }}
+                >
+                  {/* Left icon — spans both rows, centered vertically */}
+                  <img
+                    src={item.iconSrc}
+                    alt=""
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      objectFit: "contain",
+                      gridColumn: "1",
+                      gridRow: "1 / 3",
+                      alignSelf: "center",
+                      filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)",
+                    }}
+                  />
 
-        {/* Desc row */}
-        <span className="break-words" style={{ gridColumn: "2", gridRow: "2" }}>
-          {item.desc}
-        </span>
-      </div>
-      
-      {/* Divider — below the text, hidden on last item */}
-      {index < 8 && (
-        <hr
-          style={{
-            border: "none",
-            borderTop: "1px dashed currentColor",
-            opacity: 0.4,
-            margin: "4px 0",
-          }}
-        />
-      )}
-    </div>
-  ))}
-</div>
-</section>
-        
+                  {/* Time row */}
+                  <span className="whitespace-nowrap" style={{ gridColumn: "2", gridRow: "1" }}>
+                    {item.time}
+                  </span>
+
+                  {/* Desc row */}
+                  <span className="break-words" style={{ gridColumn: "2", gridRow: "2" }}>
+                    {item.desc}
+                  </span>
+                </div>
+
+                {/* Divider — hidden on last item */}
+                {/* {index < arr.length - 1 && ( */}
+                {index < 3 && (
+                  <div
+                    style={{
+                      margin: "8px 0",
+                      height: "1px",
+                      backgroundColor: "#918645",
+                      opacity: 0.25,
+                      boxShadow: "0 0 4px 1px rgba(145, 134, 69, 0.2)",
+                      borderRadius: "999px",
+                    }}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+         {/* Section: Wedding Program Day2*/}
+        <section className="mt-1 mb-4 flex flex-col items-center w-full gap-10">
+          <h1 className="text-khmer-body text-base sm:text-lg text-center px-6 leading-8 w-full">
+            <span className="block">{t.programWeddingDay2Title}</span>
+            <span className="block">{t.programWeddingDay2Sub}</span>
+          </h1>
+
+          <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
+            {[
+              { iconSrc: "/icons/apple.png",         time: t.programWeddingItemTime1, desc: t.programWeddingItem1 },
+              { iconSrc: "/icons/wedding-arch.png",  time: t.programWeddingItemTime2, desc: t.programWeddingItem2 },
+              { iconSrc: "/icons/soup-bowl.png",     time: t.programWeddingItemTime3, desc: t.programWeddingItem3 },
+              { iconSrc: "/icons/hair-cut-tool.png", time: t.programWeddingItemTime4, desc: t.programWeddingItem4 },
+              { iconSrc: "/icons/wedding.png",       time: t.programWeddingItemTime5, desc: t.programWeddingItem5 },
+              { iconSrc: "/icons/banquet.png",       time: t.programWeddingItemTime6, desc: t.programWeddingItem6 },
+              { iconSrc: "/icons/wine.png",          time: t.programWeddingItemTime7, desc: t.programWeddingItem7 },
+            ].map((item, index, arr) => (
+              <div key={index} className="flex flex-col">
+                {/* Top row: icon + time + desc */}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "24px 1fr",
+                    columnGap: "8px",
+                  }}
+                >
+                  {/* Left icon — spans both rows, centered vertically */}
+                  <img
+                    src={item.iconSrc}
+                    alt=""
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      objectFit: "contain",
+                      gridColumn: "1",
+                      gridRow: "1 / 3",
+                      alignSelf: "center",
+                      filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)",
+                    }}
+                  />
+
+                  {/* Time row */}
+                  <span className="whitespace-nowrap" style={{ gridColumn: "2", gridRow: "1" }}>
+                    {item.time}
+                  </span>
+
+                  {/* Desc row */}
+                  <span className="break-words" style={{ gridColumn: "2", gridRow: "2" }}>
+                    {item.desc}
+                  </span>
+                </div>
+
+                {/* Divider — hidden on last item */}
+                {/* {index < arr.length - 1 && ( */}
+                {index < 7 && (
+                  <div
+                    style={{
+                      margin: "8px 0",
+                      height: "1px",
+                      backgroundColor: "#918645",
+                      opacity: 0.25,
+                      boxShadow: "0 0 4px 1px rgba(145, 134, 69, 0.2)",
+                      borderRadius: "999px",
+                    }}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section className="flex flex-col items-center w-full gap-4">
           <h1 className="text-khmer-body text-xl">{t.contactPhone}</h1>
