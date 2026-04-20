@@ -29,7 +29,7 @@ export const en: Translations = {
   programWeddingTime: '(26-04-2026)',
 
   programWeddingDay1Title: 'Wedding Program Day 1៖',
-  programWeddingDay1Sub: 'Saturday, April 25, 2026 (Victory Pavilion Ceremony)',
+  programWeddingDay1Sub: 'Saturday, April 25, 2026\n(Victory Pavilion Ceremony)',
   programWeddingDay1Time1: '3:00 PM',
   programWeddingDay1Item1: 'Gong ritual ceremony (Krong Pali ceremony)',
   programWeddingDay1Time2: '4:00 PM',
@@ -38,7 +38,7 @@ export const en: Translations = {
   programWeddingDay1Item3: 'Welcoming honored guests for dinner reception',
 
   programWeddingDay2Title: 'Wedding Program Day 2៖',
-  programWeddingDay2Sub: 'Sunday, April 26, 2026 (Main Wedding Ceremony)',
+  programWeddingDay2Sub: 'Sunday, April 26, 2026\n(Main Wedding Ceremony)',
   programWeddingItemTime1: '6:30 AM',
   programWeddingItem1: 'Gathering of relatives and honored guests to prepare for the procession.',
 
@@ -69,7 +69,7 @@ export const en: Translations = {
   khrAccount: 'KHR account',
 
   scanQrForMaps: 'Scan the QR code to open Google Maps',
-  qrGroom: 'Bride & Groom QR Code',
+  qrGroom: 'Scane QR Code',
   qrBride: "Bride's ABA QR code",
 
   artist: 'Artist',

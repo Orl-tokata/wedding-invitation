@@ -19,6 +19,7 @@ import {
 import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
 import { useTranslation } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 
 const slides = [
@@ -218,11 +219,16 @@ export default function Details(){
   return (
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
 
-      {/* Hidden images — fetched immediately by browser preload scanner, cached before modal opens */}
-      {/* Visually hidden preload — visibility:hidden keeps layout-paint priority higher than display:none */}
+      {/* Preload first 3 images for instant open */}
       <div style={{ position: 'absolute', visibility: 'hidden', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
         {slides.map((item, index) => (
-          <img key={index} src={item.image} alt="" loading="eager" fetchPriority="high" />
+          <img
+            key={index}
+            src={item.image}
+            alt=""
+            loading={index < 3 ? "eager" : "lazy"}
+            fetchPriority={index === 0 ? "high" : "auto"}
+          />
         ))}
       </div>
 
@@ -335,7 +341,11 @@ export default function Details(){
 
         {/* Image viewer button (Pink) */}
         <div className="fixed bottom-2 right-14 z-50 flex items-center justify-center">
-          <button onClick={() => setOpenImage(true)} className="btn-scale bg-white shadow-lg h-12 w-12 rounded-full flex items-center justify-center text-pink-500">
+          <button
+            onClick={() => setOpenImage(true)}
+            onMouseEnter={() => setCurrentSlideIndex(0)} // warm up state
+            className="btn-scale bg-white shadow-lg h-12 w-12 rounded-full flex items-center justify-center text-pink-500"
+          >
             <FaImage className="text-xl" />
           </button>
         </div>
@@ -507,9 +517,9 @@ export default function Details(){
         {/* Section: Wedding Program Day1*/}
         <section className="mt-16 mb-4 flex flex-col items-center w-full gap-10">
 
-          <h1 className="text-khmer-body text-base sm:text-lg text-center px-6 leading-8 w-full">
+          <h1 className="text-khmer-body text-sm sm:text-base md:text-lg text-center px-4 sm:px-6 leading-7 sm:leading-8 w-full">
             <span className="block">{t.programWeddingDay1Title}</span>
-            <span className="block">{t.programWeddingDay1Sub}</span>
+            <span className="block text-[14px] sm:text-sm md:text-base">{t.programWeddingDay1Sub}</span>
           </h1>
 
           <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
@@ -574,10 +584,11 @@ export default function Details(){
 
          {/* Section: Wedding Program Day2*/}
         <section className="mt-1 mb-4 flex flex-col items-center w-full gap-10">
-          <h1 className="text-khmer-body text-base sm:text-lg text-center px-6 leading-8 w-full">
-            <span className="block">{t.programWeddingDay2Title}</span>
-            <span className="block">{t.programWeddingDay2Sub}</span>
-          </h1>
+        
+        <h1 className="text-khmer-body text-sm sm:text-base md:text-lg text-center px-4 sm:px-6 leading-7 sm:leading-8 w-full">
+          <span className="block ">{t.programWeddingDay2Title}</span>
+          <span className="block text-[14px] sm:text-sm md:text-base">{t.programWeddingDay2Sub}</span>
+        </h1>
 
           <div className="relative w-[70%] flex flex-col gap-3 text-sm text-khmer font-sans leading-relaxed text-wedding-program">
             {[
@@ -646,23 +657,29 @@ export default function Details(){
         <section className="flex flex-col items-center w-full gap-4">
           <h1 className="text-khmer-body text-xl">{t.contactPhone}</h1>
           {/* Name + phone row: make always horizontal */}
-          <div className="flex flex-row justify-between w-full px-14 sm:px-16 gap-4">
-            {/* Left block */}
-            <div className="flex flex-col gap-2 items-start">
-              <p className="text-khmer">
-                {t.groom} <span className="text-khmer-body">{t.groomName}</span>
-              </p>
-              <p className="text-khmer-body">010785306</p>
-            </div>
+<div className="flex flex-row justify-between w-full px-14 sm:px-16 gap-4">
+  {/* Left block */}
+  <div className="flex flex-col gap-2 items-start">
+    <p className="text-khmer text-sm sm:text-base">
+      {t.groom}
+    </p>
+    <p className="text-khmer-body text-sm sm:text-base break-all">
+      {t.groomName}
+    </p>
+    <p className="text-khmer-body text-sm sm:text-base">010785306</p>
+  </div>
 
-            {/* Right block */}
-            <div className="flex flex-col gap-2 items-end text-right">
-              <p className="text-khmer">
-                {t.bride} <span className="text-khmer-body">{t.brideName}</span>
-              </p>
-              <p className="text-khmer-body">0972352572</p>
-            </div>
-          </div>
+  {/* Right block */}
+  <div className="flex flex-col gap-2 items-end text-right">
+    <p className="text-khmer text-sm sm:text-base">
+      {t.bride}
+    </p>
+    <p className="text-khmer-body text-sm sm:text-base break-all">
+      {t.brideName}
+    </p>
+    <p className="text-khmer-body text-sm sm:text-base">0972352572</p>
+  </div>
+</div>
 
           {/* Decoration */}
           <div className="flex gap-4 items-center" style={{ filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}>
@@ -734,14 +751,18 @@ export default function Details(){
             </div>
 
             {/* Bottom Full-width Image */}
-            <div className="relative w-full mt-[-60px] z-20">
+            <div className="relative w-[96%] sm:w-[98%] z-20 mr-3">
               <img
                 alt=""
                 decoding="async"
-                data-nimg="1"
-                sizes=""
                 src="/images/pre-wedding-frame.webp"
-                style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  color: "transparent",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
               />
             </div>
           </footer>
@@ -874,7 +895,7 @@ export default function Details(){
       {/* Gallery viewer */}
       {openImage && (
         <div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-3 py-10 px-3"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-3 py-6 px-3"
           aria-modal="true"
           role="dialog"
         >
@@ -885,14 +906,30 @@ export default function Details(){
             onClick={() => setOpenImage(false)}
           />
 
-          {/* Main image */}
+          {/* Main content */}
           <div ref={modalRef} className="relative z-[110] flex flex-col items-center gap-3 w-full">
-            <img
-              src={slides[currentSlideIndex].image}
-              alt={`Wedding photo ${currentSlideIndex + 1}`}
-              loading="eager"
-              className="max-h-[70vh] max-w-[92vw] sm:max-w-[75vw] md:max-w-[60vw] object-contain rounded-2xl shadow-2xl transition-opacity duration-150"
-            />
+
+            {/* Image wrapper with close button inside */}
+            <div className="relative inline-block">
+              <Image
+                src={slides[currentSlideIndex].image}
+                alt={`Wedding photo ${currentSlideIndex + 1}`}
+                width={800}
+                height={1000}
+                priority={true}
+                className="max-h-[65vh] w-auto max-w-[92vw] sm:max-w-[75vw] md:max-w-[60vw] object-contain rounded-2xl shadow-2xl"
+              />
+
+              {/* Close button — top right corner of image */}
+              <button
+                type="button"
+                onClick={() => setOpenImage(false)}
+                className="absolute -top-3 -right-3 z-[120] w-8 h-8 rounded-full bg-black/70 hover:bg-black/90 flex items-center justify-center text-white transition-all shadow-lg"
+                aria-label={t.closeModal}
+              >
+                <IoCloseOutline className="text-lg" />
+              </button>
+            </div>
 
             {/* Prev / counter / next */}
             <div className="flex items-center gap-5 mt-1">
@@ -916,32 +953,29 @@ export default function Details(){
             </div>
 
             {/* Thumbnail strip */}
-            <div className="flex gap-2 overflow-x-auto max-w-[92vw] pb-1">
+            <div className="flex gap-2 overflow-x-auto max-w-[92vw] sm:max-w-[75vw] pb-1 px-1">
               {slides.map((s, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentSlideIndex(i)}
-                  className={`flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden transition-all ${
+                  className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden transition-all ${
                     i === currentSlideIndex
                       ? 'ring-2 ring-white opacity-100 scale-110'
                       : 'opacity-45 hover:opacity-80'
                   }`}
                 >
-                  <img src={s.image} alt="" className="w-full h-full object-cover" loading="eager" />
+                  <Image
+                    src={s.image}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
                 </button>
               ))}
             </div>
           </div>
-
-          {/* Close */}
-          <button
-            type="button"
-            onClick={() => setOpenImage(false)}
-            className="fixed right-4 top-4 z-[120] w-9 h-9 rounded-full bg-black/55 flex items-center justify-center text-white hover:bg-black/80 focus:outline-none transition-all"
-            aria-label={t.closeModal}
-          >
-            <IoCloseOutline className="text-xl" />
-          </button>
         </div>
       )}
 

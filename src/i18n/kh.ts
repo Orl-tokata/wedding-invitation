@@ -69,7 +69,7 @@ export const kh: Translations = {
   khrAccount: 'គណនីប្រាក់រៀល',
 
   scanQrForMaps: 'ស្កែន QR កូដ ដើម្បីទៅកាន់ Google Maps',
-  qrGroom: 'QR Code កូនកំលោះ និងកូនក្រមុំ',
+  qrGroom: 'ចងដៃតាមរយៈ QR Code',
   qrBride: 'QR Code ABA កូនក្រមំ',
 
   artist: 'Artist',
