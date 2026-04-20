@@ -40,7 +40,7 @@ export default function Details(){
   const [openImage , setOpenImage] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const slideRef = useRef<HTMLDivElement>(null);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const { t, locale } = useTranslation();
 
   useEffect(() => {
@@ -101,26 +101,21 @@ export default function Details(){
   }, [])
 
   const handleNext = () => {
-    const slide:any = slideRef.current
-    if (slide && slide.children.length > 0) {
-      slide.appendChild(slide.children[0])
-    }
-  }
+    setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
+  };
 
   const handlePrev = () => {
-    const slide:any = slideRef.current
-    if (slide && slide.children.length > 0) {
-      slide.prepend(slide.children[slide.children.length - 1])
-    }
-  }
+    setCurrentSlideIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
-  // Auto-slide every 5 seconds
+  // Auto-advance only while the gallery is open
   useEffect(() => {
+    if (!openImage) return;
     const interval = setInterval(() => {
-      handleNext()
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [openImage]);
 
 
    // const audioRef = useRef<HTMLAudioElement>(null);
@@ -224,9 +219,10 @@ export default function Details(){
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
 
       {/* Hidden images — fetched immediately by browser preload scanner, cached before modal opens */}
-      <div style={{ display: 'none' }} aria-hidden="true">
+      {/* Visually hidden preload — visibility:hidden keeps layout-paint priority higher than display:none */}
+      <div style={{ position: 'absolute', visibility: 'hidden', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
         {slides.map((item, index) => (
-          <img key={index} src={item.image} alt="" loading="eager" fetchPriority={index < 3 ? 'high' : 'low'} />
+          <img key={index} src={item.image} alt="" loading="eager" fetchPriority="high" />
         ))}
       </div>
 
@@ -875,58 +871,79 @@ export default function Details(){
         </div>
       )}
 
-      {/* TODO: For Open Images */}
+      {/* Gallery viewer */}
       {openImage && (
+        <div
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-3 py-10 px-3"
+          aria-modal="true"
+          role="dialog"
+        >
+          {/* Overlay */}
           <div
-            className="fixed inset-0 z-100 flex items-center justify-center"
-            aria-modal="true"
-            role="dialog"
-            aria-labelledby="radix-location-label"
-            aria-describedby="radix-location-desc"
-          >
-            {/* Background Overlay */}
-            <div
-              className="fixed inset-0 bg-neutral-900/80"
-              aria-hidden="true"
-              onClick={() => setOpenImage(false)}
+            className="fixed inset-0 bg-black/90"
+            aria-hidden="true"
+            onClick={() => setOpenImage(false)}
+          />
+
+          {/* Main image */}
+          <div ref={modalRef} className="relative z-[110] flex flex-col items-center gap-3 w-full">
+            <img
+              src={slides[currentSlideIndex].image}
+              alt={`Wedding photo ${currentSlideIndex + 1}`}
+              loading="eager"
+              className="max-h-[70vh] max-w-[92vw] sm:max-w-[75vw] md:max-w-[60vw] object-contain rounded-2xl shadow-2xl transition-opacity duration-150"
             />
 
-            {/* Modal content */}
-            <div className="slider-container" ref={modalRef}>
-            <div className="slide"
-              ref={slideRef}>
-              {slides.map((item, index) => (
-                <div className="item" key={index}>
-                  <img
-                    src={item.image}
-                    alt={`Wedding photo ${index + 1}`}
-                    loading="eager"
-                    fetchPriority={index === 0 ? 'high' : 'auto'}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', borderRadius: 'inherit' }}
-                    onLoad={(e) => (e.currentTarget.className = 'loaded')}
-                  />
-                </div>
+            {/* Prev / counter / next */}
+            <div className="flex items-center gap-5 mt-1">
+              <button
+                onClick={handlePrev}
+                className="bg-white/15 hover:bg-white/35 backdrop-blur-sm w-10 h-10 rounded-full flex items-center justify-center text-white transition-all"
+                aria-label={t.prevSlide}
+              >
+                <FaLongArrowAltLeft />
+              </button>
+              <span className="text-white/70 text-sm tabular-nums min-w-[48px] text-center">
+                {currentSlideIndex + 1} / {slides.length}
+              </span>
+              <button
+                onClick={handleNext}
+                className="bg-white/15 hover:bg-white/35 backdrop-blur-sm w-10 h-10 rounded-full flex items-center justify-center text-white transition-all"
+                aria-label={t.nextSlide}
+              >
+                <FaLongArrowAltRight />
+              </button>
+            </div>
+
+            {/* Thumbnail strip */}
+            <div className="flex gap-2 overflow-x-auto max-w-[92vw] pb-1">
+              {slides.map((s, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlideIndex(i)}
+                  className={`flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden transition-all ${
+                    i === currentSlideIndex
+                      ? 'ring-2 ring-white opacity-100 scale-110'
+                      : 'opacity-45 hover:opacity-80'
+                  }`}
+                >
+                  <img src={s.image} alt="" className="w-full h-full object-cover" loading="eager" />
+                </button>
               ))}
             </div>
-                <div className="button-container">
-                  <button className="prev" onClick={handlePrev} aria-label={t.prevSlide}>
-                    <FaLongArrowAltLeft className=" sm:xl xs:xl"/>
-                  </button>
-                  <button className="next" onClick={handleNext} aria-label={t.nextSlide}>
-                    <FaLongArrowAltRight className=" sm:xl xs:xl"/>
-                  </button>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setOpenImage(false)}
-                  className="absolute right-3 top-3 z-[200] flex items-center justify-center w-8 h-8 rounded-full bg-black/50 text-white transition-opacity hover:opacity-80 focus:outline-none"
-                  aria-label={t.closeModal}
-                >
-                  <IoCloseOutline className="text-xl" />
-                </button>
           </div>
+
+          {/* Close */}
+          <button
+            type="button"
+            onClick={() => setOpenImage(false)}
+            className="fixed right-4 top-4 z-[120] w-9 h-9 rounded-full bg-black/55 flex items-center justify-center text-white hover:bg-black/80 focus:outline-none transition-all"
+            aria-label={t.closeModal}
+          >
+            <IoCloseOutline className="text-xl" />
+          </button>
         </div>
-        )}
+      )}
 
     </div>
   );
