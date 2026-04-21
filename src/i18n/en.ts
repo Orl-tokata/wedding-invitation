@@ -6,7 +6,8 @@ export const en: Translations = {
     'We respectfully invite Your Excellency, distinguished guests, ladies and gentlemen, and dear relatives and friends to preside over and bless the wedding ceremony of our beloved son and daughter.',
   inviteParagraphDate: 'which will take place on',
   date: 'Sunday, April 26, 2026',
-  dateInKhmer: 'Equivalent to the 10th day of the waxing moon of the month of Pisak, Year of the Goat, Buddhist Era 2569.',
+  dateInKhmer: 'Sunday, the 10th day of the waxing moon of the month of Pisak, Year of the Goat, Buddhist Era 2569.',
+  dateInEnglish: 'Corresponding to April 26, 2026',
   timeAt: 'At 5:00 PM in the evening',
   location:
     "at the bride's house, Chheu Teal village, Mrom commune, Angkor Chey district, Kampot province, in a spirit of friendship.",

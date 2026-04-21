@@ -20,6 +20,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { MdOutlineKeyboardDoubleArrowDown, MdQrCode2 } from "react-icons/md";
 import { useTranslation } from "@/contexts/LanguageContext";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const slides = [
@@ -281,13 +282,13 @@ export default function Details(){
         </div>
 
         {/* Home button (Green) */}
-        <a href="/">
+        <Link href="/">
           <div className="absolute bottom-14 left-2 z-50 flex items-center justify-center">
             <button className="btn-scale bg-white shadow-lg h-12 w-12 rounded-full flex items-center justify-center text-green-500">
               <FaHome className="text-xl" />
             </button>
           </div>
-        </a>
+        </Link>
 
         {/* Map button (Blue) */}
         <div className="fixed bottom-2 left-14 z-50 flex items-center justify-center">
@@ -377,7 +378,7 @@ export default function Details(){
             <img
               alt=""
               loading="lazy"
-              src={locale === 'kh' ? '/images/wedding-title-kh.png' : '/images/wedding-title-en.png'}
+              src={{ en: '/images/wedding-title-en.png', kh: '/images/wedding-title-kh.png', ko: '/images/wedding-title-ko.png' }[locale] ?? '/images/wedding-title-en.png'}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           </div>
@@ -480,7 +481,7 @@ export default function Details(){
           </section>
 
           <p className="px-16 text-center text-sm text-khmer leading-6">
-            {t.inviteParagraphDate}<span className="text-khmer-body"> {t.dateInKhmer} </span>{t.timeAt} {t.location}.
+            {t.inviteParagraphDate}<span className="text-khmer-body"> {t.dateInKhmer} {t.dateInEnglish} </span>{t.timeAt} {t.location}.
           </p>
 
           <p className="mt-6 text-sm text-khmer-body">{t.seeMapNote} {t.thankYou}</p>
@@ -726,7 +727,7 @@ export default function Details(){
                     <img
                       alt="Click to join"
                       loading="lazy"
-                      src={locale === 'kh' ? '/images/go-googlemap-button-kh.png' : '/images/go-googlemap-button-en.png'}
+                      src={{ en: '/images/go-googlemap-button-en.png', kh: '/images/go-googlemap-button-kh.png', ko: '/images/go-googlemap-button-ko.png' }[locale] ?? '/images/go-googlemap-button-en.png'}
                       className="w-full h-full object-cover"
                       //style={{ width: '100%', height: '100%', objectFit: 'cover' ,filter: "invert(55%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(85%)" }}
                     />
@@ -745,13 +746,13 @@ export default function Details(){
                   decoding="async"
                   data-nimg="1"
                   sizes="(max-width: 1250px) 100vw, 1250px"
-                  src={locale === 'en' ? '/images/save-the-date-en.png' : '/images/save-the-date-kh.png'}
+                  src={{ en: '/images/save-the-date-en.png', kh: '/images/save-the-date-kh.png', ko: '/images/save-the-date-ko.png' }[locale] ?? '/images/save-the-date-en.png'}
                   style={{ color: "transparent", width: "100%", height: "100%", objectFit: "cover" }}
                 />
             </div>
 
             {/* Bottom Full-width Image */}
-            <div className="relative w-[96%] sm:w-[98%] z-20 mr-3">
+            <div className="relative w-[96%] sm:w-[98%] z-20 mr-3 mt-[-80px]">
               <img
                 alt=""
                 decoding="async"

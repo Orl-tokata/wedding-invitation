@@ -43,6 +43,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url('/fonts/ko/NanumMyeongjo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url('/fonts/ko/NanumMyeongjo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 .text-khmer-title{
     font-family: 'AKbalthom Freehand [Version 1.50] 082014', sans-serif;
     /* color: #8e7e78 */
@@ -92,6 +106,29 @@
 .locale-en .text-khmer-body,
 .locale-en .text-khmer-arrow-down {
   font-family: 'PT Serif', Georgia, serif;
+}
+
+/* Korean locale: NanumMyeongjo Regular for body, Bold for titles */
+.locale-ko .text-khmer-title,
+.locale-ko .text-khmer-date,
+.locale-ko .text-khmer-title-bold,
+.locale-ko .text-khmer-title-date {
+  font-family: 'NanumMyeongjo', serif;
+  font-weight: 700;
+}
+
+.locale-ko .text-khmer,
+.locale-ko .text-khmer-body,
+.locale-ko .text-khmer-arrow-down {
+  font-family: 'NanumMyeongjo', serif;
+  font-weight: 400;
+}
+
+/* Korean locale: h1 titles and their spans use Bold */
+.locale-ko h1.text-khmer-body,
+.locale-ko h1.text-khmer-body span {
+  font-family: 'NanumMyeongjo', serif;
+  font-weight: 700;
 }
 
 @keyframes rotateFlower {

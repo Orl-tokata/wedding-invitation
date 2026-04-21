@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'kh';
+export type Locale = 'en' | 'kh' | 'ko';
 
 export type Translations = {
   // Landing
@@ -7,6 +7,7 @@ export type Translations = {
   inviteParagraphDate: string; // Optional additional line for date, if needed for formatting in some languages
   date: string;
   dateInKhmer: string; 
+  dateInEnglish: string; 
   timeAt: string;      // "at 5:00 PM" / "ម៉ោង ៥ល្ងាច"
   location: string;    // full address
   seeMapNote: string;  // "(Please see the map for details)"

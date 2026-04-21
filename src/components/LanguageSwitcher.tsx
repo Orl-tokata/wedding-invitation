@@ -23,6 +23,13 @@ export function LanguageSwitcher() {
       >
         KH
       </button>
+      <button
+        type="button"
+        onClick={() => setLocale('ko')}
+        className={`rounded px-2.5 py-1 font-medium transition ${locale === 'ko' ? 'bg-[#8e7e78] text-white' : 'text-[#8e7e78] hover:bg-[#8e7e78]/10'}`}
+      >
+        KO
+      </button>
     </div>
   );
 }

@@ -85,7 +85,7 @@ export const LandingPage = () => {
           <img
               alt="Wedding Title"
               loading="lazy"
-              src={locale === 'kh' ? '/images/wedding-title-kh-color.png' : '/images/wedding-title-en-color.png'}
+              src={{ en: '/images/wedding-title-en-color.png', kh: '/images/wedding-title-kh-color.png', ko: '/images/wedding-title-ko-colo.png' }[locale] ?? '/images/wedding-title-en-color.png'}
               className="w-full h-full object-cover"
             />
           </div>
@@ -94,7 +94,7 @@ export const LandingPage = () => {
             <img
               alt="Name Initial"
               loading="lazy"
-              src={locale === 'kh' ? '/images/shom-img-kh.png' : '/images/shom-img-en.png'}
+              src={{ en: '/images/shom-img-en.png', kh: '/images/shom-img-kh.png', ko: '/images/shom-img-ko.png' }[locale] ?? '/images/shom-img-en.png'}
               className="w-full h-full object-cover"
             />
           </div>
@@ -112,7 +112,7 @@ export const LandingPage = () => {
           <img
               alt="Click to join"
               loading="lazy"
-              src={locale === 'kh' ? '/images/click-to-join-button-kh.png' : '/images/click-to-join-button-en.png'}
+              src={{ en: '/images/click-to-join-button-en.png', kh: '/images/click-to-join-button-kh.png', ko: '/images/click-to-join-button-ko.png' }[locale] ?? '/images/click-to-join-button-en.png'}
               className="w-full h-full object-cover"
             />
           </div>
