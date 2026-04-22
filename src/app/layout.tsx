@@ -4,8 +4,12 @@ import { Providers } from "@/components/Providers";
 import { GoogleAnalytics } from '@next/third-parties/google'  // add this
 
 export const metadata: Metadata = {
-  title: 'Tokata & Phanou Wedding',
+  title: 'Tokata & Phanou Wedding Invitation',
   description: 'You are invited to celebrate with us',
+  icons: {
+    icon: '/images/img06.webp',
+    apple: '/images/img06.webp',
+  },
 }
 
 export default function RootLayout({
