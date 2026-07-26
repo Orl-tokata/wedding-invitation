@@ -83,4 +83,9 @@ export const kh: Translations = {
   nextSlide: 'ស្លាយបន្ទាប់',
   locationLabel: 'ទីតាំង',
   locationGoogleMaps: 'ផ្ទះកម្មវិធី',
+
+  installAppTitle: 'ដំឡើងសំបុត្រអញ្ជើញនេះ',
+  installAppDesc: 'បន្ថែមទៅអេក្រង់ដើម ដើម្បីបើកមើលបានលឿន សូម្បីតែគ្មានអ៊ីនធឺណិត។',
+  installAppButton: 'ដំឡើង',
+  installAppIosHint: 'ចុចប៊ូតុង Share រួចជ្រើសរើស "Add to Home Screen"។',
 };

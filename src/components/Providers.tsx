@@ -2,10 +2,13 @@
 
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { PwaRegister } from "@/components/PwaRegister";
+import { InstallPrompt } from "@/components/InstallPrompt";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <LanguageProvider>
+      <PwaRegister />
       <div
         className="fixed z-[51] flex justify-end p-2 min-h-[3.5rem] items-start pointer-events-none"
         style={{
@@ -18,6 +21,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       {children}
+      <InstallPrompt />
     </LanguageProvider>
   );
 }

@@ -81,4 +81,10 @@ export type Translations = {
   nextSlide: string;
   locationLabel: string;
   locationGoogleMaps: string;
+
+  // PWA install prompt
+  installAppTitle: string;
+  installAppDesc: string;
+  installAppButton: string;
+  installAppIosHint: string;
 };

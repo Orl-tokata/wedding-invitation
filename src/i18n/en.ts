@@ -83,4 +83,9 @@ export const en: Translations = {
   nextSlide: 'Next slide',
   locationLabel: 'Location',
   locationGoogleMaps: 'Event Venu',
+
+  installAppTitle: 'Install this invitation',
+  installAppDesc: 'Add it to your home screen for quick access, even offline.',
+  installAppButton: 'Install',
+  installAppIosHint: 'Tap the Share icon, then "Add to Home Screen".',
 };
