@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   title: 'Tokata & Phanou Wedding Invitation',
   description: 'You are invited to celebrate with us',
   icons: {
-    icon: '/images/img06.webp',
-    apple: '/images/img06.webp',
+    icon: '/images/favicon.webp',
+    apple: '/images/favicon.webp',
   },
 }
 

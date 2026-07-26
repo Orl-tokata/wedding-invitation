@@ -220,20 +220,6 @@ export default function Details(){
   return (
     <div className="min-h-svh w-full max-w-[500px] bg-background relative">
 
-      {/* Preload first 3 images for instant open */}
-      <div style={{ position: 'absolute', visibility: 'hidden', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
-        {slides.map((item, index) => (
-          <img
-            key={index}
-            src={item.image}
-            alt=""
-            loading={index < 3 ? "eager" : "lazy"}
-            fetchPriority={index === 0 ? "high" : "auto"}
-          />
-        ))}
-      </div>
-
-
       {/* <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-xl shadow-lg bg-white max-w-md mx-auto mt-10">
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-semibold text-gray-800">🎵 Wedding Song</h2>
@@ -435,14 +421,16 @@ export default function Details(){
               {/* Groom */}
               <div className="flex flex-col gap-2 items-center">
                 <div
-                  className="w-28 h-36 sm:w-32 sm:h-40 overflow-hidden rounded-2xl"
+                  className="relative w-28 h-36 sm:w-32 sm:h-40 overflow-hidden rounded-2xl"
                   style={{ border: "2px solid #918645", boxShadow: "0 4px 12px rgba(145, 134, 69, 0.3)" }}
                 >
-                  <img
+                  <Image
                     alt="Groom"
                     loading="lazy"
                     src="/images/img02.webp"
-                    className="w-full h-full object-cover object-top"
+                    fill
+                    sizes="128px"
+                    className="object-cover object-top"
                   />
                 </div>
                 <p className="text-khmer text-sm">{t.groom}</p>
@@ -463,14 +451,16 @@ export default function Details(){
               {/* Bride */}
               <div className="flex flex-col gap-2 items-center">
                 <div
-                  className="w-28 h-36 sm:w-32 sm:h-40 overflow-hidden rounded-2xl"
+                  className="relative w-28 h-36 sm:w-32 sm:h-40 overflow-hidden rounded-2xl"
                   style={{ border: "2px solid #918645", boxShadow: "0 4px 12px rgba(145, 134, 69, 0.3)" }}
                 >
-                  <img
+                  <Image
                     alt="Bride"
                     loading="lazy"
                     src="/images/img03.webp"
-                    className="w-full h-full object-cover object-top"
+                    fill
+                    sizes="128px"
+                    className="object-cover object-top"
                   />
                 </div>
                 <p className="text-khmer text-sm">{t.bride}</p>

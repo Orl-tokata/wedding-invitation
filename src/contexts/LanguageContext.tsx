@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
 import { en } from '@/i18n/en';
 import { kh } from '@/i18n/kh';
@@ -27,8 +27,16 @@ function getSavedLocale(): Locale {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getSavedLocale);
+  // Always start from the server-rendered default so the client's first
+  // render matches the SSR output; the saved locale is applied after mount.
+  const [locale, setLocaleState] = useState<Locale>('kh');
   const t = translations[locale];
+
+  useEffect(() => {
+    const saved = getSavedLocale();
+    if (saved !== locale) setLocaleState(saved);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const setLocale = useCallback((next: Locale) => {
     localStorage.setItem(STORAGE_KEY, next);
