@@ -87,5 +87,5 @@ export const kh: Translations = {
   installAppTitle: 'ដំឡើងសំបុត្រអញ្ជើញនេះ',
   installAppDesc: 'បន្ថែមទៅអេក្រង់ដើម ដើម្បីបើកមើលបានលឿន សូម្បីតែគ្មានអ៊ីនធឺណិត។',
   installAppButton: 'ដំឡើង',
-  installAppIosHint: 'ចុចប៊ូតុង Share រួចជ្រើសរើស "Add to Home Screen"។',
+  installAppIosHint: 'ចុចប៊ូតុង Share — ប្រសិនបើមិនឃើញ "Add to Home Screen" ទេ សូមជ្រើសរើស "Open in Safari" សិន រួចចុច Share ម្តងទៀត។',
 };

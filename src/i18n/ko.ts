@@ -89,5 +89,5 @@ export const ko: Translations = {
   installAppTitle: '초대장을 설치하세요',
   installAppDesc: '홈 화면에 추가하면 오프라인에서도 빠르게 열어볼 수 있어요.',
   installAppButton: '설치',
-  installAppIosHint: '공유 아이콘을 누른 후 "홈 화면에 추가"를 선택하세요.',
+  installAppIosHint: '공유 버튼을 누르세요 — "홈 화면에 추가"가 보이지 않으면 먼저 "Safari에서 열기"를 선택한 후 다시 공유 버튼을 누르세요.',
 };

@@ -87,5 +87,5 @@ export const en: Translations = {
   installAppTitle: 'Install this invitation',
   installAppDesc: 'Add it to your home screen for quick access, even offline.',
   installAppButton: 'Install',
-  installAppIosHint: 'Tap the Share icon, then "Add to Home Screen".',
+  installAppIosHint: 'Tap Share — if "Add to Home Screen" isn\'t there, choose "Open in Safari" first, then tap Share again.',
 };
